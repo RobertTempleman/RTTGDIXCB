@@ -1,0 +1,71 @@
+cmake_minimum_required (VERSION 2.6)
+project (RTT_MLSSA)
+
+set (CMAKE_CXX_STANDARD 11)
+
+set (RTT_MLSSA_VERSION_MAJOR 0)
+set (RTT_MLSSA_VERSION_MINOR 1)
+
+set (CMAKE_CXX_FLAGS "-Wno-non-template-friend -Wreturn-type")
+
+configure_file (
+  "${PROJECT_SOURCE_DIR}/RTT_MLSSAconfig.h.in"
+  "${PROJECT_BINARY_DIR}/RTT_MLSSAconfig.h"
+)
+
+set(SOURCE_FILES
+   ${SOURCE_FILES}
+   ${CMAKE_CURRENT_SOURCE_DIR}/doit_all.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/mls.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/fonts/font_tahoma_8pt.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/fxprocessor.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/compressher_limither.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/GBAtext.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/OS_interface.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTTGDIXCB.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_2.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_keysyms.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_window.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_text_edit_box.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_button.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_vector.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_colours.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_patest_wire.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_pane.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_player.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/RTT_generic_decoder.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/EasyBMP_1.06/EasyBMP_BMP.cpp
+   
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/bits.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/extra1.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/extra2.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/float.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/metadata.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/pack.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/tags.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/unpack.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/unpack3.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/unpack3.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/wavpack_version.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/words.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/wavpack/wputils.c
+)
+
+# add the binary tree to the search path for include files
+include_directories("${PROJECT_BINARY_DIR}")
+
+link_directories("/usr/local/lib/")
+
+# add the executable
+add_executable(rttmlssa ${SOURCE_FILES})
+
+target_link_libraries (rttmlssa rt)
+target_link_libraries (rttmlssa pthread)
+target_link_libraries (rttmlssa m)
+target_link_libraries (rttmlssa xcb)
+target_link_libraries (rttmlssa xcb-image)
+target_link_libraries (rttmlssa xcb-keysyms)
+target_link_libraries (rttmlssa portaudio)
+target_link_libraries (rttmlssa winmm)
+

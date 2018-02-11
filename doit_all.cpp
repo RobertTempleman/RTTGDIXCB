@@ -1,0 +1,150 @@
+#include "RTT_2.h"
+#include "mls.h"
+#include "RTT_patest_wire.h"
+#include "doit_all.h"
+#include <pthread.h>
+#include <unistd.h>
+#include "OS_interface.h"
+#include "RTT_player.h"
+
+#define FULL_SAMPLE_RATE 1
+
+#define MAX_NUM_MLS_REPETITIONS 4
+
+#if FULL_SAMPLE_RATE==1
+u32 bitrate=192000;
+u32 mls_num_bits=20; // 5.46133 seconds @ 192Khz
+#else
+u32 bitrate=44100;
+u32 mls_num_bits=16; // 1.5 seconds @ 44.1Khz
+#endif
+
+LFSR *lfsr=0;
+bool audio_is_initialized=false;
+
+float *interleaved_stereo_float_MLS_data;
+
+float volume=0.1f;
+
+vector<float> recorded_audio(MAX_NUM_MLS_REPETITIONS*(1<<mls_num_bits),0);
+
+
+int audio_mode=AUDIO_MODE_NOTHING;
+int audio_sub_mode=AUDIO_SUB_MODE_NOTHING;
+
+void init_LFSR_MLS() {
+  if(lfsr) {
+    delete lfsr;
+  }
+  lfsr=new LFSR(mls_num_bits,false);
+  if(interleaved_stereo_float_MLS_data) {
+    delete[] interleaved_stereo_float_MLS_data;
+  }
+  interleaved_stereo_float_MLS_data=new float[lfsr->num*2];
+  create_interleaved_stereo_float_audio_sample_from_mono_float_data(interleaved_stereo_float_MLS_data,lfsr->data.data(),lfsr->num,volume);
+}
+
+
+
+class thread_info {    /* Used as argument to thread_start() */
+public:
+  pthread_t thread_id;        /* ID returned by pthread_create() */
+  int       thread_num;       /* Application-defined thread # */
+  char     *id_string;      /* From command-line argument */
+};
+
+
+bool run_audio_monitoring_thread=true;
+
+/* Thread start function: */
+static void *thread_audio_monitoring(void *arg) {
+  thread_info *tinfo=(thread_info*)arg;
+  cout<<"audio monitoring thread started "<<endl;
+
+  int rtt=0;
+  while(run_audio_monitoring_thread) {
+    cout<<rtt++<<endl;
+    usleep(1000000);
+  }
+  return 0;
+}
+
+
+thread_info audio_thread_info;
+
+void start_audio_monitoring_thread() {
+  int s;
+  int stack_size=65536;
+  pthread_attr_t thread_attribs;
+  s=pthread_attr_init(&thread_attribs);
+  if(s!=0) {
+    cout<<"pthread_attr_init failed..."<<endl;
+  }
+
+  if(stack_size>0) {
+    s=pthread_attr_setstacksize(&thread_attribs,stack_size);
+    if(s!=0) {
+      cout<<"pthread_attr_setstacksize";
+    }
+  }
+
+  audio_thread_info.thread_num=1;
+  audio_thread_info.id_string=(char*)"RTTS audio monitoring thread";
+  s=pthread_create(&audio_thread_info.thread_id,&thread_attribs,&thread_audio_monitoring,&audio_thread_info);
+  if(s!=0) {
+    cout<<"pthread_create failed..."<<endl;
+  }
+
+  s=pthread_attr_destroy(&thread_attribs);
+  if(s!=0) {
+    cout<<"pthread_attr_destroy failed..."<<endl;
+  }
+  run_audio_monitoring_thread=true;
+}
+
+
+
+void wait_for_audio_monitoring_thread_to_exit() {
+  void *res;
+  run_audio_monitoring_thread=false;
+  int s=pthread_join(audio_thread_info.thread_id,&res);
+  if(s!=0) {
+    cout<<"pthread_join failed..."<<endl;
+  }
+}
+
+
+
+void initialize_audio_and_start_streaming() {
+  if(audio_is_initialized) {
+    shutdown_everything();
+    wait_for_audio_monitoring_thread_to_exit();
+    audio_is_initialized=false;
+  } else {
+    initialize_portaudio();
+    start_full_duplex_audio_streaming(bitrate,lfsr->data,recorded_audio);
+    start_audio_monitoring_thread();
+    audio_is_initialized=true;
+  }
+}
+
+
+
+void shutdown_everything() {
+  if(audio_is_initialized) {
+    stop_full_duplex_audio_streaming();
+    shutdown_portaudio();
+    audio_is_initialized=false;
+  }
+}
+
+
+
+#define NUM_LATENCY_DELTAS_TO_ISSUE 100
+int num_latency_deltas_left=0;
+
+void start_latency_measurement(){
+  audio_mode=AUDIO_MODE_LATENCY_TESTING;
+  audio_sub_mode=AUDIO_SUB_MODE_LATENCY_TESTING_PINGING_OUTPUT_WITH_PULSE;
+  num_latency_deltas_left=NUM_LATENCY_DELTAS_TO_ISSUE;
+}

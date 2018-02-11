@@ -1,0 +1,61 @@
+#ifndef INCLUDED_RTT_BUTTON_HEADER
+#define INCLUDED_RTT_BUTTON_HEADER
+
+#include <vector>
+#include <string>
+#include <queue>
+#include <list>
+#include <memory>
+
+#include "RTT_colours.h"
+
+using namespace std;
+class rtt_window;
+class rtt_font;
+
+//#define RTT_EDIT_BOX_EDITING_STATE_ACTION_SET_FROM_SUPPLIED_X_COORDINATE 0
+//#define RTT_EDIT_BOX_EDITING_STATE_ACTION_GET_X_COORDINATE_FROM_STRING_EDITING 1
+#define RTT_BUTTON_EDITING_STATE_OFF               0 // display just the font
+#define RTT_BUTTON_EDITING_STATE_SHOW_CARET_GREYED 1 // indicate the caret position by drawing greyed caret
+#define RTT_BUTTON_EDITING_STATE_EDITING           2 // display full caret and monitor input to reposition caret & edit text
+
+#define RTT_BUTTON_MODE_SINGLE_SELECT_THEN_CLOSE  0
+#define RTT_BUTTON_MODE_MULTIPLE_SELECT_STAY_OPEN 1
+
+#define RTT_BUTTON_RETURN_ACTION_NOTHING          0
+#define RTT_BUTTON_RETURN_ACTION_JUST_REPAINT     1
+#define RTT_BUTTON_RETURN_ACTION_FINISHED         2
+#define RTT_BUTTON_RETURN_ACTION_NEXT_EDITBOX     3
+#define RTT_BUTTON_RETURN_ACTION_PREVIOUS_EDITBOX 4
+
+class rtt_button:public RTTXCB{
+ public:
+  rtt_button(rtt_window&_parent_window,
+             string _current_text,
+             string _name,
+             s32 _x,
+             s32 _y,
+             s32 _w,
+             s32 _h,
+             bool _render_with_window_scroll_offset=true);
+  s32 mouse_click(s32 butt,s32 x,s32 y);
+  void paint();
+  s32 get_available_text_rendering_width();
+  u32 key(u32 key_action,u32 OS_keycode,bool is_ascii,u8 ASCII);
+  void make_cached_bitmap(RTTXCB **rttxcb,u32 bitmap);
+  rtt_font& get_font();
+  rtt_window &parent_window;
+  string name;
+  string current_text;
+  s32 x; // position relative to parent window
+  s32 y; // width & height are in the bitmap
+  bool render_with_window_scroll_offset;
+  bool text_bold;
+  COLORREF text_colour;
+  RTTXCB *cached_background_normal;
+  RTTXCB *cached_background_pressed;
+  bool already_cached_background;
+  bool pressed;
+};
+
+#endif

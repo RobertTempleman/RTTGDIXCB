@@ -1,0 +1,167 @@
+[
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/doit_all.cpp.o -c /cygdrive/c/RTT_MLSSA/doit_all.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/doit_all.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/mls.cpp.o -c /cygdrive/c/RTT_MLSSA/mls.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/mls.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/fonts/font_tahoma_8pt.cpp.o -c /cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/main.cpp.o -c /cygdrive/c/RTT_MLSSA/main.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/main.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o -c /cygdrive/c/RTT_MLSSA/fxprocessor.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o -c /cygdrive/c/RTT_MLSSA/compressher_limither.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/compressher_limither.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/GBAtext.cpp.o -c /cygdrive/c/RTT_MLSSA/GBAtext.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/GBAtext.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/OS_interface.cpp.o -c /cygdrive/c/RTT_MLSSA/OS_interface.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/OS_interface.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o -c /cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_2.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_2.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_2.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_keysyms.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_keysyms.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_window.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_window.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_window.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_text_edit_box.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_button.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_button.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_button.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_vector.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_vector.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_vector.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_colours.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_colours.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_colours.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_patest_wire.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_patest_wire.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_patest_wire.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_pane.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_pane.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_player.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_player.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_player.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_generic_decoder.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_generic_decoder.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o -c /cygdrive/c/RTT_MLSSA/RTT_wavpack_decoder.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/RTT_wavpack_decoder.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/c++.exe    -I/cygdrive/c/RTT_MLSSA  -Wno-non-template-friend -Wreturn-type -g   -std=gnu++11 -o CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o -c /cygdrive/c/RTT_MLSSA/EasyBMP_1.06/EasyBMP_BMP.cpp",
+  "file": "/cygdrive/c/RTT_MLSSA/EasyBMP_1.06/EasyBMP_BMP.cpp"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/bits.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/bits.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/bits.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/extra1.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/extra1.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/extra1.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/extra2.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/extra2.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/extra2.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/float.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/float.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/float.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/metadata.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/metadata.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/metadata.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/pack.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/pack.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/pack.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/tags.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/tags.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/tags.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/unpack.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/unpack.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/unpack.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/unpack3.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/unpack3.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/unpack3.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/words.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/words.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/words.c"
+},
+{
+  "directory": "/cygdrive/c/RTT_MLSSA",
+  "command": "/usr/bin/cc   -I/cygdrive/c/RTT_MLSSA  -g   -o CMakeFiles/rttmlssa.dir/wavpack/wputils.c.o   -c /cygdrive/c/RTT_MLSSA/wavpack/wputils.c",
+  "file": "/cygdrive/c/RTT_MLSSA/wavpack/wputils.c"
+}
+]

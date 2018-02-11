@@ -1,0 +1,659 @@
+#include "OS_interface.h"
+#include "RTT_player.h"
+#include "GBAtext.h"
+
+RTTplayer *player=0;
+
+#define DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING 2000;
+#define WAVPACK_GAIN_INCREASE 4.0f
+
+#define ENDTRACK_FADE_TIME 2.0f
+#define SEEK_DELTA 2000
+
+
+void RTT_split(vector<string> &tokens, const string &text, const char sep) {
+  size_t start = 0, end = 0;
+  while((end=text.find(sep, start))!=string::npos){
+    tokens.push_back(text.substr(start, end-start));
+    start=end+1;
+  }
+  tokens.push_back(text.substr(start));
+}
+
+
+void RTTplayer::SelectObject(RTTXCB* dc,HPEN &pen){
+  select_dc_col=pen.col;
+}
+
+
+HPEN RTTplayer::CreatePen(s32 style,s32 width,COLORREF col){
+  return HPEN(style,width,col);
+}
+
+
+void RTTplayer::SetDCPenColor2(RTTXCB* dc,COLORREF col){
+  select_dc_col=col;
+}
+
+
+void RTTplayer::SetDCBrushColor2(RTTXCB* dc,COLORREF col){
+  select_dc_brush_col=col;
+}
+
+
+void RTTplayer::Rectangle(RTTXCB* dc,s32 left,s32 top,s32 right,s32 bottom){
+  dc->rectangle_fill(left, top, right-left, bottom-top, select_dc_col, select_dc_brush_col);
+}
+
+
+genre::genre(string playlist_filename){
+  deck2=0;
+  deck1=0;
+  seek_delta=0;
+  waiting_to_jump_to_selected_track=false;
+  fade_to_next_track=false;
+  fade_to_previous_track=false;
+  ifstream f(playlist_filename.data());
+  string data;
+  if (f){
+    while(!f.eof()){
+      getline(f,data);
+      if (data!=string("")){
+        playlist.push_back(data);
+        vector<string> strs;
+        RTT_split(strs, data, '\\');
+        track_names.push_back(strs.back());
+      }
+    }
+    f.close();
+  }
+  reload_deck1=false;
+  reload_deck2=false;
+  deck1=new track(playlist[0]);
+  deck2=new track(playlist[1]);
+  track_pos_in_playlist=1;
+  trackpos_to_display_as_current_playing_track=0;
+  selected_track_pos_in_playlist=0;
+  playstate=PLAYBACK_STATE_PLAYING_DECK1;
+}
+
+
+
+string& genre::get_next_track_filename(){
+  track_pos_in_playlist++;
+  if (track_pos_in_playlist>=(int)playlist.size()){
+    track_pos_in_playlist=0;
+  }
+//  selected_track_pos_in_playlist=track_pos_in_playlist-1;
+  return playlist[track_pos_in_playlist];
+}
+
+
+
+void genre::seek_playing_track(int delta){
+  seek_delta+=delta;
+}
+
+
+
+void genre::skip_a_prefix_in_playlist(int direction){
+  string prefix=track_names[selected_track_pos_in_playlist].substr(0,3);
+  int n=(int)track_names.size();
+  int si=selected_track_pos_in_playlist;
+  if (direction>0){
+    selected_track_pos_in_playlist=n-1;
+    for(int i=si;i<n;i++){
+      string s=track_names[i].substr(0,3);
+      if (prefix!=s){
+        selected_track_pos_in_playlist=i;
+        break;
+      }
+    }
+  }else{
+    selected_track_pos_in_playlist=0;
+    for(int i=si;i>0;i--){
+      string s=track_names[i].substr(0,3);
+      if (prefix!=s){
+        selected_track_pos_in_playlist=i;
+        break;
+      }
+    }
+  }
+}
+
+
+
+void genre::seek(track *deck, int seek_ammount ){
+  if (seek_ammount>0){
+    if (deck->decoder->get_playtime_left()>ENDTRACK_FADE_TIME+seek_ammount){
+      float new_ms=(float)deck->decoder->get_current_ms()+seek_ammount;
+      deck->decoder->seek_ms(new_ms);
+      deck->current_sample_track_time=new_ms;
+    }
+  }else{
+    if (deck->decoder->get_current_ms()-seek_ammount>0){
+      float new_ms=(float)deck->decoder->get_current_ms()+seek_ammount;
+      deck->decoder->seek_ms(new_ms);
+      deck->current_sample_track_time=new_ms;
+    }else{
+      deck->decoder->seek(0);
+      deck->current_sample_track_time=0;
+    }
+  }
+  deck->post_seek_buffer_operations();
+}
+
+
+
+void genre::check_seek_playing_track(){
+  if (seek_delta!=0){
+    int seek_ammount=seek_delta*SEEK_DELTA;
+    switch(playstate){
+      case PLAYBACK_STATE_PAUSED:
+        break;
+      case PLAYBACK_STATE_PLAYING_DECK1:
+      case PLAYBACK_STATE_MIXING_2_TO_1:
+        seek(deck1,seek_ammount);
+        break;
+      case PLAYBACK_STATE_PLAYING_DECK2:
+      case PLAYBACK_STATE_MIXING_1_TO_2:
+        seek(deck2,seek_ammount);
+        break;
+    }
+    seek_delta=0;
+  }
+}
+
+
+
+void genre::change_displayed_track_in_playlist(int delta){
+  selected_track_pos_in_playlist+=delta;
+  int n=(int)playlist.size();
+  if(selected_track_pos_in_playlist>=n){
+    selected_track_pos_in_playlist=0;
+  }
+  if(selected_track_pos_in_playlist<0){
+    selected_track_pos_in_playlist=n-1;
+  }
+}
+
+
+
+void genre::jump_to_next_track(){
+  if (playback_que.size()){
+  }else{
+    selected_track_pos_in_playlist=trackpos_to_display_as_current_playing_track+1;
+    if (selected_track_pos_in_playlist==(int)playlist.size()){
+      selected_track_pos_in_playlist=0;
+    }
+    jump_to_selected_track();
+  }
+}
+
+
+
+void genre::jump_to_previous_track(){
+  selected_track_pos_in_playlist=trackpos_to_display_as_current_playing_track-1;
+  if (selected_track_pos_in_playlist<0){
+    selected_track_pos_in_playlist=(int)playlist.size()-1;
+  }
+  jump_to_selected_track();
+}
+
+
+
+void genre::jump_to_selected_track(){
+  waiting_to_jump_to_selected_track=true;
+}
+
+
+
+void genre::check_buffers_and_trackchange(){
+  check_seek_playing_track();
+  if (waiting_to_jump_to_selected_track){
+    if (playstate==PLAYBACK_STATE_PLAYING_DECK1 || playstate==PLAYBACK_STATE_PLAYING_DECK2){
+      waiting_to_jump_to_selected_track=false;
+      track_pos_in_playlist=selected_track_pos_in_playlist-1;
+      fade_to_next_track=true;
+      if (playstate==PLAYBACK_STATE_PLAYING_DECK1){
+        reload_deck2=true;
+      }
+      if (playstate==PLAYBACK_STATE_PLAYING_DECK2){
+        reload_deck1=true;
+      }
+    }
+  }
+
+  if (reload_deck1){
+    track *temp=deck1;
+    track *new_track=new track(get_next_track_filename());
+    deck1=new_track;
+    delete temp;
+    reload_deck1=false;
+  }
+  if (reload_deck2){
+    track *temp=deck2;
+    track *new_track=new track(get_next_track_filename());
+    deck2=new_track;
+    delete temp;
+    reload_deck2=false;
+  }
+  deck1->check_decoding();
+  deck2->check_decoding();
+  switch(playstate){
+    case PLAYBACK_STATE_PAUSED:
+      break;
+    case PLAYBACK_STATE_PLAYING_DECK1:
+      {
+        float deck1_tl=deck1->get_current_playpos_track_time_time_left()*0.001f;
+        if (deck1_tl<ENDTRACK_FADE_TIME || fade_to_next_track){
+          fade_to_next_track=false;
+          playstate=PLAYBACK_STATE_MIXING_1_TO_2;
+          fade_fraction=0;
+          fade_fraction_delta=1.0f/(44100.0f*ENDTRACK_FADE_TIME);
+        }
+      }
+      break;
+    case PLAYBACK_STATE_MIXING_1_TO_2:
+      break;
+    case PLAYBACK_STATE_MIXING_2_TO_1:
+      break;
+    case PLAYBACK_STATE_PLAYING_DECK2:
+      {
+        float deck2_tl=deck2->get_current_playpos_track_time_time_left()*0.001f;
+        if (deck2_tl<ENDTRACK_FADE_TIME || fade_to_next_track){
+          fade_to_next_track=false;
+          playstate=PLAYBACK_STATE_MIXING_2_TO_1;
+          fade_fraction=1.0f;
+          fade_fraction_delta=-1.0f/(44100.0f*ENDTRACK_FADE_TIME);
+        }
+      }
+      break;
+  }
+}
+
+
+
+void genre::get_one(float &l,float &r){
+  switch(playstate){
+    case PLAYBACK_STATE_PAUSED:
+      l=0;
+      r=0;
+      return;
+    case PLAYBACK_STATE_PLAYING_DECK1:
+      deck1->get_one(l,r);
+      current_play_pos_normalized=deck1->audio[deck1->read_pos].t;
+      return;
+    case PLAYBACK_STATE_MIXING_1_TO_2:
+    case PLAYBACK_STATE_MIXING_2_TO_1:
+      {
+        float lt;
+        float rt;
+        deck1->get_one(lt,rt);
+        deck2->get_one(l,r);
+        l=l*fade_fraction+(1.0f-fade_fraction)*lt;
+        r=r*fade_fraction+(1.0f-fade_fraction)*rt;
+        fade_fraction+=fade_fraction_delta;
+        if (fade_fraction<=0.0f){
+          reload_deck2=true;
+          playstate=PLAYBACK_STATE_PLAYING_DECK1;
+          trackpos_to_display_as_current_playing_track=track_pos_in_playlist;
+        }
+        if (fade_fraction>=1.0f){
+          reload_deck1=true;
+          playstate=PLAYBACK_STATE_PLAYING_DECK2;
+          trackpos_to_display_as_current_playing_track=track_pos_in_playlist;
+        }
+      }
+      return;
+    case PLAYBACK_STATE_PLAYING_DECK2:
+      deck2->get_one(l,r);
+      current_play_pos_normalized=deck2->audio[deck2->read_pos].t;
+      return;
+  }
+}
+
+
+
+float genre::get_play_pos_normalized(){
+  float tms;
+  switch(playstate){
+    case PLAYBACK_STATE_PLAYING_DECK1:
+    case PLAYBACK_STATE_MIXING_2_TO_1:
+      tms=deck1->decoder->get_total_ms();
+      break;
+    case PLAYBACK_STATE_PLAYING_DECK2:
+    case PLAYBACK_STATE_MIXING_1_TO_2:
+      tms=deck2->decoder->get_total_ms();
+      break;
+  }
+  return current_play_pos_normalized/tms;
+}
+
+
+
+RTTplayer::RTTplayer(){
+  override_wave_buffer_sample_skip=0;
+  penwaveform_put_buffer=CreatePen(PS_SOLID,1,grey60_cr);
+  penplaypos=CreatePen(PS_SOLID,1,grey50_cr);
+//  check_buffers_and_trackchange_time=0;
+  showing_playlist=0;
+  techno=new genre("bungtron.m3u");
+//  techno=new genre("C:\\fxprocesser_II\\fxprocess_her_II\\testbungtron.m3u");
+//  techno=new genre("c:\\d\\FXPmusic\\breaksFXP.m3u");
+  draw_track1_wave_until=GetTickCount()+DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
+  draw_track2_wave_until=GetTickCount()+DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
+  width=PLAYER_DISPLAY_WIDTH;
+  height=PLAYER_DISPLAY_HEIGHT;
+  //  render_bitmap=0;
+  current_genre=techno;
+  override_wave_buffer=new float[PLAYER_DISPLAY_WIDTH];
+  override_wave_buffer_pos=0;
+  move_to_ex_x=0;
+  move_to_ex_y=0;
+  select_dc_col=white_c;
+  select_dc_brush_col=white_c;
+}
+
+
+
+track::track(string &filename){
+  decoder=new decoder_wavpack();
+  decoder->init(filename.data());
+  audio=new three_floats[PLAYER_BUFFER_NUM_SAMPLES];
+  write_pos=0;
+  read_pos=0;
+  current_sample_track_time=0;
+  put_some_more_in_audio_buffer();
+}
+
+
+track::~track(){
+  delete decoder;
+  delete[] audio;
+}
+
+
+int track::how_much_in_buffer(){
+  int num=write_pos-read_pos;
+  if (num<0){
+    num+=PLAYER_BUFFER_NUM_SAMPLES;
+  }
+  return num;
+}
+
+
+void track::post_seek_buffer_operations(){
+  check_decoding();
+  read_pos=write_pos;
+}
+
+
+void track::check_decoding(){
+  int ammount=how_much_in_buffer();
+  if (ammount<PLAYER_BUFFER_NUM_SAMPLES/2){
+    put_some_more_in_audio_buffer();
+  }
+}
+
+
+void track::get_one(float &l,float &r){
+  l=audio[read_pos].l*WAVPACK_GAIN_INCREASE;
+  r=audio[read_pos].r*WAVPACK_GAIN_INCREASE;
+  read_pos++;
+  if (read_pos>=PLAYER_BUFFER_NUM_SAMPLES){
+    read_pos-=PLAYER_BUFFER_NUM_SAMPLES;
+  }
+}
+
+
+float track::get_current_playpos_track_time_time_left(){
+  return decoder->get_total_ms()-audio[read_pos].t;
+}
+
+
+float track::get_current_playpos_ms(){
+  return audio[read_pos].t;
+}
+
+
+#define MS_PER_SAMPLE (1.0/44.1);
+void conv_wavpack_int_data_to_separate_float_channels(float replay_gain_correction,three_floats* audio,int*pcm,int num,float &mean_square,double track_time_ms){
+  for(int i=0;i<num;i++){
+    float li=(float)*pcm++;
+    float ri=(float)*pcm++;
+    float l=replay_gain_correction*li;
+    float r=replay_gain_correction*ri;
+    (*audio).l=l;
+    (*audio).r=r;
+    (*audio).t=(float)track_time_ms;
+    audio++;
+    mean_square+=l*l+r*r;
+    track_time_ms+=MS_PER_SAMPLE;
+  }
+}
+
+
+void track::put_some_more_in_audio_buffer(){
+  int num_new_samples=decoder->decode_bit_of_it();
+  if (num_new_samples<DECODER_DEFAULT_NUM_SAMPLES){
+    decoder->seek(0);
+    current_sample_track_time=0;
+  }
+  assert(write_pos<=PLAYER_BUFFER_NUM_SAMPLES-DECODER_DEFAULT_NUM_SAMPLES);
+  float mean_square=0;
+  conv_wavpack_int_data_to_separate_float_channels(1.0f,audio+write_pos,decoder->decoded_audio,DECODER_DEFAULT_NUM_SAMPLES,mean_square,current_sample_track_time);
+  track_rms=sqrtf(mean_square/(float)DECODER_DEFAULT_NUM_SAMPLES);
+  current_sample_track_time+=(double)DECODER_DEFAULT_NUM_SAMPLES*MS_PER_SAMPLE;
+  write_pos+=DECODER_DEFAULT_NUM_SAMPLES;
+  if (write_pos>=PLAYER_BUFFER_NUM_SAMPLES){
+    write_pos-=PLAYER_BUFFER_NUM_SAMPLES;
+  }
+}
+
+
+#define NUM_BUFFER_WADS (PLAYER_BUFFER_NUM_SAMPLES/DECODER_DEFAULT_NUM_SAMPLES)
+int player_wave_y=23;
+
+
+#define OVERRIDE_WAVE_BUFFER_SAMPLE_SKIP 8
+void RTTplayer::put_one_to_draw(float&l){
+  override_wave_buffer_sample_skip--;
+  if (override_wave_buffer_sample_skip<0){
+    override_wave_buffer_sample_skip=OVERRIDE_WAVE_BUFFER_SAMPLE_SKIP;
+    override_wave_buffer[override_wave_buffer_pos++]=l;
+    if (override_wave_buffer_pos>=PLAYER_DISPLAY_WIDTH){
+      override_wave_buffer_pos=0;
+    }
+  }
+}
+
+
+void RTTplayer::MoveToEx(RTTXCB *rttxcb,s32 lx,s32 ly,s32 dummy){
+  move_to_ex_x=(s32)x+lx;
+  move_to_ex_y=(s32)y-ly+(s32)height;
+  //  MoveToEx(dc,(s32)x+lx,(s32)y-ly+(s32)height,0);
+  //  last_GDI_like_line_operation_was_a_movetoex=true;
+}
+
+
+void RTTplayer::LineTo(RTTXCB *rttxcb,s32 lx,s32 ly){
+  s32 xlt=(s32)x+lx;
+  s32 ylt=(s32)y-ly+(s32)height;
+  rttxcb->line(move_to_ex_x, move_to_ex_y, xlt, ylt, select_dc_col);
+  //  LineTo(dc,(s32)x+lx,(s32)y+(int)height-ly);
+  move_to_ex_x=xlt;
+  move_to_ex_y=ylt;
+}
+
+
+void RTTplayer::draw_waveform_from_put_buffer(){
+  //  SelectObject(render_bitmap_dc,penwaveform_put_buffer);
+  int pos=override_wave_buffer_pos;
+  for(int i=0;i<PLAYER_DISPLAY_WIDTH;i++){
+    int yy=player_wave_y+(int)(override_wave_buffer[pos++]*(float)(PLAYER_DISPLAY_HEIGHT>>1));
+    if (i==0){
+      MoveToEx(render_bitmap_dc,i,yy,0);
+    }else{
+      LineTo(render_bitmap_dc,i,yy);
+    }
+    if (pos>=PLAYER_DISPLAY_WIDTH){
+      pos=0;
+    }
+  }
+}
+
+
+//void RTTplayer::SelectObject(RTTXCB* dc,HPEN &pen){
+//  select_dc_col=pen.col;
+//}
+//
+//
+//HPEN RTTplayer::CreatePen(s32 style,s32 width,COLORREF col){
+//  return HPEN(style,width,col);
+//}
+
+
+void RTTplayer::draw_waveform(track *t,DWORD ti){
+  DWORD col=grey60_cr;
+  float r=(float)(col&0xff);
+  float g=(float)((col>>8)&0xff);
+  float b=(float)((col>>16)&0xff);
+  float frac=(float)ti/(float)DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
+  r*=frac;
+  g*=frac;
+  b*=frac;
+  col=(int)r|((int)g<<8)|((int)b<<16);
+  HPEN penwaveform=CreatePen(PS_SOLID,1,col);
+  SelectObject(render_bitmap_dc,penwaveform);
+  three_floats *tf=t->audio;
+  int pos=t->read_pos;
+  for(int i=0;i<PLAYER_DISPLAY_WIDTH;i++){
+    int yy=player_wave_y+(int)(tf[pos+=8].l*0.0012f);
+    if (i==0){
+      MoveToEx(render_bitmap_dc,i,yy,0);
+    }else{
+      LineTo(render_bitmap_dc,i,yy);
+    }
+    if (pos>=PLAYER_BUFFER_NUM_SAMPLES){
+      pos=0;
+    }
+  }
+  //  DeleteObject(penwaveform);
+}
+
+
+void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
+  render_bitmap_dc=rttxcb;
+  DWORD tc=GetTickCount();
+  //  if (render_bitmap==0){
+  //    render_bitmap=CreateCompatibleBitmap(dc, (int)width, (int)height);
+  //    render_bitmap_dc=CreateCompatibleDC(dc);
+  //    SelectObject(render_bitmap_dc,render_bitmap);
+  //  }
+  //  SetBkColor(render_bitmap_dc,black_cr);
+  //  RTTAL::SelectStockObject2(render_bitmap_dc,DC_BRUSH);
+  SetDCPenColor2(render_bitmap_dc,black_cr);
+  SetDCBrushColor2(render_bitmap_dc,black_cr);
+  Rectangle(render_bitmap_dc,0,0,(int)width,(int)height);
+  if (showing_playlist){
+    if (GetTickCount()>(DWORD)showing_playlist){
+      showing_playlist=0;
+    }
+    int n=PLAYER_DISPLAY_HEIGHT/6;
+    int n2=n>>1;
+    int yy=0;
+
+    for (int i=0;i<=n;i++){
+      int pp=current_genre->selected_track_pos_in_playlist+i-n2;
+      if (pp>=0 && pp<(int)current_genre->playlist.size()){
+        if (i==n2){
+          print_colour(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey85_cr,true);
+        }else if (pp==current_genre->trackpos_to_display_as_current_playing_track){
+          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),lightblue_cr,coral1_cr,green2_cr,true);
+        }else{
+          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey45_cr,coral4_cr,green5_cr,true);
+        }
+      }
+      yy+=6;
+    }
+  }else{
+    static int last_read_pos_track1_wad=-1;
+    static int last_read_pos_track2_wad=-1;
+    int read_pos_track1_wad=techno->deck1->read_pos/DECODER_DEFAULT_NUM_SAMPLES;
+    int read_pos_track2_wad=techno->deck2->read_pos/DECODER_DEFAULT_NUM_SAMPLES;
+    if (last_read_pos_track1_wad!=read_pos_track1_wad){
+      draw_track1_wave_until=tc+DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
+    }
+    if (last_read_pos_track2_wad!=read_pos_track2_wad){
+      draw_track2_wave_until=tc+DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
+    }
+    int deck_1_last_playtime=draw_track1_wave_until-tc;
+    int deck_2_last_playtime=draw_track2_wave_until-tc;
+    if (deck_1_last_playtime>0 || deck_2_last_playtime>0){
+      if (tc&512){
+        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod1_cr,true);
+      }else{
+        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod3_cr,true);
+      }
+      print_pretty(render_bitmap_dc,1,PLAYER_DISPLAY_HEIGHT-6,current_genre->track_names[current_genre->trackpos_to_display_as_current_playing_track].data(),grey60_cr,coral1_cr,green2_cr,true);
+      if (tc<draw_track1_wave_until){
+        draw_waveform(current_genre->deck1,draw_track1_wave_until-tc);
+      }
+      if (tc<draw_track2_wave_until){
+        draw_waveform(current_genre->deck2,draw_track2_wave_until-tc);
+      }
+      SelectObject(render_bitmap_dc,penplaypos);
+      int xs=46;
+      int pp=xs+(int)(current_genre->get_play_pos_normalized()*(float)(PLAYER_DISPLAY_WIDTH-xs));
+      MoveToEx(render_bitmap_dc,xs,1,0);
+      LineTo(render_bitmap_dc,PLAYER_DISPLAY_WIDTH-1,1);
+      rttxcb->setup_font_plotting(seagreen1_cr);
+      for(int i=xs;i<PLAYER_DISPLAY_WIDTH-1;i++){
+        if (i==pp){
+          rttxcb->add_font_pixel(i,0);
+          rttxcb->add_font_pixel(i,1);
+          rttxcb->add_font_pixel(i,2);
+        }
+      }
+      rttxcb->render_font_pixels();
+      last_read_pos_track1_wad=read_pos_track1_wad;
+      last_read_pos_track2_wad=read_pos_track2_wad;
+      int write_pos_wad=current_genre->deck1->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
+      plot_track_decoder_buffer_status(last_read_pos_track1_wad, PLAYER_DISPLAY_WIDTH-(NUM_BUFFER_WADS<<1), 3, write_pos_wad);
+      write_pos_wad=current_genre->deck2->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
+      plot_track_decoder_buffer_status(last_read_pos_track2_wad, PLAYER_DISPLAY_WIDTH-(NUM_BUFFER_WADS<<1), 5, write_pos_wad);
+    }else{
+      print_colour(render_bitmap_dc,1,1,"ASIO Input",goldenrod2_cr,true);
+      draw_waveform_from_put_buffer();
+    }
+  }
+  //  if (BitBlt(dc,(int)x,(int)y,(int)width, (int)height,render_bitmap_dc,0,0,SRCCOPY)==0){
+  //    assert(0);
+  //  }
+}
+
+
+void RTTplayer::SetPixelV(RTTXCB *rttxcb,s32 x,s32 y,COLORREF col){
+  rttxcb->setup_font_plotting(col);
+  rttxcb->add_font_pixel(x, y);
+  rttxcb->render_font_pixels();
+}
+
+
+void RTTplayer::plot_track_decoder_buffer_status(int last_read_pos_track1_wad,int xp,int yp,int write_pos_wad){
+  for(int i=0;i<NUM_BUFFER_WADS;i++){
+    if (i==last_read_pos_track1_wad){
+      SetPixelV(render_bitmap_dc,xp,yp,white_cr);
+    }else if(i==write_pos_wad){
+      SetPixelV(render_bitmap_dc,xp,yp,cyan_cr);
+    }else{
+      SetPixelV(render_bitmap_dc,xp,yp,grey40_cr);
+    }
+    xp+=2;
+    if (xp>width-2){
+      xp=0;
+      yp+=2;
+    }
+  }
+}

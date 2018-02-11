@@ -1,0 +1,36 @@
+#include "stdafx.h"
+#include <afx.h>
+#include <assert.h>
+//#include "boost_header.h"
+#include "boost/lexical_cast.hpp"
+using boost::lexical_cast;
+
+#include <float.h>
+#include <fstream>
+
+#include <math.h>                  // for rttal
+#include <string>                  // for rttal
+#include <vector>                  // for rttal
+#include <deque>                   // for rttal
+using namespace std;               // for rttal
+#include "imagy.h"                 // for rttal
+#include "RTTcolours.h"            // for rttal
+#include "nkobz.h"                 // for rttal
+#include "IIR2.h"                  // for rttal
+#include "happy_RTA.h"             // for rttal
+#include "RTT_console.h"           // for rttal
+#include "bass_monitor.h"          // for rttal
+#include "compressher_limither.h"  // for rttal
+#include "rttal.h"                 // for rttal
+#include "generic_decoder.h"
+
+
+
+decoder_generic::decoder_generic():state(DECODERSTATE_IS_BEING_CREATED){
+  decoded_audio=new int[DECODER_DEFAULT_NUM_SAMPLES*2];
+}
+
+decoder_generic::~decoder_generic(){
+  delete[] decoded_audio;
+}
+

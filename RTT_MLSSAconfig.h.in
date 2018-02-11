@@ -1,0 +1,3 @@
+// the configured options and settings for RTT MLSSA
+#define Tutorial_VERSION_MAJOR @RTT_MLSSA_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @RTT_MLSSA_VERSION_MINOR@

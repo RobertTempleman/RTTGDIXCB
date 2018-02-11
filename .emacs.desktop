@@ -1,0 +1,1123 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Feb 11 00:34:28 2018
+;; Desktop file format version 208
+;; Emacs version 25.2.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23167 36756 915661 400000) (desktop . "208") "Administrator@CORMORANT-XIV" nil nil ((((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (minibuffer) (frameset--id . "2C97-ED22-4B79-CE83") (frameset--mini nil . "A502-2F4C-EE7C-2D09") (modeline . t) (unsplittable . t) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 40) (left . 1924) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 52) (min-pixel-width . 60) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 48) (min-pixel-height-safe . 13) (min-pixel-width-safe . 12)) leaf (last . t) (pixel-width . 264) (pixel-height . 1056) (total-width . 44) (total-height . 81) (normal-height . 1.0) (normal-width . 1.0) (buffer " SPEEDBAR" (selected) (hscroll . 0) (fringes 0 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 926) (start . 1))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (frameset--id . "844D-C36C-33DD-C190") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 253) (left . 2290) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 10) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 52) (min-pixel-width . 60) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 60) (min-pixel-height-safe . 13) (min-pixel-width-safe . 12)) leaf (pixel-width . 1550) (pixel-height . 1043) (total-width . 258) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (buffer "*compilation*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 662) (start . 1))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (environment) (sticky) (frameset--id . "A502-2F4C-EE7C-2D09") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 80) (width . 313) (left . 4) (top . 24)) ((min-height . 4) (min-width . 23) (min-height-ignore . 4) (min-width-ignore . 23) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 52) (min-pixel-width . 138) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 138) (min-pixel-height-safe . 13) (min-pixel-width-safe . 24)) hc (pixel-width . 1910) (pixel-height . 1043) (total-width . 318) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 576) (pixel-height . 1043) (total-width . 96) (total-height . 80) (normal-height . 1.0) (normal-width . 0.3015706806282723) (buffer "OS_interface.h" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 3) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 2172) (start . 1284))) (leaf (last . t) (pixel-width . 1334) (pixel-height . 1043) (total-width . 222) (total-height . 80) (normal-height . 1.0) (normal-width . 0.6984293193717277) (buffer "RTT_player.cpp" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 3) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 11649) (start . 10296)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("moveto" "strcase" "render" "m-f g" "c-o" "m-3" "m-e" "c-o" "kill" "close" "shrink" "frame-g" "frame" "frame " "nlin" "elscree"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/cygdrive/c/RTT_MLSSA/" "~/.emacs.d/" "/home/Administrator/.emacs.d/frame-geometry" "~/.emacs.d" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/compressher_limither.h" "/cygdrive/c/RTT_MLSSA/compressher_limither.cpp" "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp" "/cygdrive/c/RTT_MLSSA/fxprocessor.h" "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp" "/cygdrive/c/RTT_MLSSA/save_ALLL_to_backups_and_dropbox.BAT" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_2.cpp" "/cygdrive/c/bert224.ahk" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_pane.cpp" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_2.cpp" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/main.cpp" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_button.cpp" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_keysym_values_used.h" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT/" "/cygdrive/c/RTT_MLSSA/" "~/.emacs.d/" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT/" "/cygdrive/c/RTT_MLSSA/butt.cpp" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT/" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/d/backups/doit_robocophe_to_NAS.bat" "/cygdrive/c/RTT_MLSSA/save_to_backups_and_dropbox.BAT" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/xcb_code_dump/i3lock-master/i3lock-master/i3lock.c" "/cygdrive/c/xcb_code_dump/i3lock-master/i3lock-master/" "/cygdrive/c/xcb_code_dump/" "/cygdrive/c/xcb_code_dump/i3lock-master/i3lock-master/" "/cygdrive/c/xcb_code_dump/i3lock-master/i3lock-master/i3lock.c" "/cygdrive/c/xcb_code_dump/" "/cygdrive/c/RTT_MLSSA/RTT_keysymdef.h" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/__OS_interface.cpp" "/cygdrive/c/RTT_MLSSA/OS_interface.cpp" "/cygdrive/c/ahk/RTT_raise_all_emacs_tall_windows.ahk" "/cygdrive/c/ahk/winsave/winsave.ahk" "/cygdrive/c/ahk/RTT_raise_all_emacs.ahk" "/cygdrive/c/inter/glabbbbbbbert/butt.htm" "/cygdrive/c/inter/glabbbbbbbert/redojpgs" "/cygdrive/c/RTT_MLSSA/RTT_window.h" "/cygdrive/c/RTT_MLSSA/RTT_window.cpp" "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.cpp" "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt_normal.h" "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.h" "/cygdrive/c/RTT_MLSSA/CMakeLists.txt" "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.h" "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.cpp" "/cygdrive/c/RTT_MLSSA/OS_interface.h~" "/cygdrive/c/RTT_MLSSA/" "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.cpp" "/cygdrive/c/RTT_MLSSA/#RTT_text_edit_box#" "/cygdrive/c/RTT_MLSSA/misc.cpp" "/usr/include/xcb/xcb_pixel.h" "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp~" "/home/Administrator/.gdbinit" "/cygdrive/c/RTT_MLSSA/bitmaps/cde_backdrops/Ankh.bm" "/home/Administrator/cde/cde-2.2.3/programs/backdrops/RicePaper.pm" "/home/Administrator/cde/cde-2.2.3/programs/backdrops/Background.bm" "/home/Administrator/cde/cde-2.2.3/programs/backdrops/Ankh.bm" "~/x0" "/cygdrive/c/MPUsbSIn.log" "~/.emacs.d/init.el" "~/.Xresources"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_player.cpp"
+  "RTT_player.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  11649
+  '(11648 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (11843 11843 11843 11843 11628 11843 12007 11623 11622 11622 11622 11839 8990 8699 11664))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_player.h"
+  "RTT_player.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  2373
+  '(2078 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (2354 2347 2322 2322 2315 2876 2916 2916 2916 2876 2876 2878 2639 2629))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/OS_interface.h"
+  "OS_interface.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  2172
+  '(1869 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (1868 1869 1927 1744 1744 1927))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/OS_interface.cpp"
+  "OS_interface.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  30179
+  '(2461 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (2461 2461 2461 2461 2461 2461 2461 2461 30761 29959 2316 50419 2461 500 2461 2461))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/compressher_limither.h"
+  "compressher_limither.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  5759
+  '(5759 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/compressher_limither.cpp"
+  "compressher_limither.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  9867
+  '(9380 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (9505 191 277 191 9428 9380 9380))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_wavpack_decoder.h"
+  "RTT_wavpack_decoder.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/wavpack/wavpack_local.h"
+  "wavpack_local.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/algorithmfwd.h"
+  "algorithmfwd.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_keysym_values_used.h"
+  "RTT_keysym_values_used.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stringfwd.h"
+  "stringfwd.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/src/debug/libxcb-1.12-2/src/xcb_conn.c"
+  "xcb_conn.c"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTTAL_1channel.cpp"
+  "RTTAL_1channel.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/GBAtext.cpp"
+  "GBAtext.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/GBAtext.h"
+  "GBAtext.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/main.cpp"
+  "main.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/main.h"
+  "main.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/types.h"
+  "types.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_colours.h"
+  "RTT_colours.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/src/debug/cygwin-2.9.0-3/winsup/cygwin/signal.cc"
+  "signal.cc"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/tuple"
+  "tuple"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_types.h"
+  "RTT_types.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/rtt_2.h"
+  "rtt_2.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_button.cpp"
+  "RTT_button.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/basic_string.tcc"
+  "basic_string.tcc"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/clang/3.9.1/include/stdarg.h"
+  "stdarg.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_colours.cpp"
+  "RTT_colours.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/unique_ptr.h"
+  "unique_ptr.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/basic_string.h"
+  "basic_string.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stl_vector.h"
+  "stl_vector.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stl_map.h"
+  "stl_map.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/EasyBMP_1.06/EasyBMP_BMP.cpp"
+  "EasyBMP_BMP.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/ucs2_to_utf8.h"
+  "ucs2_to_utf8.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/ucs2_to_utf8.cpp"
+  "ucs2_to_utf8.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/mls.h"
+  "mls.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/mls.cpp"
+  "mls.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/keysym2ucs.h"
+  "keysym2ucs.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/keysym2ucs.cpp"
+  "keysym2ucs.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_test.cpp"
+  "RTT_test.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_patest_wire.h"
+  "RTT_patest_wire.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_patest_wire.cpp"
+  "RTT_patest_wire.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/misc.cpp"
+  "misc.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.cpp"
+  "font_tahoma_8pt.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . raw-text-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/EasyBMP_1.06/EasyBMP_BMP.h"
+  "EasyBMP_BMP.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fonts/font_tahoma_8pt.h"
+  "font_tahoma_8pt.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . raw-text-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_keysyms.h"
+  "RTT_keysyms.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_keysyms.cpp"
+  "RTT_keysyms.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/doit_all.h"
+  "doit_all.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_vector.cpp"
+  "RTT_vector.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/doit_all.cpp"
+  "doit_all.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stl_tree.h"
+  "stl_tree.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/include/xcb/xproto.h"
+  "xproto.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/include/stdlib.h"
+  "stdlib.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.h"
+  "RTT_text_edit_box.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-emacs-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_text_edit_box.cpp"
+  "RTT_text_edit_box.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_button.h"
+  "RTT_button.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_vector.h"
+  "RTT_vector.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/functional"
+  "functional"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/clang/3.9.1/include/stddef.h"
+  "stddef.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/include/stdio.h"
+  "stdio.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stl_list.h"
+  "stl_list.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_keysymdef.h"
+  "RTT_keysymdef.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_pane.h"
+  "RTT_pane.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_pane.cpp"
+  "RTT_pane.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fxprocessor.h"
+  "fxprocessor.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp"
+  "fxprocessor.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_window.h"
+  "RTT_window.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_window.cpp"
+  "RTT_window.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.h"
+  "RTTGDIXCB.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/iosfwd"
+  "iosfwd"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/include/string.h"
+  "string.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_generic_decoder.cpp"
+  "RTT_generic_decoder.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_wavpack_decoder.cpp"
+  "RTT_wavpack_decoder.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_2.cpp"
+  "RTT_2.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp"
+  "RTTGDIXCB.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/extra_elisp_packages/sb-imenu.el"
+  "sb-imenu.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  924
+  '(924 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (2565 121 137 577 577 137 133 129 121 2565 1570 1497 1136 1296 924))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/CMakeLists.txt"
+  "CMakeLists.txt"
+  'text-mode
+  '(yas-minor-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  543
+  '(1250 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (1204 1204 1204 1204 1160 1160 1510 1365 1160 1364 1364 1364 1364 1364 1364 543))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/test.el"
+  "test.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  29979
+  '(29979 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (30274 30274 30310 30478 30274 30274 30231 30245 30553 30245 30244 29394 29389 28365 25055 29979))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  21377
+  '(20424 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (20424 20424 20099 20361 38409 40246 18909 18415 40282 50096 50992 49507 50342 19070 18228 21377))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/elpa/rtags-20170303.1422/rtags.el"
+  "rtags.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  102455
+  '(101908 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (103410 103419 103377 103410 102689 102853 103063 103176 103218 103060 102569 102316 102335 100773 100435 102455))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/elpa/frame-cmds-20170222.1758/frame-cmds.el"
+  "frame-cmds.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  3105
+  '(77180 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (77299 77299 77299 77302 77311 77180 3105))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/extra_elisp_packages/revive-plus-master/RTT_revive+_extras.el"
+  "RTT_revive+_extras.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  4271
+  '(7137 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (4709 7854 7437 7437 8299 4625 5323 9341 2504 8243 5323 5153 514 1453 4625 4271))))
+
+(desktop-create-buffer 208
+  nil
+  "*info*"
+  'Info-mode
+  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
+  252418
+  '(nil nil)
+  t
+  '("/usr/share/info/elisp" "Cons Cells" nil)
+  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/bert224.ahk"
+  "bert224.ahk"
+  'ahk-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  410
+  '(408 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-with-signature-dos))
+  '((mark-ring (381 410))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/extra_elisp_packages/windows.el"
+  "windows.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  26531
+  '(965 nil)
+  t
+  nil
+  '((buffer-file-coding-system . japanese-iso-8bit-unix))
+  '((mark-ring (3433 28041 27684 27337 27292 26806 26767 26554 26767 26530 26530 26531 26272 26072 27200 26531))))
+
+(desktop-create-buffer 208
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
+  903
+  '(903 nil)
+  t
+  '("/home/Administrator/.emacs.d/")
+  nil
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "extra_elisp_packages"
+  'dired-mode
+  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
+  1241
+  '(1241 nil)
+  t
+  '("/home/Administrator/.emacs.d/extra_elisp_packages/")
+  nil
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.gdbinit"
+  ".gdbinit"
+  'gdb-script-mode
+  '(yas-minor-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  296
+  '(92 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (120 92 120 120 120 120 120 120 120 120 120 92 296 296 296 296))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/extra_elisp_packages/gdb-settings/gdb-settings.el"
+  "gdb-settings.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  827
+  '(1037 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (1915 1762 1037 1365 1603 2230 2092 1818 1709 1662 1077 1460 2256 920 979 827))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/ahk/RTT_raise_all_emacs_tall_windows.ahk"
+  "RTT_raise_all_emacs_tall_windows.ahk"
+  'ahk-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  1148
+  '(1482 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (286 1091 457 441 565 1107 1195 1111 1111 1062 1062 1062 1062 978 978 1148))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/ahk/winsave/winsave.ahk"
+  "winsave.ahk"
+  'ahk-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  1005
+  '(918 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (967 1991 2316 1909 1948 1228 1 1 3447 3444 3025 1228 1948 1912 1912 1005))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/elpa/highlight-symbol-20160102.1209/highlight-symbol.el"
+  "highlight-symbol.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  1385
+  '(1617 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (9190 4797 3912 1617 1385))))
+

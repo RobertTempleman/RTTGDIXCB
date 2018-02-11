@@ -1,0 +1,3233 @@
+//#include "stdafx.h"
+#include "types.h"
+using namespace std;               // for rttal
+
+#include "RTT_colours.h"
+#include <math.h>
+
+
+/*
+rttcol::makeCOLOREFS(){
+aliceblue=RGB(240,248,255);
+antiquewhite=RGB(250,235,215);
+antiquewhite1=RGB(255,239,219);
+antiquewhite2=RGB(238,223,204);
+antiquewhite3=RGB(205,192,176);
+antiquewhite4=RGB(139,131,120);
+aquamarine=RGB(127,255,212);
+aquamarine1=RGB(127,255,212);
+aquamarine2=RGB(118,238,198);
+aquamarine3=RGB(102,205,170);
+aquamarine4=RGB(69,139,116);
+azure=RGB(240,255,255);
+azure1=RGB(240,255,255);
+azure2=RGB(224,238,238);
+azure3=RGB(193,205,205);
+azure4=RGB(131,139,139);
+beige=RGB(245,245,220);
+bisque=RGB(255,228,196);
+bisque1=RGB(255,228,196);
+bisque2=RGB(238,213,183);
+bisque3=RGB(205,183,158);
+bisque4=RGB(139,125,107);
+black=RGB(0,0,0);
+blanchedalmond=RGB(255,235,205);
+blue=RGB(0,0,255);
+blue1=RGB(0,0,255);
+blue2=RGB(0,0,238);
+blue3=RGB(0,0,205);
+blue4=RGB(0,0,139);
+blueviolet=RGB(138,43,226);
+brown=RGB(165,42,42);
+brown1=RGB(255,64,64);
+brown2=RGB(238,59,59);
+brown3=RGB(205,51,51);
+brown4=RGB(139,35,35);
+burlywood=RGB(222,184,135);
+burlywood1=RGB(255,211,155);
+burlywood2=RGB(238,197,145);
+burlywood3=RGB(205,170,125);
+burlywood4=RGB(139,115,85);
+cadetblue=RGB(95,158,160);
+cadetblue1=RGB(152,245,255);
+cadetblue2=RGB(142,229,238);
+cadetblue3=RGB(122,197,205);
+cadetblue4=RGB(83,134,139);
+chartreuse=RGB(127,255,0);
+chartreuse1=RGB(127,255,0);
+chartreuse2=RGB(118,238,0);
+chartreuse3=RGB(102,205,0);
+chartreuse4=RGB(69,139,0);
+chocolate=RGB(210,105,30);
+chocolate1=RGB(255,127,36);
+chocolate2=RGB(238,118,33);
+chocolate3=RGB(205,102,29);
+chocolate4=RGB(139,69,19);
+coral=RGB(255,127,80);
+coral1=RGB(255,114,86);
+coral2=RGB(238,106,80);
+coral3=RGB(205,91,69);
+coral4=RGB(139,62,47);
+cornflowerblue=RGB(100,149,237);
+cornsilk=RGB(255,248,220);
+cornsilk1=RGB(255,248,220);
+cornsilk2=RGB(238,232,205);
+cornsilk3=RGB(205,200,177);
+cornsilk4=RGB(139,136,120);
+cyan=RGB(0,255,255);
+cyan1=RGB(0,255,255);
+cyan2=RGB(0,238,238);
+cyan3=RGB(0,205,205);
+cyan4=RGB(0,139,139);
+darkblue=RGB(0,0,139);
+darkcyan=RGB(0,139,139);
+darkgoldenrod=RGB(184,134,11);
+darkgoldenrod1=RGB(255,185,15);
+darkgoldenrod2=RGB(238,173,14);
+darkgoldenrod3=RGB(205,149,12);
+darkgoldenrod4=RGB(139,101,8);
+darkgray=RGB(169,169,169);
+darkgreen=RGB(0,100,0);
+darkgrey=RGB(169,169,169);
+darkkhaki=RGB(189,183,107);
+darkmagenta=RGB(139,0,139);
+darkolivegreen=RGB(85,107,47);
+darkolivegreen1=RGB(202,255,112);
+darkolivegreen2=RGB(188,238,104);
+darkolivegreen3=RGB(162,205,90);
+darkolivegreen4=RGB(110,139,61);
+darkorange=RGB(255,140,0);
+darkorange1=RGB(255,127,0);
+darkorange2=RGB(238,118,0);
+darkorange3=RGB(205,102,0);
+darkorange4=RGB(139,69,0);
+darkorchid=RGB(153,50,204);
+darkorchid1=RGB(191,62,255);
+darkorchid2=RGB(178,58,238);
+darkorchid3=RGB(154,50,205);
+darkorchid4=RGB(104,34,139);
+darkred=RGB(139,0,0);
+darksalmon=RGB(233,150,122);
+darkseagreen=RGB(143,188,143);
+darkseagreen1=RGB(193,255,193);
+darkseagreen2=RGB(180,238,180);
+darkseagreen3=RGB(155,205,155);
+darkseagreen4=RGB(105,139,105);
+darkslateblue=RGB(72,61,139);
+darkslategray=RGB(47,79,79);
+darkslategray1=RGB(151,255,255);
+darkslategray2=RGB(141,238,238);
+darkslategray3=RGB(121,205,205);
+darkslategray4=RGB(82,139,139);
+darkslategrey=RGB(47,79,79);
+darkslategrey1=RGB(151,255,255);
+darkslategrey2=RGB(141,238,238);
+darkslategrey3=RGB(121,205,205);
+darkslategrey4=RGB(82,139,139);
+darkturquoise=RGB(0,206,209);
+darkviolet=RGB(148,0,211);
+deeppink=RGB(255,20,147);
+deeppink1=RGB(255,20,147);
+deeppink2=RGB(238,18,137);
+deeppink3=RGB(205,16,118);
+deeppink4=RGB(139,10,80);
+deepskyblue=RGB(0,191,255);
+deepskyblue1=RGB(0,191,255);
+deepskyblue2=RGB(0,178,238);
+deepskyblue3=RGB(0,154,205);
+deepskyblue4=RGB(0,104,139);
+dimgray=RGB(105,105,105);
+dimgrey=RGB(105,105,105);
+dodgerblue=RGB(30,144,255);
+dodgerblue1=RGB(30,144,255);
+dodgerblue2=RGB(28,134,238);
+dodgerblue3=RGB(24,116,205);
+dodgerblue4=RGB(16,78,139);
+firebrick=RGB(178,34,34);
+firebrick1=RGB(255,48,48);
+firebrick2=RGB(238,44,44);
+firebrick3=RGB(205,38,38);
+firebrick4=RGB(139,26,26);
+floralwhite=RGB(255,250,240);
+forestgreen=RGB(34,139,34);
+gainsboro=RGB(220,220,220);
+ghostwhite=RGB(248,248,255);
+gold=RGB(255,215,0);
+gold1=RGB(255,215,0);
+gold2=RGB(238,201,0);
+gold3=RGB(205,173,0);
+gold4=RGB(139,117,0);
+goldenrod=RGB(218,165,32);
+goldenrod1=RGB(255,193,37);
+goldenrod2=RGB(238,180,34);
+goldenrod3=RGB(205,155,29);
+goldenrod4=RGB(139,105,20);
+gray=RGB(190,190,190);
+gray0=RGB(0,0,0);
+gray1=RGB(3,3,3);
+gray2=RGB(5,5,5);
+gray3=RGB(8,8,8);
+gray4=RGB(10,10,10);
+gray5=RGB(13,13,13);
+gray6=RGB(15,15,15);
+gray7=RGB(18,18,18);
+gray8=RGB(20,20,20);
+gray9=RGB(23,23,23);
+gray10=RGB(26,26,26);
+gray11=RGB(28,28,28);
+gray12=RGB(31,31,31);
+gray13=RGB(33,33,33);
+gray14=RGB(36,36,36);
+gray15=RGB(38,38,38);
+gray16=RGB(41,41,41);
+gray17=RGB(43,43,43);
+gray18=RGB(46,46,46);
+gray19=RGB(48,48,48);
+gray20=RGB(51,51,51);
+gray21=RGB(54,54,54);
+gray22=RGB(56,56,56);
+gray23=RGB(59,59,59);
+gray24=RGB(61,61,61);
+gray25=RGB(64,64,64);
+gray26=RGB(66,66,66);
+gray27=RGB(69,69,69);
+gray28=RGB(71,71,71);
+gray29=RGB(74,74,74);
+gray30=RGB(77,77,77);
+gray31=RGB(79,79,79);
+gray32=RGB(82,82,82);
+gray33=RGB(84,84,84);
+gray34=RGB(87,87,87);
+gray35=RGB(89,89,89);
+gray36=RGB(92,92,92);
+gray37=RGB(94,94,94);
+gray38=RGB(97,97,97);
+gray39=RGB(99,99,99);
+gray40=RGB(102,102,102);
+gray41=RGB(105,105,105);
+gray42=RGB(107,107,107);
+gray43=RGB(110,110,110);
+gray44=RGB(112,112,112);
+gray45=RGB(115,115,115);
+gray46=RGB(117,117,117);
+gray47=RGB(120,120,120);
+gray48=RGB(122,122,122);
+gray49=RGB(125,125,125);
+gray50=RGB(127,127,127);
+gray51=RGB(130,130,130);
+gray52=RGB(133,133,133);
+gray53=RGB(135,135,135);
+gray54=RGB(138,138,138);
+gray55=RGB(140,140,140);
+gray56=RGB(143,143,143);
+gray57=RGB(145,145,145);
+gray58=RGB(148,148,148);
+gray59=RGB(150,150,150);
+gray60=RGB(153,153,153);
+gray61=RGB(156,156,156);
+gray62=RGB(158,158,158);
+gray63=RGB(161,161,161);
+gray64=RGB(163,163,163);
+gray65=RGB(166,166,166);
+gray66=RGB(168,168,168);
+gray67=RGB(171,171,171);
+gray68=RGB(173,173,173);
+gray69=RGB(176,176,176);
+gray70=RGB(179,179,179);
+gray71=RGB(181,181,181);
+gray72=RGB(184,184,184);
+gray73=RGB(186,186,186);
+gray74=RGB(189,189,189);
+gray75=RGB(191,191,191);
+gray76=RGB(194,194,194);
+gray77=RGB(196,196,196);
+gray78=RGB(199,199,199);
+gray79=RGB(201,201,201);
+gray80=RGB(204,204,204);
+gray81=RGB(207,207,207);
+gray82=RGB(209,209,209);
+gray83=RGB(212,212,212);
+gray84=RGB(214,214,214);
+gray85=RGB(217,217,217);
+gray86=RGB(219,219,219);
+gray87=RGB(222,222,222);
+gray88=RGB(224,224,224);
+gray89=RGB(227,227,227);
+gray90=RGB(229,229,229);
+gray91=RGB(232,232,232);
+gray92=RGB(235,235,235);
+gray93=RGB(237,237,237);
+gray94=RGB(240,240,240);
+gray95=RGB(242,242,242);
+gray96=RGB(245,245,245);
+gray97=RGB(247,247,247);
+gray98=RGB(250,250,250);
+gray99=RGB(252,252,252);
+gray100=RGB(255,255,255);
+green=RGB(0,255,0);
+green1=RGB(0,255,0);
+green2=RGB(0,238,0);
+green3=RGB(0,205,0);
+green4=RGB(0,139,0);
+greenyellow=RGB(173,255,47);
+grey=RGB(190,190,190);
+grey0=RGB(0,0,0);
+grey1=RGB(3,3,3);
+grey2=RGB(5,5,5);
+grey3=RGB(8,8,8);
+grey4=RGB(10,10,10);
+grey5=RGB(13,13,13);
+grey6=RGB(15,15,15);
+grey7=RGB(18,18,18);
+grey8=RGB(20,20,20);
+grey9=RGB(23,23,23);
+grey10=RGB(26,26,26);
+grey11=RGB(28,28,28);
+grey12=RGB(31,31,31);
+grey13=RGB(33,33,33);
+grey14=RGB(36,36,36);
+grey15=RGB(38,38,38);
+grey16=RGB(41,41,41);
+grey17=RGB(43,43,43);
+grey18=RGB(46,46,46);
+grey19=RGB(48,48,48);
+grey20=RGB(51,51,51);
+grey21=RGB(54,54,54);
+grey22=RGB(56,56,56);
+grey23=RGB(59,59,59);
+grey24=RGB(61,61,61);
+grey25=RGB(64,64,64);
+grey26=RGB(66,66,66);
+grey27=RGB(69,69,69);
+grey28=RGB(71,71,71);
+grey29=RGB(74,74,74);
+grey30=RGB(77,77,77);
+grey31=RGB(79,79,79);
+grey32=RGB(82,82,82);
+grey33=RGB(84,84,84);
+grey34=RGB(87,87,87);
+grey35=RGB(89,89,89);
+grey36=RGB(92,92,92);
+grey37=RGB(94,94,94);
+grey38=RGB(97,97,97);
+grey39=RGB(99,99,99);
+grey40=RGB(102,102,102);
+grey41=RGB(105,105,105);
+grey42=RGB(107,107,107);
+grey43=RGB(110,110,110);
+grey44=RGB(112,112,112);
+grey45=RGB(115,115,115);
+grey46=RGB(117,117,117);
+grey47=RGB(120,120,120);
+grey48=RGB(122,122,122);
+grey49=RGB(125,125,125);
+grey50=RGB(127,127,127);
+grey51=RGB(130,130,130);
+grey52=RGB(133,133,133);
+grey53=RGB(135,135,135);
+grey54=RGB(138,138,138);
+grey55=RGB(140,140,140);
+grey56=RGB(143,143,143);
+grey57=RGB(145,145,145);
+grey58=RGB(148,148,148);
+grey59=RGB(150,150,150);
+grey60=RGB(153,153,153);
+grey61=RGB(156,156,156);
+grey62=RGB(158,158,158);
+grey63=RGB(161,161,161);
+grey64=RGB(163,163,163);
+grey65=RGB(166,166,166);
+grey66=RGB(168,168,168);
+grey67=RGB(171,171,171);
+grey68=RGB(173,173,173);
+grey69=RGB(176,176,176);
+grey70=RGB(179,179,179);
+grey71=RGB(181,181,181);
+grey72=RGB(184,184,184);
+grey73=RGB(186,186,186);
+grey74=RGB(189,189,189);
+grey75=RGB(191,191,191);
+grey76=RGB(194,194,194);
+grey77=RGB(196,196,196);
+grey78=RGB(199,199,199);
+grey79=RGB(201,201,201);
+grey80=RGB(204,204,204);
+grey81=RGB(207,207,207);
+grey82=RGB(209,209,209);
+grey83=RGB(212,212,212);
+grey84=RGB(214,214,214);
+grey85=RGB(217,217,217);
+grey86=RGB(219,219,219);
+grey87=RGB(222,222,222);
+grey88=RGB(224,224,224);
+grey89=RGB(227,227,227);
+grey90=RGB(229,229,229);
+grey91=RGB(232,232,232);
+grey92=RGB(235,235,235);
+grey93=RGB(237,237,237);
+grey94=RGB(240,240,240);
+grey95=RGB(242,242,242);
+grey96=RGB(245,245,245);
+grey97=RGB(247,247,247);
+grey98=RGB(250,250,250);
+grey99=RGB(252,252,252);
+grey100=RGB(255,255,255);
+honeydew=RGB(240,255,240);
+honeydew1=RGB(240,255,240);
+honeydew2=RGB(224,238,224);
+honeydew3=RGB(193,205,193);
+honeydew4=RGB(131,139,131);
+hotpink=RGB(255,105,180);
+hotpink1=RGB(255,110,180);
+hotpink2=RGB(238,106,167);
+hotpink3=RGB(205,96,144);
+hotpink4=RGB(139,58,98);
+indianred=RGB(205,92,92);
+indianred1=RGB(255,106,106);
+indianred2=RGB(238,99,99);
+indianred3=RGB(205,85,85);
+indianred4=RGB(139,58,58);
+ivory=RGB(255,255,240);
+ivory1=RGB(255,255,240);
+ivory2=RGB(238,238,224);
+ivory3=RGB(205,205,193);
+ivory4=RGB(139,139,131);
+khaki=RGB(240,230,140);
+khaki1=RGB(255,246,143);
+khaki2=RGB(238,230,133);
+khaki3=RGB(205,198,115);
+khaki4=RGB(139,134,78);
+lavender=RGB(230,230,250);
+lavenderblush=RGB(255,240,245);
+lavenderblush1=RGB(255,240,245);
+lavenderblush2=RGB(238,224,229);
+lavenderblush3=RGB(205,193,197);
+lavenderblush4=RGB(139,131,134);
+lawngreen=RGB(124,252,0);
+lemonchiffon=RGB(255,250,205);
+lemonchiffon1=RGB(255,250,205);
+lemonchiffon2=RGB(238,233,191);
+lemonchiffon3=RGB(205,201,165);
+lemonchiffon4=RGB(139,137,112);
+lightblue=RGB(173,216,230);
+lightblue1=RGB(191,239,255);
+lightblue2=RGB(178,223,238);
+lightblue3=RGB(154,192,205);
+lightblue4=RGB(104,131,139);
+lightcoral=RGB(240,128,128);
+lightcyan=RGB(224,255,255);
+lightcyan1=RGB(224,255,255);
+lightcyan2=RGB(209,238,238);
+lightcyan3=RGB(180,205,205);
+lightcyan4=RGB(122,139,139);
+lightgoldenrod=RGB(238,221,130);
+lightgoldenrod1=RGB(255,236,139);
+lightgoldenrod2=RGB(238,220,130);
+lightgoldenrod3=RGB(205,190,112);
+lightgoldenrod4=RGB(139,129,76);
+lightgoldenrodyellow=RGB(250,250,210);
+lightgray=RGB(211,211,211);
+lightgreen=RGB(144,238,144);
+lightgrey=RGB(211,211,211);
+lightpink=RGB(255,182,193);
+lightpink1=RGB(255,174,185);
+lightpink2=RGB(238,162,173);
+lightpink3=RGB(205,140,149);
+lightpink4=RGB(139,95,101);
+lightsalmon=RGB(255,160,122);
+lightsalmon1=RGB(255,160,122);
+lightsalmon2=RGB(238,149,114);
+lightsalmon3=RGB(205,129,98);
+lightsalmon4=RGB(139,87,66);
+lightseagreen=RGB(32,178,170);
+lightskyblue=RGB(135,206,250);
+lightskyblue1=RGB(176,226,255);
+lightskyblue2=RGB(164,211,238);
+lightskyblue3=RGB(141,182,205);
+lightskyblue4=RGB(96,123,139);
+lightslateblue=RGB(132,112,255);
+lightslategray=RGB(119,136,153);
+lightslategrey=RGB(119,136,153);
+lightsteelblue=RGB(176,196,222);
+lightsteelblue1=RGB(202,225,255);
+lightsteelblue2=RGB(188,210,238);
+lightsteelblue3=RGB(162,181,205);
+lightsteelblue4=RGB(110,123,139);
+lightyellow=RGB(255,255,224);
+lightyellow1=RGB(255,255,224);
+lightyellow2=RGB(238,238,209);
+lightyellow3=RGB(205,205,180);
+lightyellow4=RGB(139,139,122);
+limegreen=RGB(50,205,50);
+linen=RGB(250,240,230);
+magenta=RGB(255,0,255);
+magenta1=RGB(255,0,255);
+magenta2=RGB(238,0,238);
+magenta3=RGB(205,0,205);
+magenta4=RGB(139,0,139);
+maroon=RGB(176,48,96);
+maroon1=RGB(255,52,179);
+maroon2=RGB(238,48,167);
+maroon3=RGB(205,41,144);
+maroon4=RGB(139,28,98);
+mediumaquamarine=RGB(102,205,170);
+mediumblue=RGB(0,0,205);
+mediumorchid=RGB(186,85,211);
+mediumorchid1=RGB(224,102,255);
+mediumorchid2=RGB(209,95,238);
+mediumorchid3=RGB(180,82,205);
+mediumorchid4=RGB(122,55,139);
+mediumpurple=RGB(147,112,219);
+mediumpurple1=RGB(171,130,255);
+mediumpurple2=RGB(159,121,238);
+mediumpurple3=RGB(137,104,205);
+mediumpurple4=RGB(93,71,139);
+mediumseagreen=RGB(60,179,113);
+mediumslateblue=RGB(123,104,238);
+mediumspringgreen=RGB(0,250,154);
+mediumturquoise=RGB(72,209,204);
+mediumvioletred=RGB(199,21,133);
+midnightblue=RGB(25,25,112);
+mintcream=RGB(245,255,250);
+mistyrose=RGB(255,228,225);
+mistyrose1=RGB(255,228,225);
+mistyrose2=RGB(238,213,210);
+mistyrose3=RGB(205,183,181);
+mistyrose4=RGB(139,125,123);
+moccasin=RGB(255,228,181);
+navajowhite=RGB(255,222,173);
+navajowhite1=RGB(255,222,173);
+navajowhite2=RGB(238,207,161);
+navajowhite3=RGB(205,179,139);
+navajowhite4=RGB(139,121,94);
+navy=RGB(0,0,128);
+navyblue=RGB(0,0,128);
+oldlace=RGB(253,245,230);
+olivedrab=RGB(107,142,35);
+olivedrab1=RGB(192,255,62);
+olivedrab2=RGB(179,238,58);
+olivedrab3=RGB(154,205,50);
+olivedrab4=RGB(105,139,34);
+orange=RGB(255,165,0);
+orange1=RGB(255,165,0);
+orange2=RGB(238,154,0);
+orange3=RGB(205,133,0);
+orange4=RGB(139,90,0);
+orangered=RGB(255,69,0);
+orangered1=RGB(255,69,0);
+orangered2=RGB(238,64,0);
+orangered3=RGB(205,55,0);
+orangered4=RGB(139,37,0);
+orchid=RGB(218,112,214);
+orchid1=RGB(255,131,250);
+orchid2=RGB(238,122,233);
+orchid3=RGB(205,105,201);
+orchid4=RGB(139,71,137);
+palegoldenrod=RGB(238,232,170);
+palegreen=RGB(152,251,152);
+palegreen1=RGB(154,255,154);
+palegreen2=RGB(144,238,144);
+palegreen3=RGB(124,205,124);
+palegreen4=RGB(84,139,84);
+paleturquoise=RGB(175,238,238);
+paleturquoise1=RGB(187,255,255);
+paleturquoise2=RGB(174,238,238);
+paleturquoise3=RGB(150,205,205);
+paleturquoise4=RGB(102,139,139);
+palevioletred=RGB(219,112,147);
+palevioletred1=RGB(255,130,171);
+palevioletred2=RGB(238,121,159);
+palevioletred3=RGB(205,104,137);
+palevioletred4=RGB(139,71,93);
+papayawhip=RGB(255,239,213);
+peachpuff=RGB(255,218,185);
+peachpuff1=RGB(255,218,185);
+peachpuff2=RGB(238,203,173);
+peachpuff3=RGB(205,175,149);
+peachpuff4=RGB(139,119,101);
+peru=RGB(205,133,63);
+pink=RGB(255,192,203);
+pink1=RGB(255,181,197);
+pink2=RGB(238,169,184);
+pink3=RGB(205,145,158);
+pink4=RGB(139,99,108);
+plum=RGB(221,160,221);
+plum1=RGB(255,187,255);
+plum2=RGB(238,174,238);
+plum3=RGB(205,150,205);
+plum4=RGB(139,102,139);
+powderblue=RGB(176,224,230);
+purple=RGB(160,32,240);
+purple1=RGB(155,48,255);
+purple2=RGB(145,44,238);
+purple3=RGB(125,38,205);
+purple4=RGB(85,26,139);
+red=RGB(255,0,0);
+red1=RGB(255,0,0);
+red2=RGB(238,0,0);
+red3=RGB(205,0,0);
+red4=RGB(139,0,0);
+rosybrown=RGB(188,143,143);
+rosybrown1=RGB(255,193,193);
+rosybrown2=RGB(238,180,180);
+rosybrown3=RGB(205,155,155);
+rosybrown4=RGB(139,105,105);
+royalblue=RGB(65,105,225);
+royalblue1=RGB(72,118,255);
+royalblue2=RGB(67,110,238);
+royalblue3=RGB(58,95,205);
+royalblue4=RGB(39,64,139);
+saddlebrown=RGB(139,69,19);
+salmon=RGB(250,128,114);
+salmon1=RGB(255,140,105);
+salmon2=RGB(238,130,98);
+salmon3=RGB(205,112,84);
+salmon4=RGB(139,76,57);
+sandybrown=RGB(244,164,96);
+seagreen=RGB(46,139,87);
+seagreen1=RGB(84,255,159);
+seagreen2=RGB(78,238,148);
+seagreen3=RGB(67,205,128);
+seagreen4=RGB(46,139,87);
+seashell=RGB(255,245,238);
+seashell1=RGB(255,245,238);
+seashell2=RGB(238,229,222);
+seashell3=RGB(205,197,191);
+seashell4=RGB(139,134,130);
+sienna=RGB(160,82,45);
+sienna1=RGB(255,130,71);
+sienna2=RGB(238,121,66);
+sienna3=RGB(205,104,57);
+sienna4=RGB(139,71,38);
+skyblue=RGB(135,206,235);
+skyblue1=RGB(135,206,255);
+skyblue2=RGB(126,192,238);
+skyblue3=RGB(108,166,205);
+skyblue4=RGB(74,112,139);
+slateblue=RGB(106,90,205);
+slateblue1=RGB(131,111,255);
+slateblue2=RGB(122,103,238);
+slateblue3=RGB(105,89,205);
+slateblue4=RGB(71,60,139);
+slategray=RGB(112,128,144);
+slategray1=RGB(198,226,255);
+slategray2=RGB(185,211,238);
+slategray3=RGB(159,182,205);
+slategray4=RGB(108,123,139);
+slategrey=RGB(112,128,144);
+slategrey1=RGB(198,226,255);
+slategrey2=RGB(185,211,238);
+slategrey3=RGB(159,182,205);
+slategrey4=RGB(108,123,139);
+snow=RGB(255,250,250);
+snow1=RGB(255,250,250);
+snow2=RGB(238,233,233);
+snow3=RGB(205,201,201);
+snow4=RGB(139,137,137);
+springgreen=RGB(0,255,127);
+springgreen1=RGB(0,255,127);
+springgreen2=RGB(0,238,118);
+springgreen3=RGB(0,205,102);
+springgreen4=RGB(0,139,69);
+steelblue=RGB(70,130,180);
+steelblue1=RGB(99,184,255);
+steelblue2=RGB(92,172,238);
+steelblue3=RGB(79,148,205);
+steelblue4=RGB(54,100,139);
+tan=RGB(210,180,140);
+tan1=RGB(255,165,79);
+tan2=RGB(238,154,73);
+tan3=RGB(205,133,63);
+tan4=RGB(139,90,43);
+thistle=RGB(216,191,216);
+thistle1=RGB(255,225,255);
+thistle2=RGB(238,210,238);
+thistle3=RGB(205,181,205);
+thistle4=RGB(139,123,139);
+tomato=RGB(255,99,71);
+tomato1=RGB(255,99,71);
+tomato2=RGB(238,92,66);
+tomato3=RGB(205,79,57);
+tomato4=RGB(139,54,38);
+turquoise=RGB(64,224,208);
+turquoise1=RGB(0,245,255);
+turquoise2=RGB(0,229,238);
+turquoise3=RGB(0,197,205);
+turquoise4=RGB(0,134,139);
+violet=RGB(238,130,238);
+violetred=RGB(208,32,144);
+violetred1=RGB(255,62,150);
+violetred2=RGB(238,58,140);
+violetred3=RGB(205,50,120);
+violetred4=RGB(139,34,82);
+wheat=RGB(245,222,179);
+wheat1=RGB(255,231,186);
+wheat2=RGB(238,216,174);
+wheat3=RGB(205,186,150);
+wheat4=RGB(139,126,102);
+white=RGB(255,255,255);
+whitesmoke=RGB(245,245,245);
+yellow=RGB(255,255,0);
+yellow1=RGB(255,255,0);
+yellow2=RGB(238,238,0);
+yellow3=RGB(205,205,0);
+yellow4=RGB(139,139,0);
+yellowgreen=RGB(154,205,50);
+
+
+
+
+
+
+240,248,255,aliceblue
+250,235,215,antiquewhite
+255,239,219,antiquewhite1
+238,223,204,antiquewhite2
+205,192,176,antiquewhite3
+139,131,120,antiquewhite4
+127,255,212,aquamarine
+127,255,212,aquamarine1
+118,238,198,aquamarine2
+102,205,170,aquamarine3
+69,139,116,aquamarine4
+240,255,255,azure
+240,255,255,azure1
+224,238,238,azure2
+193,205,205,azure3
+131,139,139,azure4
+245,245,220,beige
+255,228,196,bisque
+255,228,196,bisque1
+238,213,183,bisque2
+205,183,158,bisque3
+139,125,107,bisque4
+0,0,0,black
+255,235,205,blanchedalmond
+0,0,255,blue
+0,0,255,blue1
+0,0,238,blue2
+0,0,205,blue3
+0,0,139,blue4
+138,43,226,blueviolet
+165,42,42,brown
+255,64,64,brown1
+238,59,59,brown2
+205,51,51,brown3
+139,35,35,brown4
+222,184,135,burlywood
+255,211,155,burlywood1
+238,197,145,burlywood2
+205,170,125,burlywood3
+139,115,85,burlywood4
+95,158,160,cadetblue
+152,245,255,cadetblue1
+142,229,238,cadetblue2
+122,197,205,cadetblue3
+83,134,139,cadetblue4
+127,255,0,chartreuse
+127,255,0,chartreuse1
+118,238,0,chartreuse2
+102,205,0,chartreuse3
+69,139,0,chartreuse4
+210,105,30,chocolate
+255,127,36,chocolate1
+238,118,33,chocolate2
+205,102,29,chocolate3
+139,69,19,chocolate4
+255,127,80,coral
+255,114,86,coral1
+238,106,80,coral2
+205,91,69,coral3
+139,62,47,coral4
+100,149,237,cornflowerblue
+255,248,220,cornsilk
+255,248,220,cornsilk1
+238,232,205,cornsilk2
+205,200,177,cornsilk3
+139,136,120,cornsilk4
+0,255,255,cyan
+0,255,255,cyan1
+0,238,238,cyan2
+0,205,205,cyan3
+0,139,139,cyan4
+0,0,139,darkblue
+0,139,139,darkcyan
+184,134,11,darkgoldenrod
+255,185,15,darkgoldenrod1
+238,173,14,darkgoldenrod2
+205,149,12,darkgoldenrod3
+139,101,8,darkgoldenrod4
+169,169,169,darkgray
+0,100,0,darkgreen
+169,169,169,darkgrey
+189,183,107,darkkhaki
+139,0,139,darkmagenta
+85,107,47,darkolivegreen
+202,255,112,darkolivegreen1
+188,238,104,darkolivegreen2
+162,205,90,darkolivegreen3
+110,139,61,darkolivegreen4
+255,140,0,darkorange
+255,127,0,darkorange1
+238,118,0,darkorange2
+205,102,0,darkorange3
+139,69,0,darkorange4
+153,50,204,darkorchid
+191,62,255,darkorchid1
+178,58,238,darkorchid2
+154,50,205,darkorchid3
+104,34,139,darkorchid4
+139,0,0,darkred
+233,150,122,darksalmon
+143,188,143,darkseagreen
+193,255,193,darkseagreen1
+180,238,180,darkseagreen2
+155,205,155,darkseagreen3
+105,139,105,darkseagreen4
+72,61,139,darkslateblue
+47,79,79,darkslategray
+151,255,255,darkslategray1
+141,238,238,darkslategray2
+121,205,205,darkslategray3
+82,139,139,darkslategray4
+47,79,79,darkslategrey
+151,255,255,darkslategrey1
+141,238,238,darkslategrey2
+121,205,205,darkslategrey3
+82,139,139,darkslategrey4
+0,206,209,darkturquoise
+148,0,211,darkviolet
+255,20,147,deeppink
+255,20,147,deeppink1
+238,18,137,deeppink2
+205,16,118,deeppink3
+139,10,80,deeppink4
+0,191,255,deepskyblue
+0,191,255,deepskyblue1
+0,178,238,deepskyblue2
+0,154,205,deepskyblue3
+0,104,139,deepskyblue4
+105,105,105,dimgray
+105,105,105,dimgrey
+30,144,255,dodgerblue
+30,144,255,dodgerblue1
+28,134,238,dodgerblue2
+24,116,205,dodgerblue3
+16,78,139,dodgerblue4
+178,34,34,firebrick
+255,48,48,firebrick1
+238,44,44,firebrick2
+205,38,38,firebrick3
+139,26,26,firebrick4
+255,250,240,floralwhite
+34,139,34,forestgreen
+220,220,220,gainsboro
+248,248,255,ghostwhite
+255,215,0,gold
+255,215,0,gold1
+238,201,0,gold2
+205,173,0,gold3
+139,117,0,gold4
+218,165,32,goldenrod
+255,193,37,goldenrod1
+238,180,34,goldenrod2
+205,155,29,goldenrod3
+139,105,20,goldenrod4
+190,190,190,gray
+0,0,0,gray0
+3,3,3,gray1
+5,5,5,gray2
+8,8,8,gray3
+10,10,10,gray4
+13,13,13,gray5
+15,15,15,gray6
+18,18,18,gray7
+20,20,20,gray8
+23,23,23,gray9
+26,26,26,gray10
+28,28,28,gray11
+31,31,31,gray12
+33,33,33,gray13
+36,36,36,gray14
+38,38,38,gray15
+41,41,41,gray16
+43,43,43,gray17
+46,46,46,gray18
+48,48,48,gray19
+51,51,51,gray20
+54,54,54,gray21
+56,56,56,gray22
+59,59,59,gray23
+61,61,61,gray24
+64,64,64,gray25
+66,66,66,gray26
+69,69,69,gray27
+71,71,71,gray28
+74,74,74,gray29
+77,77,77,gray30
+79,79,79,gray31
+82,82,82,gray32
+84,84,84,gray33
+87,87,87,gray34
+89,89,89,gray35
+92,92,92,gray36
+94,94,94,gray37
+97,97,97,gray38
+99,99,99,gray39
+102,102,102,gray40
+105,105,105,gray41
+107,107,107,gray42
+110,110,110,gray43
+112,112,112,gray44
+115,115,115,gray45
+117,117,117,gray46
+120,120,120,gray47
+122,122,122,gray48
+125,125,125,gray49
+127,127,127,gray50
+130,130,130,gray51
+133,133,133,gray52
+135,135,135,gray53
+138,138,138,gray54
+140,140,140,gray55
+143,143,143,gray56
+145,145,145,gray57
+148,148,148,gray58
+150,150,150,gray59
+153,153,153,gray60
+156,156,156,gray61
+158,158,158,gray62
+161,161,161,gray63
+163,163,163,gray64
+166,166,166,gray65
+168,168,168,gray66
+171,171,171,gray67
+173,173,173,gray68
+176,176,176,gray69
+179,179,179,gray70
+181,181,181,gray71
+184,184,184,gray72
+186,186,186,gray73
+189,189,189,gray74
+191,191,191,gray75
+194,194,194,gray76
+196,196,196,gray77
+199,199,199,gray78
+201,201,201,gray79
+204,204,204,gray80
+207,207,207,gray81
+209,209,209,gray82
+212,212,212,gray83
+214,214,214,gray84
+217,217,217,gray85
+219,219,219,gray86
+222,222,222,gray87
+224,224,224,gray88
+227,227,227,gray89
+229,229,229,gray90
+232,232,232,gray91
+235,235,235,gray92
+237,237,237,gray93
+240,240,240,gray94
+242,242,242,gray95
+245,245,245,gray96
+247,247,247,gray97
+250,250,250,gray98
+252,252,252,gray99
+255,255,255,gray100
+0,255,0,green
+0,255,0,green1
+0,238,0,green2
+0,205,0,green3
+0,139,0,green4
+173,255,47,greenyellow
+190,190,190,grey
+0,0,0,grey0
+3,3,3,grey1
+5,5,5,grey2
+8,8,8,grey3
+10,10,10,grey4
+13,13,13,grey5
+15,15,15,grey6
+18,18,18,grey7
+20,20,20,grey8
+23,23,23,grey9
+26,26,26,grey10
+28,28,28,grey11
+31,31,31,grey12
+33,33,33,grey13
+36,36,36,grey14
+38,38,38,grey15
+41,41,41,grey16
+43,43,43,grey17
+46,46,46,grey18
+48,48,48,grey19
+51,51,51,grey20
+54,54,54,grey21
+56,56,56,grey22
+59,59,59,grey23
+61,61,61,grey24
+64,64,64,grey25
+66,66,66,grey26
+69,69,69,grey27
+71,71,71,grey28
+74,74,74,grey29
+77,77,77,grey30
+79,79,79,grey31
+82,82,82,grey32
+84,84,84,grey33
+87,87,87,grey34
+89,89,89,grey35
+92,92,92,grey36
+94,94,94,grey37
+97,97,97,grey38
+99,99,99,grey39
+102,102,102,grey40
+105,105,105,grey41
+107,107,107,grey42
+110,110,110,grey43
+112,112,112,grey44
+115,115,115,grey45
+117,117,117,grey46
+120,120,120,grey47
+122,122,122,grey48
+125,125,125,grey49
+127,127,127,grey50
+130,130,130,grey51
+133,133,133,grey52
+135,135,135,grey53
+138,138,138,grey54
+140,140,140,grey55
+143,143,143,grey56
+145,145,145,grey57
+148,148,148,grey58
+150,150,150,grey59
+153,153,153,grey60
+156,156,156,grey61
+158,158,158,grey62
+161,161,161,grey63
+163,163,163,grey64
+166,166,166,grey65
+168,168,168,grey66
+171,171,171,grey67
+173,173,173,grey68
+176,176,176,grey69
+179,179,179,grey70
+181,181,181,grey71
+184,184,184,grey72
+186,186,186,grey73
+189,189,189,grey74
+191,191,191,grey75
+194,194,194,grey76
+196,196,196,grey77
+199,199,199,grey78
+201,201,201,grey79
+204,204,204,grey80
+207,207,207,grey81
+209,209,209,grey82
+212,212,212,grey83
+214,214,214,grey84
+217,217,217,grey85
+219,219,219,grey86
+222,222,222,grey87
+224,224,224,grey88
+227,227,227,grey89
+229,229,229,grey90
+232,232,232,grey91
+235,235,235,grey92
+237,237,237,grey93
+240,240,240,grey94
+242,242,242,grey95
+245,245,245,grey96
+247,247,247,grey97
+250,250,250,grey98
+252,252,252,grey99
+255,255,255,grey100
+240,255,240,honeydew
+240,255,240,honeydew1
+224,238,224,honeydew2
+193,205,193,honeydew3
+131,139,131,honeydew4
+255,105,180,hotpink
+255,110,180,hotpink1
+238,106,167,hotpink2
+205,96,144,hotpink3
+139,58,98,hotpink4
+205,92,92,indianred
+255,106,106,indianred1
+238,99,99,indianred2
+205,85,85,indianred3
+139,58,58,indianred4
+255,255,240,ivory
+255,255,240,ivory1
+238,238,224,ivory2
+205,205,193,ivory3
+139,139,131,ivory4
+240,230,140,khaki
+255,246,143,khaki1
+238,230,133,khaki2
+205,198,115,khaki3
+139,134,78,khaki4
+230,230,250,lavender
+255,240,245,lavenderblush
+255,240,245,lavenderblush1
+238,224,229,lavenderblush2
+205,193,197,lavenderblush3
+139,131,134,lavenderblush4
+124,252,0,lawngreen
+255,250,205,lemonchiffon
+255,250,205,lemonchiffon1
+238,233,191,lemonchiffon2
+205,201,165,lemonchiffon3
+139,137,112,lemonchiffon4
+173,216,230,lightblue
+191,239,255,lightblue1
+178,223,238,lightblue2
+154,192,205,lightblue3
+104,131,139,lightblue4
+240,128,128,lightcoral
+224,255,255,lightcyan
+224,255,255,lightcyan1
+209,238,238,lightcyan2
+180,205,205,lightcyan3
+122,139,139,lightcyan4
+238,221,130,lightgoldenrod
+255,236,139,lightgoldenrod1
+238,220,130,lightgoldenrod2
+205,190,112,lightgoldenrod3
+139,129,76,lightgoldenrod4
+250,250,210,lightgoldenrodyellow
+211,211,211,lightgray
+144,238,144,lightgreen
+211,211,211,lightgrey
+255,182,193,lightpink
+255,174,185,lightpink1
+238,162,173,lightpink2
+205,140,149,lightpink3
+139,95,101,lightpink4
+255,160,122,lightsalmon
+255,160,122,lightsalmon1
+238,149,114,lightsalmon2
+205,129,98,lightsalmon3
+139,87,66,lightsalmon4
+32,178,170,lightseagreen
+135,206,250,lightskyblue
+176,226,255,lightskyblue1
+164,211,238,lightskyblue2
+141,182,205,lightskyblue3
+96,123,139,lightskyblue4
+132,112,255,lightslateblue
+119,136,153,lightslategray
+119,136,153,lightslategrey
+176,196,222,lightsteelblue
+202,225,255,lightsteelblue1
+188,210,238,lightsteelblue2
+162,181,205,lightsteelblue3
+110,123,139,lightsteelblue4
+255,255,224,lightyellow
+255,255,224,lightyellow1
+238,238,209,lightyellow2
+205,205,180,lightyellow3
+139,139,122,lightyellow4
+50,205,50,limegreen
+250,240,230,linen
+255,0,255,magenta
+255,0,255,magenta1
+238,0,238,magenta2
+205,0,205,magenta3
+139,0,139,magenta4
+176,48,96,maroon
+255,52,179,maroon1
+238,48,167,maroon2
+205,41,144,maroon3
+139,28,98,maroon4
+102,205,170,mediumaquamarine
+0,0,205,mediumblue
+186,85,211,mediumorchid
+224,102,255,mediumorchid1
+209,95,238,mediumorchid2
+180,82,205,mediumorchid3
+122,55,139,mediumorchid4
+147,112,219,mediumpurple
+171,130,255,mediumpurple1
+159,121,238,mediumpurple2
+137,104,205,mediumpurple3
+93,71,139,mediumpurple4
+60,179,113,mediumseagreen
+123,104,238,mediumslateblue
+0,250,154,mediumspringgreen
+72,209,204,mediumturquoise
+199,21,133,mediumvioletred
+25,25,112,midnightblue
+245,255,250,mintcream
+255,228,225,mistyrose
+255,228,225,mistyrose1
+238,213,210,mistyrose2
+205,183,181,mistyrose3
+139,125,123,mistyrose4
+255,228,181,moccasin
+255,222,173,navajowhite
+255,222,173,navajowhite1
+238,207,161,navajowhite2
+205,179,139,navajowhite3
+139,121,94,navajowhite4
+0,0,128,navy
+0,0,128,navyblue
+253,245,230,oldlace
+107,142,35,olivedrab
+192,255,62,olivedrab1
+179,238,58,olivedrab2
+154,205,50,olivedrab3
+105,139,34,olivedrab4
+255,165,0,orange
+255,165,0,orange1
+238,154,0,orange2
+205,133,0,orange3
+139,90,0,orange4
+255,69,0,orangered
+255,69,0,orangered1
+238,64,0,orangered2
+205,55,0,orangered3
+139,37,0,orangered4
+218,112,214,orchid
+255,131,250,orchid1
+238,122,233,orchid2
+205,105,201,orchid3
+139,71,137,orchid4
+238,232,170,palegoldenrod
+152,251,152,palegreen
+154,255,154,palegreen1
+144,238,144,palegreen2
+124,205,124,palegreen3
+84,139,84,palegreen4
+175,238,238,paleturquoise
+187,255,255,paleturquoise1
+174,238,238,paleturquoise2
+150,205,205,paleturquoise3
+102,139,139,paleturquoise4
+219,112,147,palevioletred
+255,130,171,palevioletred1
+238,121,159,palevioletred2
+205,104,137,palevioletred3
+139,71,93,palevioletred4
+255,239,213,papayawhip
+255,218,185,peachpuff
+255,218,185,peachpuff1
+238,203,173,peachpuff2
+205,175,149,peachpuff3
+139,119,101,peachpuff4
+205,133,63,peru
+255,192,203,pink
+255,181,197,pink1
+238,169,184,pink2
+205,145,158,pink3
+139,99,108,pink4
+221,160,221,plum
+255,187,255,plum1
+238,174,238,plum2
+205,150,205,plum3
+139,102,139,plum4
+176,224,230,powderblue
+160,32,240,purple
+155,48,255,purple1
+145,44,238,purple2
+125,38,205,purple3
+85,26,139,purple4
+255,0,0,red
+255,0,0,red1
+238,0,0,red2
+205,0,0,red3
+139,0,0,red4
+188,143,143,rosybrown
+255,193,193,rosybrown1
+238,180,180,rosybrown2
+205,155,155,rosybrown3
+139,105,105,rosybrown4
+65,105,225,royalblue
+72,118,255,royalblue1
+67,110,238,royalblue2
+58,95,205,royalblue3
+39,64,139,royalblue4
+139,69,19,saddlebrown
+250,128,114,salmon
+255,140,105,salmon1
+238,130,98,salmon2
+205,112,84,salmon3
+139,76,57,salmon4
+244,164,96,sandybrown
+46,139,87,seagreen
+84,255,159,seagreen1
+78,238,148,seagreen2
+67,205,128,seagreen3
+46,139,87,seagreen4
+255,245,238,seashell
+255,245,238,seashell1
+238,229,222,seashell2
+205,197,191,seashell3
+139,134,130,seashell4
+160,82,45,sienna
+255,130,71,sienna1
+238,121,66,sienna2
+205,104,57,sienna3
+139,71,38,sienna4
+135,206,235,skyblue
+135,206,255,skyblue1
+126,192,238,skyblue2
+108,166,205,skyblue3
+74,112,139,skyblue4
+106,90,205,slateblue
+131,111,255,slateblue1
+122,103,238,slateblue2
+105,89,205,slateblue3
+71,60,139,slateblue4
+112,128,144,slategray
+198,226,255,slategray1
+185,211,238,slategray2
+159,182,205,slategray3
+108,123,139,slategray4
+112,128,144,slategrey
+198,226,255,slategrey1
+185,211,238,slategrey2
+159,182,205,slategrey3
+108,123,139,slategrey4
+255,250,250,snow
+255,250,250,snow1
+238,233,233,snow2
+205,201,201,snow3
+139,137,137,snow4
+0,255,127,springgreen
+0,255,127,springgreen1
+0,238,118,springgreen2
+0,205,102,springgreen3
+0,139,69,springgreen4
+70,130,180,steelblue
+99,184,255,steelblue1
+92,172,238,steelblue2
+79,148,205,steelblue3
+54,100,139,steelblue4
+210,180,140,tan
+255,165,79,tan1
+238,154,73,tan2
+205,133,63,tan3
+139,90,43,tan4
+216,191,216,thistle
+255,225,255,thistle1
+238,210,238,thistle2
+205,181,205,thistle3
+139,123,139,thistle4
+255,99,71,tomato
+255,99,71,tomato1
+238,92,66,tomato2
+205,79,57,tomato3
+139,54,38,tomato4
+64,224,208,turquoise
+0,245,255,turquoise1
+0,229,238,turquoise2
+0,197,205,turquoise3
+0,134,139,turquoise4
+238,130,238,violet
+208,32,144,violetred
+255,62,150,violetred1
+238,58,140,violetred2
+205,50,120,violetred3
+139,34,82,violetred4
+245,222,179,wheat
+255,231,186,wheat1
+238,216,174,wheat2
+205,186,150,wheat3
+139,126,102,wheat4
+255,255,255,white
+245,245,245,whitesmoke
+255,255,0,yellow
+255,255,0,yellow1
+238,238,0,yellow2
+205,205,0,yellow3
+139,139,0,yellow4
+154,205,50,yellowgreen
+*/
+
+
+
+//COLORREF bc(){
+//  int index=(rand()*NUM_BUNGCOLS)/RAND_MAX; 
+//  ofstream offs("bungcols_used.txt",ios::app);
+//  offs<<index<<endl;
+//  offs.close();
+//  return bungcol[index];
+//}
+
+
+#define DARK_COL_LO_THRESHOLD (int)(60.0f*sqrtf(3))
+#define DARK_COL_HI_THRESHOLD (int)(128.0f*sqrtf(3))
+
+#define MEDIUM_COL_LO_THRESHOLD (int)(129.0f*sqrtf(3))
+#define MEDIUM_COL_HI_THRESHOLD (int)(192.0f*sqrtf(3))
+
+#define BRIGHT_COL_LO_THRESHOLD (int)(193.0f*sqrtf(3))
+#define BRIGHT_COL_HI_THRESHOLD (int)(255.0f*sqrtf(3))
+
+static COLORREF dark_bungcol[NUM_BUNGCOLS];
+static COLORREF medium_bungcol[NUM_BUNGCOLS];
+static COLORREF bright_bungcol[NUM_BUNGCOLS];
+static int num_bright_bungcols=0;
+static int num_medium_bungcols=0;
+static int num_dark_bungcols=0;
+
+void bc2(){
+  static int once=1;
+  if (once){
+    once=0;
+    for(int i=0;i<NUM_BUNGCOLS;i++){
+      DWORD bcc=bungcol[i];
+      int r=bcc&255;
+      int g=(bcc>>8)&255;
+      int b=(bcc>>16)&255;
+      float s=sqrtf((float)r*r+(float)g*g*1.4f+(float)b*b);
+      if (s>=DARK_COL_LO_THRESHOLD && s<=DARK_COL_LO_THRESHOLD ){
+        dark_bungcol[num_dark_bungcols++]=bcc;
+      }
+      if (s>=MEDIUM_COL_LO_THRESHOLD && s<=MEDIUM_COL_HI_THRESHOLD ){
+        medium_bungcol[num_medium_bungcols++]=bcc;
+      }
+      if (s>=BRIGHT_COL_LO_THRESHOLD && s<=BRIGHT_COL_HI_THRESHOLD ){
+        bright_bungcol[num_bright_bungcols++]=bcc;                 
+      }
+//      if (r>DARK_COL_LO_THRESHOLD*3 && r>=DARK_COL_LO_THRESHOLD && r<=DARK_COL_HI_THRESHOLD && g>=DARK_COL_LO_THRESHOLD && g<=DARK_COL_HI_THRESHOLD && b>=DARK_COL_LO_THRESHOLD && b<=DARK_COL_HI_THRESHOLD){
+//        dark_bungcol[num_dark_bungcols++]=bcc;
+//      }
+//      if (r>=MEDIUM_COL_LO_THRESHOLD && r<=MEDIUM_COL_HI_THRESHOLD && g>=MEDIUM_COL_LO_THRESHOLD && g<=MEDIUM_COL_HI_THRESHOLD && b>=MEDIUM_COL_LO_THRESHOLD && b<=MEDIUM_COL_HI_THRESHOLD){
+//        medium_bungcol[num_medium_bungcols++]=bcc;
+//      }
+//      if (r>=BRIGHT_COL_LO_THRESHOLD && r<=BRIGHT_COL_HI_THRESHOLD && g>=BRIGHT_COL_LO_THRESHOLD && g<=BRIGHT_COL_HI_THRESHOLD && b>=BRIGHT_COL_LO_THRESHOLD && b<=BRIGHT_COL_HI_THRESHOLD){
+//        bright_bungcol[num_bright_bungcols++]=bcc;
+//      }
+    }
+  }
+}
+
+
+
+//COLORREF bcb(){
+//  bc2();
+//  // return a bright colour
+//  int index=(rand()*num_bright_bungcols)/RAND_MAX; 
+//  ofstream offs("bungcols_used.txt",ios::app);
+//  offs<<"bright "<<index<<endl;
+//  offs.close();
+//  return bright_bungcol[index];
+//}
+//
+//
+//
+//COLORREF bcm(){
+//  bc2();
+//  // return a bright colour
+//  int index=(rand()*num_medium_bungcols)/RAND_MAX; 
+//  ofstream offs("bungcols_used.txt",ios::app);
+//  offs<<"medium "<<index<<endl;
+//  offs.close();
+//  return medium_bungcol[index];
+//}
+//
+//
+//
+//COLORREF bcd(){
+//  bc2();
+//  // return a bright colour
+//  int index=(rand()*num_dark_bungcols)/RAND_MAX; 
+//  ofstream offs("bungcols_used.txt",ios::app);
+//  offs<<"dark "<<index<<endl;
+//  offs.close();
+//  return dark_bungcol[index];
+//}
+
+
+
+COLORREF bungcol[NUM_BUNGCOLS]={
+  0xFFFFFF,
+  0xCCCCCC,
+  0x999999,
+  0x666666,
+  0x333333,
+  0x000000,
+  0xFFCC00,
+  0xFF9900,
+  0xFF6600,
+  0xFF3300,
+
+  0x99CC00,
+  0xCC9900,
+  0xFFCC33,
+  0xFFCC66,
+  0xFF9966,
+  0xFF6633,
+  0xCC3300,
+  0xCC0033,
+  0xCCFF00,
+  0xCCFF33,
+  0x333300,
+
+  0x666600,
+  0x999900,
+  0xCCCC00,
+  0xFFFF00,
+  0xCC9933,
+  0xCC6633,
+  0x330000,
+  0x660000,
+  0x990000,
+  0xCC0000,
+  0xFF0000,
+
+  0xFF3366,
+  0xFF0033,
+  0x99FF00,
+  0xCCFF66,
+  0x99CC33,
+  0x666633,
+  0x999933,
+  0xCCCC33,
+  0xFFFF33,
+  0x996600,
+  0x993300,
+
+  0x663333,
+  0x993333,
+  0xCC3333,
+  0xFF3333,
+  0xCC3366,
+  0xFF6699,
+  0xFF0066,
+  0x66FF00,
+  0x99FF66,
+  0x66CC33,
+  0x669900,
+
+  0x999966,
+  0xCCCC66,
+  0xFFFF66,
+  0x996633,
+  0x663300,
+  0x996666,
+  0xCC6666,
+  0xFF6666,
+  0x990033,
+  0xCC3399,
+  0xFF66CC,
+
+  0xFF0099,
+  0x33FF00,
+  0x66FF33,
+  0x339900,
+  0x66CC00,
+  0x99FF33,
+  0xCCCC99,
+  0xFFFF99,
+  0xCC9966,
+  0xCC6600,
+  0xCC9999,
+
+  0xFF9999,
+  0xFF3399,
+  0xCC0066,
+  0x990066,
+  0xFF33CC,
+  0xFF00CC,
+  0x00CC00,
+  0x33CC00,
+  0x336600,
+  0x669933,
+  0x99CC66,
+
+  0xCCFF99,
+  0xFFFFCC,
+  0xFFCC99,
+  0xFF9933,
+  0xFFCCCC,
+  0xFF99CC,
+  0xCC6699,
+  0x993366,
+  0x660033,
+  0xCC0099,
+  0x330033,
+
+  0x33CC33,
+  0x66CC66,
+  0x00FF00,
+  0x33FF33,
+  0x66FF66,
+  0x99FF99,
+  0xCCFFCC,
+  0xCC99CC,
+  0x996699,
+  0x993399,
+  0x990099,
+
+  0x663366,
+  0x660066,
+  0x006600,
+  0x336633,
+  0x009900,
+  0x339933,
+  0x669966,
+  0x99CC99,
+  0xFFCCFF,
+  0xFF99FF,
+  0xFF66FF,
+
+  0xFF33FF,
+  0xFF00FF,
+  0xCC66CC,
+  0xCC33CC,
+  0x003300,
+  0x00CC33,
+  0x006633,
+  0x339966,
+  0x66CC99,
+  0x99FFCC,
+  0xCCFFFF,
+
+  0x3399FF,
+  0x99CCFF,
+  0xCCCCFF,
+  0xCC99FF,
+  0x9966CC,
+  0x663399,
+  0x330066,
+  0x9900CC,
+  0xCC00CC,
+  0x00FF33,
+  0x33FF66,
+
+  0x009933,
+  0x00CC66,
+  0x33FF99,
+  0x99FFFF,
+  0x99CCCC,
+  0x0066CC,
+  0x6699CC,
+  0x9999FF,
+  0x9999CC,
+  0x9933FF,
+  0x6600CC,
+
+  0x660099,
+  0xCC33FF,
+  0xCC00FF,
+  0x00FF66,
+  0x66FF99,
+  0x33CC66,
+  0x009966,
+  0x66FFFF,
+  0x66CCCC,
+  0x669999,
+  0x003366,
+
+  0x336699,
+  0x6666FF,
+  0x6666CC,
+  0x666699,
+  0x330099,
+  0x9933CC,
+  0xCC66FF,
+  0x9900FF,
+  0x00FF99,
+  0x66FFCC,
+  0x33CC99,
+
+  0x33FFFF,
+  0x33CCCC,
+  0x339999,
+  0x336666,
+  0x006699,
+  0x003399,
+  0x3333FF,
+  0x3333CC,
+  0x333399,
+  0x333366,
+  0x6633CC,
+
+  0x9966FF,
+  0x6600FF,
+  0x00FFCC,
+  0x33FFCC,
+  0x00FFFF,
+  0x00CCCC,
+  0x009999,
+  0x006666,
+  0x003333,
+  0x3399CC,
+  0x3366CC,
+
+  0x0000FF,
+  0x0000CC,
+  0x000099,
+  0x000066,
+  0x000033,
+  0x6633FF,
+  0x3300FF,
+  0x00CC99,
+  0x0099CC,
+  0x33CCFF,
+  0x66CCFF,
+
+  0x6699FF,
+  0x3366FF,
+  0x0033CC,
+  0x3300CC,
+  0x00CCFF,
+  0x0099FF,
+  0x0066FF,
+  0x0033FF
+};
+
+
+unsigned long rttcol::basic_cols[256]={
+  0xFF000000, //BLACK                
+  0xFF0000FF, //RED                  
+  0xFF00FF00, //GREEN                
+  0xFF00FFFF, //YELLOW               
+  0xFFFF0000, //BLUE                 
+  0xFFFF00FF, //PURPLE               
+  0xFFFFFF00, //CYAN                 
+  0xFFFFFFFF, //WHITE                
+  0xFFF0F8FF, //AliceBlue            
+  0xFFFAEBD7, //AntiqueWhite         
+  0xFF00FFFF, //Aqua                 
+  0xFF7FFFD4, //Aquamarine           
+
+  0xFFF0FFFF, //Azure                
+  0xFFF5F5DC, //Beige                
+  0xFFFFE4C4, //Bisque               
+  0xFF000000, //Black                
+  0xFFFFEBCD, //BlanchedAlmond       
+  0xFF0000FF, //Blue                 
+  0xFF8A2BE2, //BlueViolet           
+  0xFFA52A2A, //Brown                
+  0xFFDEB887, //BurlyWood            
+  0xFF5F9EA0, //CadetBlue            
+  0xFF7FFF00, //Chartreuse           
+  0xFFD2691E, //Chocolate            
+  0xFFFF7F50, //Coral                
+  0xFF6495ED, //CornflowerBlue       
+  0xFFFFF8DC, //Cornsilk             
+  0xFFDC143C, //Crimson              
+  0xFF00FFFF, //Cyan                 
+  0xFF00008B, //DarkBlue             
+  0xFF008B8B, //DarkCyan             
+  0xFFB8860B, //DarkGoldenrod        
+  0xFFA9A9A9, //DarkGray             
+  0xFF006400, //DarkGreen            
+  0xFFBDB76B, //DarkKhaki            
+  0xFF8B008B, //DarkMagenta          
+  0xFF556B2F, //DarkOliveGreen       
+  0xFFFF8C00, //DarkOrange           
+  0xFF9932CC, //DarkOrchid           
+  0xFF8B0000, //DarkRed              
+  0xFFE9967A, //DarkSalmon           
+  0xFF8FBC8B, //DarkSeaGreen         
+  0xFF483D8B, //DarkSlateBlue        
+  0xFF2F4F4F, //DarkSlateGray        
+  0xFF00CED1, //DarkTurquoise        
+  0xFF9400D3, //DarkViolet           
+  0xFFFF1493, //DeepPink             
+  0xFF00BFFF, //DeepSkyBlue          
+  0xFF696969, //DimGray              
+  0xFF1E90FF, //DodgerBlue           
+  0xFFB22222, //Firebrick            
+  0xFFFFFAF0, //FloralWhite          
+  0xFF228B22, //ForestGreen          
+  0xFFFF00FF, //Fuchsia              
+  0xFFDCDCDC, //Gainsboro            
+  0xFFF8F8FF, //GhostWhite           
+  0xFFFFD700, //Gold                 
+  0xFFDAA520, //Goldenrod            
+  0xFF808080, //Gray                 
+  0xFF008000, //Green                
+  0xFFADFF2F, //GreenYellow          
+  0xFFF0FFF0, //Honeydew             
+  0xFFFF69B4, //HotPink              
+  0xFFCD5C5C, //IndianRed            
+  0xFF4B0082, //Indigo               
+  0xFFFFFFF0, //Ivory                
+  0xFFF0E68C, //Khaki                
+  0xFFE6E6FA, //Lavender             
+  0xFFFFF0F5, //LavenderBlush        
+  0xFF7CFC00, //LawnGreen            
+  0xFFFFFACD, //LemonChiffon         
+  0xFFADD8E6, //LightBlue            
+  0xFFF08080, //LightCoral           
+  0xFFE0FFFF, //LightCyan            
+  0xFFFAFAD2, //LightGoldenrodYellow 
+  0xFFD3D3D3, //LightGray            
+  0xFF90EE90, //LightGreen           
+  0xFFFFB6C1, //LightPink            
+  0xFFFFA07A, //LightSalmon          
+  0xFF20B2AA, //LightSeaGreen        
+  0xFF87CEFA, //LightSkyBlue         
+  0xFF778899, //LightSlateGray       
+  0xFFB0C4DE, //LightSteelBlue       
+  0xFFFFFFE0, //LightYellow          
+  0xFF00FF00, //Lime                 
+  0xFF32CD32, //LimeGreen            
+  0xFFFAF0E6, //Linen                
+  0xFFFF00FF, //Magenta              
+  0xFF800000, //Maroon               
+  0xFF66CDAA, //MediumAquamarine     
+  0xFF0000CD, //MediumBlue           
+  0xFFBA55D3, //MediumOrchid         
+  0xFF9370DB, //MediumPurple         
+  0xFF3CB371, //MediumSeaGreen       
+  0xFF7B68EE, //MediumSlateBlue      
+  0xFF00FA9A, //MediumSpringGreen    
+  0xFF48D1CC, //MediumTurquoise      
+  0xFFC71585, //MediumVioletRed      
+  0xFF191970, //MidnightBlue         
+  0xFFF5FFFA, //MintCream            
+  0xFFFFE4E1, //MistyRose            
+  0xFFFFE4B5, //Moccasin             
+  0xFFFFDEAD, //NavajoWhite          
+  0xFF000080, //Navy                 
+  0xFFFDF5E6, //OldLace              
+  0xFF808000, //Olive                
+  0xFF6B8E23, //OliveDrab            
+  0xFFFFA500, //Orange               
+  0xFFFF4500, //OrangeRed            
+  0xFFDA70D6, //Orchid               
+  0xFFEEE8AA, //PaleGoldenrod        
+  0xFF98FB98, //PaleGreen            
+  0xFFAFEEEE, //PaleTurquoise        
+  0xFFDB7093, //PaleVioletRed        
+  0xFFFFEFD5, //PapayaWhip           
+  0xFFFFDAB9, //PeachPuff            
+  0xFFCD853F, //Peru                 
+  0xFFFFC0CB, //Pink                 
+  0xFFDDA0DD, //Plum                 
+  0xFFB0E0E6, //PowderBlue           
+  0xFF800080, //Purple               
+  0xFFFF0000, //Red                  
+  0xFFBC8F8F, //RosyBrown            
+  0xFF4169E1, //RoyalBlue            
+  0xFF8B4513, //SaddleBrown          
+  0xFFFA8072, //Salmon               
+  0xFFF4A460, //SandyBrown           
+  0xFF2E8B57, //SeaGreen             
+  0xFFFFF5EE, //SeaShell             
+  0xFFA0522D, //Sienna               
+  0xFFC0C0C0, //Silver               
+  0xFF87CEEB, //SkyBlue              
+  0xFF6A5ACD, //SlateBlue            
+  0xFF708090, //SlateGray            
+  0xFFFFFAFA, //Snow                 
+  0xFF00FF7F, //SpringGreen          
+  0xFF4682B4, //SteelBlue            
+  0xFFD2B48C, //Tan                  
+  0xFF008080, //Teal                 
+  0xFFD8BFD8, //Thistle              
+  0xFFFF6347, //Tomato               
+  0x00FFFFFF, //Transparent          
+  0xFF40E0D0, //Turquoise            
+  0xFFEE82EE, //Violet               
+  0xFFF5DEB3, //Wheat                
+  0xFFFFFFFF, //White                
+  0xFFF5F5F5, //WhiteSmoke           
+  0xFFFFFF00, //Yellow               
+  0xFF9ACD32, //YellowGreen          
+  0xFF640053, //verydarkviolet
+};
+
+
+unsigned long RTTcustom_cols[256]={
+  rttcol::basic_cols[rttcol::darkviolet],  //    COLOUR_GRAPH_CPP_RETRACEMENT_CANDIDATE_BOX_COLOUR
+};
+
+/*
+enum rtcr_indices={
+aliceblue,
+antiquewhite,
+antiquewhite1,
+antiquewhite2,
+antiquewhite3,
+antiquewhite4,
+aquamarine,
+aquamarine1,
+aquamarine2,
+aquamarine3,
+aquamarine4,
+azure
+azure1
+azure2
+azure3
+azure4
+beige
+bisque
+bisque1
+bisque2
+bisque3
+bisque4
+black
+blanchedalmond
+blue
+blue1
+blue2
+blue3
+blue4
+blueviolet
+brown
+brown1
+brown2
+brown3
+brown4
+burlywood
+burlywood1
+burlywood2
+burlywood3
+burlywood4
+cadetblue
+cadetblue1
+cadetblue2
+cadetblue3
+cadetblue4
+chartreuse
+chartreuse1
+chartreuse2
+chartreuse3
+chartreuse4
+chocolate
+chocolate1
+chocolate2
+chocolate3
+chocolate4
+coral
+coral1
+coral2
+coral3
+coral4
+cornflowerblue
+cornsilk
+cornsilk1
+cornsilk2
+cornsilk3
+cornsilk4
+cyan
+cyan1
+cyan2
+cyan3
+cyan4
+darkblue
+darkcyan
+darkgoldenrod
+darkgoldenrod1
+darkgoldenrod2
+darkgoldenrod3
+darkgoldenrod4
+darkgray
+darkgreen
+darkgrey
+darkkhaki
+darkmagenta
+darkolivegreen
+darkolivegreen1
+darkolivegreen2
+darkolivegreen3
+darkolivegreen4
+darkorange
+darkorange1
+darkorange2
+darkorange3
+darkorange4
+darkorchid
+darkorchid1
+darkorchid2
+darkorchid3
+darkorchid4
+darkred
+darksalmon
+darkseagreen
+darkseagreen1
+darkseagreen2
+darkseagreen3
+darkseagreen4
+darkslateblue
+darkslategray
+darkslategray1
+darkslategray2
+darkslategray3
+darkslategray4
+darkslategrey
+darkslategrey1
+darkslategrey2
+darkslategrey3
+darkslategrey4
+darkturquoise
+darkviolet
+deeppink
+deeppink1
+deeppink2
+deeppink3
+deeppink4
+deepskyblue
+deepskyblue1
+deepskyblue2
+deepskyblue3
+deepskyblue4
+dimgray
+dimgrey
+dodgerblue
+dodgerblue1
+dodgerblue2
+dodgerblue3
+dodgerblue4
+firebrick
+firebrick1
+firebrick2
+firebrick3
+firebrick4
+floralwhite
+forestgreen
+gainsboro
+ghostwhite
+gold
+gold1
+gold2
+gold3
+gold4
+goldenrod
+goldenrod1
+goldenrod2
+goldenrod3
+goldenrod4
+gray
+gray0
+gray1
+gray2
+gray3
+gray4
+gray5
+gray6
+gray7
+gray8
+gray9
+gray10
+gray11
+gray12
+gray13
+gray14
+gray15
+gray16
+gray17
+gray18
+gray19
+gray20
+gray21
+gray22
+gray23
+gray24
+gray25
+gray26
+gray27
+gray28
+gray29
+gray30
+gray31
+gray32
+gray33
+gray34
+gray35
+gray36
+gray37
+gray38
+gray39
+gray40
+gray41
+gray42
+gray43
+gray44
+gray45
+gray46
+gray47
+gray48
+gray49
+gray50
+gray51
+gray52
+gray53
+gray54
+gray55
+gray56
+gray57
+gray58
+gray59
+gray60
+gray61
+gray62
+gray63
+gray64
+gray65
+gray66
+gray67
+gray68
+gray69
+gray70
+gray71
+gray72
+gray73
+gray74
+gray75
+gray76
+gray77
+gray78
+gray79
+gray80
+gray81
+gray82
+gray83
+gray84
+gray85
+gray86
+gray87
+gray88
+gray89
+gray90
+gray91
+gray92
+gray93
+gray94
+gray95
+gray96
+gray97
+gray98
+gray99
+gray100
+green
+green1
+green2
+green3
+green4
+greenyellow
+grey
+grey0
+grey1
+grey2
+grey3
+grey4
+grey5
+grey6
+grey7
+grey8
+grey9
+grey10
+grey11
+grey12
+grey13
+grey14
+grey15
+grey16
+grey17
+grey18
+grey19
+grey20
+grey21
+grey22
+grey23
+grey24
+grey25
+grey26
+grey27
+grey28
+grey29
+grey30
+grey31
+grey32
+grey33
+grey34
+grey35
+grey36
+grey37
+grey38
+grey39
+grey40
+grey41
+grey42
+grey43
+grey44
+grey45
+grey46
+grey47
+grey48
+grey49
+grey50
+grey51
+grey52
+grey53
+grey54
+grey55
+grey56
+grey57
+grey58
+grey59
+grey60
+grey61
+grey62
+grey63
+grey64
+grey65
+grey66
+grey67
+grey68
+grey69
+grey70
+grey71
+grey72
+grey73
+grey74
+grey75
+grey76
+grey77
+grey78
+grey79
+grey80
+grey81
+grey82
+grey83
+grey84
+grey85
+grey86
+grey87
+grey88
+grey89
+grey90
+grey91
+grey92
+grey93
+grey94
+grey95
+grey96
+grey97
+grey98
+grey99
+grey100
+honeydew
+honeydew1
+honeydew2
+honeydew3
+honeydew4
+hotpink
+hotpink1
+hotpink2
+hotpink3
+hotpink4
+indianred
+indianred1
+indianred2
+indianred3
+indianred4
+ivory
+ivory1
+ivory2
+ivory3
+ivory4
+khaki
+khaki1
+khaki2
+khaki3
+khaki4
+lavender
+lavenderblush
+lavenderblush1
+lavenderblush2
+lavenderblush3
+lavenderblush4
+lawngreen
+lemonchiffon
+lemonchiffon1
+lemonchiffon2
+lemonchiffon3
+lemonchiffon4
+lightblue
+lightblue1
+lightblue2
+lightblue3
+lightblue4
+lightcoral
+lightcyan
+lightcyan1
+lightcyan2
+lightcyan3
+lightcyan4
+lightgoldenrod
+lightgoldenrod1
+lightgoldenrod2
+lightgoldenrod3
+lightgoldenrod4
+lightgoldenrodyellow
+lightgray
+lightgreen
+lightgrey
+lightpink
+lightpink1
+lightpink2
+lightpink3
+lightpink4
+lightsalmon
+lightsalmon1
+lightsalmon2
+lightsalmon3
+lightsalmon4
+lightseagreen
+lightskyblue
+lightskyblue1
+lightskyblue2
+lightskyblue3
+lightskyblue4
+lightslateblue
+lightslategray
+lightslategrey
+lightsteelblue
+lightsteelblue1
+lightsteelblue2
+lightsteelblue3
+lightsteelblue4
+lightyellow
+lightyellow1
+lightyellow2
+lightyellow3
+lightyellow4
+limegreen
+linen
+magenta
+magenta1
+magenta2
+magenta3
+magenta4
+maroon
+maroon1
+maroon2
+maroon3
+maroon4
+mediumaquamarine
+mediumblue
+mediumorchid
+mediumorchid1
+mediumorchid2
+mediumorchid3
+mediumorchid4
+mediumpurple
+mediumpurple1
+mediumpurple2
+mediumpurple3
+mediumpurple4
+mediumseagreen
+mediumslateblue
+mediumspringgreen
+mediumturquoise
+mediumvioletred
+midnightblue
+mintcream
+mistyrose
+mistyrose1
+mistyrose2
+mistyrose3
+mistyrose4
+moccasin
+navajowhite
+navajowhite1
+navajowhite2
+navajowhite3
+navajowhite4
+navy
+navyblue
+oldlace
+olivedrab
+olivedrab1
+olivedrab2
+olivedrab3
+olivedrab4
+orange
+orange1
+orange2
+orange3
+orange4
+orangered
+orangered1
+orangered2
+orangered3
+orangered4
+orchid
+orchid1
+orchid2
+orchid3
+orchid4
+palegoldenrod
+palegreen
+palegreen1
+palegreen2
+palegreen3
+palegreen4
+paleturquoise
+paleturquoise1
+paleturquoise2
+paleturquoise3
+paleturquoise4
+palevioletred
+palevioletred1
+palevioletred2
+palevioletred3
+palevioletred4
+papayawhip
+peachpuff
+peachpuff1
+peachpuff2
+peachpuff3
+peachpuff4
+peru
+pink
+pink1
+pink2
+pink3
+pink4
+plum
+plum1
+plum2
+plum3
+plum4
+powderblue
+purple
+purple1
+purple2
+purple3
+purple4
+red
+red1
+red2
+red3
+red4
+rosybrown
+rosybrown1
+rosybrown2
+rosybrown3
+rosybrown4
+royalblue
+royalblue1
+royalblue2
+royalblue3
+royalblue4
+saddlebrown
+salmon
+salmon1
+salmon2
+salmon3
+salmon4
+sandybrown
+seagreen
+seagreen1
+seagreen2
+seagreen3
+seagreen4
+seashell
+seashell1
+seashell2
+seashell3
+seashell4
+sienna
+sienna1
+sienna2
+sienna3
+sienna4
+skyblue
+skyblue1
+skyblue2
+skyblue3
+skyblue4
+slateblue
+slateblue1
+slateblue2
+slateblue3
+slateblue4
+slategray
+slategray1
+slategray2
+slategray3
+slategray4
+slategrey
+slategrey1
+slategrey2
+slategrey3
+slategrey4
+snow
+snow1
+snow2
+snow3
+snow4
+springgreen
+springgreen1
+springgreen2
+springgreen3
+springgreen4
+steelblue
+steelblue1
+steelblue2
+steelblue3
+steelblue4
+tan
+tan1
+tan2
+tan3
+tan4
+thistle
+thistle1
+thistle2
+thistle3
+thistle4
+tomato
+tomato1
+tomato2
+tomato3
+tomato4
+turquoise
+turquoise1
+turquoise2
+turquoise3
+turquoise4
+violet
+violetred
+violetred1
+violetred2
+violetred3
+violetred4
+wheat
+wheat1
+wheat2
+wheat3
+wheat4
+white
+whitesmoke
+yellow
+yellow1
+yellow2
+yellow3
+yellow4
+yellowgreen
+*/
+
+
+
+
+
+
+
+COLORREF joeycols[]={
+aliceblue_c,
+antiquewhite_c,
+antiquewhite1_c,
+antiquewhite2_c,
+antiquewhite3_c,
+antiquewhite4_c,
+aquamarine_c,
+aquamarine1_c,
+aquamarine2_c,
+aquamarine3_c,
+aquamarine4_c,
+azure_c,
+azure1_c,
+azure2_c,
+azure3_c,
+azure4_c,
+beige_c,
+bisque_c,
+bisque1_c,
+bisque2_c,
+bisque3_c,
+bisque4_c,
+black_c,
+blanchedalmond_c,
+blue_c,
+blue1_c,
+blue2_c,
+blue3_c,
+blue4_c,
+blueviolet_c,
+brown_c,
+brown1_c,
+brown2_c,
+brown3_c,
+brown4_c,
+burlywood_c,
+burlywood1_c,
+burlywood2_c,
+burlywood3_c,
+burlywood4_c,
+cadetblue_c,
+cadetblue1_c,
+cadetblue2_c,
+cadetblue3_c,
+cadetblue4_c,
+chartreuse_c,
+chartreuse1_c,
+chartreuse2_c,
+chartreuse3_c,
+chartreuse4_c,
+chocolate_c,
+chocolate1_c,
+chocolate2_c,
+chocolate3_c,
+chocolate4_c,
+coral_c,
+coral1_c,
+coral2_c,
+coral3_c,
+coral4_c,
+cornflowerblue_c,
+cornsilk_c,
+cornsilk1_c,
+cornsilk2_c,
+cornsilk3_c,
+cornsilk4_c,
+//crimson_c,
+cyan_c,
+cyan1_c,
+cyan2_c,
+cyan3_c,
+cyan4_c,
+darkblue_c,
+darkcyan_c,
+darkgoldenrod_c,
+darkgoldenrod1_c,
+darkgoldenrod2_c,
+darkgoldenrod3_c,
+darkgoldenrod4_c,
+darkgray_c,
+darkgreen_c,
+darkgrey_c,
+darkkhaki_c,
+darkmagenta_c,
+darkolivegreen_c,
+darkolivegreen1_c,
+darkolivegreen2_c,
+darkolivegreen3_c,
+darkolivegreen4_c,
+darkorange_c,
+darkorange1_c,
+darkorange2_c,
+darkorange3_c,
+darkorange4_c,
+darkorchid_c,
+darkorchid1_c,
+darkorchid2_c,
+darkorchid3_c,
+darkorchid4_c,
+darkred_c,
+darksalmon_c,
+darkseagreen_c,
+darkseagreen1_c,
+darkseagreen2_c,
+darkseagreen3_c,
+darkseagreen4_c,
+darkslateblue_c,
+darkslategray_c,
+darkslategray1_c,
+darkslategray2_c,
+darkslategray3_c,
+darkslategray4_c,
+darkslategrey_c,
+darkslategrey1_c,
+darkslategrey2_c,
+darkslategrey3_c,
+darkslategrey4_c,
+darkturquoise_c,
+darkviolet_c,
+deeppink_c,
+deeppink1_c,
+deeppink2_c,
+deeppink3_c,
+deeppink4_c,
+deepskyblue_c,
+deepskyblue1_c,
+deepskyblue2_c,
+deepskyblue3_c,
+deepskyblue4_c,
+dimgray_c,
+dimgrey_c,
+dodgerblue_c,
+dodgerblue1_c,
+dodgerblue2_c,
+dodgerblue3_c,
+dodgerblue4_c,
+firebrick_c,
+firebrick1_c,
+firebrick2_c,
+firebrick3_c,
+firebrick4_c,
+floralwhite_c,
+forestgreen_c,
+gainsboro_c,
+ghostwhite_c,
+gold_c,
+gold1_c,
+gold2_c,
+gold3_c,
+gold4_c,
+goldenrod_c,
+goldenrod1_c,
+goldenrod2_c,
+goldenrod3_c,
+goldenrod4_c,
+gray_c,
+gray0_c,
+gray1_c,
+gray2_c,
+gray3_c,
+gray4_c,
+gray5_c,
+gray6_c,
+gray7_c,
+gray8_c,
+gray9_c,
+gray10_c,
+gray11_c,
+gray12_c,
+gray13_c,
+gray14_c,
+gray15_c,
+gray16_c,
+gray17_c,
+gray18_c,
+gray19_c,
+gray20_c,
+gray21_c,
+gray22_c,
+gray23_c,
+gray24_c,
+gray25_c,
+gray26_c,
+gray27_c,
+gray28_c,
+gray29_c,
+gray30_c,
+gray31_c,
+gray32_c,
+gray33_c,
+gray34_c,
+gray35_c,
+gray36_c,
+gray37_c,
+gray38_c,
+gray39_c,
+gray40_c,
+gray41_c,
+gray42_c,
+gray43_c,
+gray44_c,
+gray45_c,
+gray46_c,
+gray47_c,
+gray48_c,
+gray49_c,
+gray50_c,
+gray51_c,
+gray52_c,
+gray53_c,
+gray54_c,
+gray55_c,
+gray56_c,
+gray57_c,
+gray58_c,
+gray59_c,
+gray60_c,
+gray61_c,
+gray62_c,
+gray63_c,
+gray64_c,
+gray65_c,
+gray66_c,
+gray67_c,
+gray68_c,
+gray69_c,
+gray70_c,
+gray71_c,
+gray72_c,
+gray73_c,
+gray74_c,
+gray75_c,
+gray76_c,
+gray77_c,
+gray78_c,
+gray79_c,
+gray80_c,
+gray81_c,
+gray82_c,
+gray83_c,
+gray84_c,
+gray85_c,
+gray86_c,
+gray87_c,
+gray88_c,
+gray89_c,
+gray90_c,
+gray91_c,
+gray92_c,
+gray93_c,
+gray94_c,
+gray95_c,
+gray96_c,
+gray97_c,
+gray98_c,
+gray99_c,
+gray100_c,
+green_c,
+green1_c,
+green2_c,
+green3_c,
+green4_c,
+//green5_c,
+//green6_c,
+//green7_c,
+//green8_c,
+//green9_c,
+greenyellow_c,
+grey_c,
+grey0_c,
+grey1_c,
+grey2_c,
+grey3_c,
+grey4_c,
+grey5_c,
+grey6_c,
+grey7_c,
+grey8_c,
+grey9_c,
+grey10_c,
+grey11_c,
+grey12_c,
+grey13_c,
+grey14_c,
+grey15_c,
+grey16_c,
+grey17_c,
+grey18_c,
+grey19_c,
+grey20_c,
+grey21_c,
+grey22_c,
+grey23_c,
+grey24_c,
+grey25_c,
+grey26_c,
+grey27_c,
+grey28_c,
+grey29_c,
+grey30_c,
+grey31_c,
+grey32_c,
+grey33_c,
+grey34_c,
+grey35_c,
+grey36_c,
+grey37_c,
+grey38_c,
+grey39_c,
+grey40_c,
+grey41_c,
+grey42_c,
+grey43_c,
+grey44_c,
+grey45_c,
+grey46_c,
+grey47_c,
+grey48_c,
+grey49_c,
+grey50_c,
+grey51_c,
+grey52_c,
+grey53_c,
+grey54_c,
+grey55_c,
+grey56_c,
+grey57_c,
+grey58_c,
+grey59_c,
+grey60_c,
+grey61_c,
+grey62_c,
+grey63_c,
+grey64_c,
+grey65_c,
+grey66_c,
+grey67_c,
+grey68_c,
+grey69_c,
+grey70_c,
+grey71_c,
+grey72_c,
+grey73_c,
+grey74_c,
+grey75_c,
+grey76_c,
+grey77_c,
+grey78_c,
+grey79_c,
+grey80_c,
+grey81_c,
+grey82_c,
+grey83_c,
+grey84_c,
+grey85_c,
+grey86_c,
+grey87_c,
+grey88_c,
+grey89_c,
+grey90_c,
+grey91_c,
+grey92_c,
+grey93_c,
+grey94_c,
+grey95_c,
+grey96_c,
+grey97_c,
+grey98_c,
+grey99_c,
+grey100_c,
+honeydew_c,
+honeydew1_c,
+honeydew2_c,
+honeydew3_c,
+honeydew4_c,
+hotpink_c,
+hotpink1_c,
+hotpink2_c,
+hotpink3_c,
+hotpink4_c,
+indianred_c,
+indianred1_c,
+indianred2_c,
+indianred3_c,
+indianred4_c,
+ivory_c,
+ivory1_c,
+ivory2_c,
+ivory3_c,
+ivory4_c,
+khaki_c,
+khaki1_c,
+khaki2_c,
+khaki3_c,
+khaki4_c,
+lavender_c,
+lavenderblush_c,
+lavenderblush1_c,
+lavenderblush2_c,
+lavenderblush3_c,
+lavenderblush4_c,
+lawngreen_c,
+lemonchiffon_c,
+lemonchiffon1_c,
+lemonchiffon2_c,
+lemonchiffon3_c,
+lemonchiffon4_c,
+lightblue_c,
+lightblue1_c,
+lightblue2_c,
+lightblue3_c,
+lightblue4_c,
+lightcoral_c,
+lightcyan_c,
+lightcyan1_c,
+lightcyan2_c,
+lightcyan3_c,
+lightcyan4_c,
+lightgoldenrod_c,
+lightgoldenrod1_c,
+lightgoldenrod2_c,
+lightgoldenrod3_c,
+lightgoldenrod4_c,
+lightgoldenrodyellow_c,
+lightgray_c,
+lightgreen_c,
+lightgrey_c,
+lightpink_c,
+lightpink1_c,
+lightpink2_c,
+lightpink3_c,
+lightpink4_c,
+lightsalmon_c,
+lightsalmon1_c,
+lightsalmon2_c,
+lightsalmon3_c,
+lightsalmon4_c,
+lightseagreen_c,
+lightskyblue_c,
+lightskyblue1_c,
+lightskyblue2_c,
+lightskyblue3_c,
+lightskyblue4_c,
+lightslateblue_c,
+lightslategray_c,
+lightslategrey_c,
+lightsteelblue_c,
+lightsteelblue1_c,
+lightsteelblue2_c,
+lightsteelblue3_c,
+lightsteelblue4_c,
+lightyellow_c,
+lightyellow1_c,
+lightyellow2_c,
+lightyellow3_c,
+lightyellow4_c,
+limegreen_c,
+linen_c,
+magenta_c,
+magenta1_c,
+magenta2_c,
+magenta3_c,
+magenta4_c,
+maroon_c,
+maroon1_c,
+maroon2_c,
+maroon3_c,
+maroon4_c,
+mediumaquamarine_c,
+mediumblue_c,
+mediumorchid_c,
+mediumorchid1_c,
+mediumorchid2_c,
+mediumorchid3_c,
+mediumorchid4_c,
+mediumpurple_c,
+mediumpurple1_c,
+mediumpurple2_c,
+mediumpurple3_c,
+mediumpurple4_c,
+mediumseagreen_c,
+mediumslateblue_c,
+mediumspringgreen_c,
+mediumturquoise_c,
+mediumvioletred_c,
+midnightblue_c,
+mintcream_c,
+mistyrose_c,
+mistyrose1_c,
+mistyrose2_c,
+mistyrose3_c,
+mistyrose4_c,
+moccasin_c,
+navajowhite_c,
+navajowhite1_c,
+navajowhite2_c,
+navajowhite3_c,
+navajowhite4_c,
+navy_c,
+navyblue_c,
+oldlace_c,
+olivedrab_c,
+olivedrab1_c,
+olivedrab2_c,
+olivedrab3_c,
+olivedrab4_c,
+//orange0_c,
+orange_c,
+orange1_c,
+orange2_c,
+orange3_c,
+orange4_c,
+orangered_c,
+orangered1_c,
+orangered2_c,
+orangered3_c,
+orangered4_c,
+orchid_c,
+orchid1_c,
+orchid2_c,
+orchid3_c,
+orchid4_c,
+palegoldenrod_c,
+palegreen_c,
+palegreen1_c,
+palegreen2_c,
+palegreen3_c,
+palegreen4_c,
+paleturquoise_c,
+paleturquoise1_c,
+paleturquoise2_c,
+paleturquoise3_c,
+paleturquoise4_c,
+palevioletred_c,
+palevioletred1_c,
+palevioletred2_c,
+palevioletred3_c,
+palevioletred4_c,
+papayawhip_c,
+peachpuff_c,
+peachpuff1_c,
+peachpuff2_c,
+peachpuff3_c,
+peachpuff4_c,
+peru_c,
+pink_c,
+pink1_c,
+pink2_c,
+pink3_c,
+pink4_c,
+plum_c,
+plum1_c,
+plum2_c,
+plum3_c,
+plum4_c,
+powderblue_c,
+purple_c,
+purple1_c,
+purple2_c,
+purple3_c,
+purple4_c,
+red_c,
+red1_c,
+red2_c,
+red3_c,
+red4_c,
+//red5_c,
+//red6_c,
+//red7_c,
+//red8_c,
+rosybrown_c,
+rosybrown1_c,
+rosybrown2_c,
+rosybrown3_c,
+rosybrown4_c,
+royalblue_c,
+royalblue1_c,
+royalblue2_c,
+royalblue3_c,
+royalblue4_c,
+saddlebrown_c,
+salmon_c,
+salmon1_c,
+salmon2_c,
+salmon3_c,
+salmon4_c,
+sandybrown_c,
+seagreen_c,
+seagreen1_c,
+seagreen2_c,
+seagreen3_c,
+seagreen4_c,
+seashell_c,
+seashell1_c,
+seashell2_c,
+seashell3_c,
+seashell4_c,
+sienna_c,
+sienna1_c,
+sienna2_c,
+sienna3_c,
+sienna4_c,
+skyblue_c,
+skyblue1_c,
+skyblue2_c,
+skyblue3_c,
+skyblue4_c,
+slateblue_c,
+slateblue1_c,
+slateblue2_c,
+slateblue3_c,
+slateblue4_c,
+slategray_c,
+slategray1_c,
+slategray2_c,
+slategray3_c,
+slategray4_c,
+slategrey_c,
+slategrey1_c,
+slategrey2_c,
+slategrey3_c,
+slategrey4_c,
+snow_c,
+snow1_c,
+snow2_c,
+snow3_c,
+snow4_c,
+springgreen_c,
+springgreen1_c,
+springgreen2_c,
+springgreen3_c,
+springgreen4_c,
+steelblue_c,
+steelblue1_c,
+steelblue2_c,
+steelblue3_c,
+steelblue4_c,
+tan_c,
+tan1_c,
+tan2_c,
+tan3_c,
+tan4_c,
+thistle_c,
+thistle1_c,
+thistle2_c,
+thistle3_c,
+thistle4_c,
+tomato_c,
+tomato1_c,
+tomato2_c,
+tomato3_c,
+tomato4_c,
+turquoise_c,
+turquoise1_c,
+turquoise2_c,
+turquoise3_c,
+turquoise4_c,
+violet_c,
+violetred_c,
+violetred1_c,
+violetred2_c,
+violetred3_c,
+violetred4_c,
+wheat_c,
+wheat1_c,
+wheat2_c,
+wheat3_c,
+wheat4_c,
+white_c,
+whitesmoke_c,
+yellow_c,
+yellow1_c,
+yellow2_c,
+yellow3_c,
+yellow4_c,
+//yellow5_c,
+//yellow6_c,
+//yellow7_c,
+//yellow8_c,
+yellowgreen_c,
+ultramarineblue_c,
+electricultramarine_c,
+ultramarine_c,
+awesome_cplus4_pink_c,
+awesome_cplus4_pink_c
+};
+
+COLORREF rand_col(){
+  return joeycols[((sizeof(joeycols)/sizeof(COLORREF))*rand())/RAND_MAX];
+}
+
+COLORREF rand_dark_colO(){
+  COLORREF col;
+  int r,g,b;
+  do{
+    col=rand_col();
+    r=col&255;
+    g=(col>>8)&255;
+    b=(col>>16)&255;
+  }while(sqrtf((float)(r*r+g*g+b*b*0.6f))>96.0f || r>48 || g>48 || (r==g && g==b));
+  return col;
+}
+
+COLORREF rand_dark_col(){
+  COLORREF col;
+  int r,g,b;
+  do{
+    r=(rand()*255)/RAND_MAX;
+    g=(rand()*255)/RAND_MAX;
+    b=(rand()*255)/RAND_MAX;
+    col=r|(g<<8)|(b<<16);
+  }while(sqrtf((float)(r*r+g*g+b*b*0.8f))>64.0f);
+  return col;
+}
