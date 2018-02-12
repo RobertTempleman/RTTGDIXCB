@@ -126,9 +126,9 @@ private:
   xcb_image_t *image;
   uint8_t *image32;
   xcb_gcontext_t graphics_context;
-  //  HBITMAP bitmap;
+  s32 bitmap;
   //  BITMAP *pbitmap; // if this holds a bitmap from a file
-  //  HDC bitmap_dc;
+  s32 bitmap_dc;
   //  HPEN pen;
   static map<COLORREF,xcb_gcontext_t> cached_graphics_contexts;  
   static map<COLORREF,xcb_gcontext_t> cached_solid_fill_colour_graphics_contexts;  

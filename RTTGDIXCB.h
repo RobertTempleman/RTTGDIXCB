@@ -138,6 +138,9 @@ private:
 
   BMP bmp;
   bool first_time;
+  
+  vector<xcb_point_t> cached_pts;
+
 public:
   void check_initialisation_of_debug_gfx();
   RTTXCB(RTT_DC &dc,const char *filename);
@@ -187,6 +190,9 @@ public:
   void blit_bitmap_to_self_stretched_to_fit(RTTXCB *rttgdi_prestretched_source,int screen_x,int screen_y,int screen_w,int screen_h,int copy_from_rectangle_x,int copy_from_rectangle_y,int copy_from_w,int copy_from_h);
   virtual void blit_bitmap_to_workarea_only(RTTXCB *rttgdi_source){};// designed to blit only to visible workspace region of whatever inherits this, so title bars arent messed up etc
   virtual void line(s16 x1,s16 y1,s16 x2,s16 y2,COLORREF cr);
+  void line_cached_start(s16 x1,s16 y1,COLORREF cr);
+  void line_cached_add_pt(s16 x1,s16 y1);
+  void line_cached_draw();
   virtual void circle(s16 x,s16 y,u16 r,COLORREF cr);
   virtual void ellipse(s16 x,s16 y,u16 w,u16 h,COLORREF cr,s16 start_ang=0,s16 arc_ang=360<<1);
   virtual void rectangle(int x,int y,int w,int h,COLORREF cr);

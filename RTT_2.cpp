@@ -125,7 +125,7 @@ void animation_timer_func(sigval val){
   animation_func();
 }
 
-#define ANIMATION_HZ 10
+#define ANIMATION_HZ 8
 void set_animation_function_on_timer(std::function<void()> func){
   sigevent sig;
   sig.sigev_notify=SIGEV_THREAD;

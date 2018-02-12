@@ -530,6 +530,33 @@ void RTTXCB::line(s16 x1,s16 y1,s16 x2,s16 y2,COLORREF cr){
 }
 
 
+void RTTXCB::line_cached_start(s16 x1,s16 y1,COLORREF cr){
+  // start recording pts for a poly line
+  cached_pts.clear();
+  if (cr!=last_col){
+    select_col(cr);
+  }
+  xcb_point_t pt={x1,y1};
+  cached_pts.push_back(pt);
+}
+
+
+void RTTXCB::line_cached_add_pt(s16 x1,s16 y1){
+  // add single line segment to cached pts
+  xcb_point_t pt={x1,y1};
+  cached_pts.push_back(pt);
+}
+
+
+void RTTXCB::line_cached_draw(){
+  pthread_mutex_lock(&xcb_access_gating_mutex);
+  s32 num=cached_pts.size();
+  assert(num>1);
+  xcb_poly_line(device_context.connection, XCB_COORD_MODE_ORIGIN, pixmap, foreground, num, cached_pts.data());
+  pthread_mutex_unlock(&xcb_access_gating_mutex);
+}
+
+
 void RTTXCB::circle(s16 x,s16 y,u16 r,COLORREF cr){
   select_col(cr);
   x-=r;

@@ -526,21 +526,24 @@ void RTTplayer::draw_waveform(track *t,DWORD ti){
   g*=frac;
   b*=frac;
   col=(int)r|((int)g<<8)|((int)b<<16);
-  HPEN penwaveform=CreatePen(PS_SOLID,1,col);
-  SelectObject(render_bitmap_dc,penwaveform);
+  //  HPEN penwaveform=CreatePen(PS_SOLID,1,col);
+  //  SelectObject(render_bitmap_dc,penwaveform);
   three_floats *tf=t->audio;
   int pos=t->read_pos;
   for(int i=0;i<PLAYER_DISPLAY_WIDTH;i++){
     int yy=player_wave_y+(int)(tf[pos+=8].l*0.0012f);
     if (i==0){
-      MoveToEx(render_bitmap_dc,i,yy,0);
+      render_bitmap_dc->line_cached_start(i, yy, col);
+        //      MoveToEx(render_bitmap_dc,i,yy,0);
     }else{
-      LineTo(render_bitmap_dc,i,yy);
+      render_bitmap_dc->line_cached_add_pt(i, yy);
+      //      LineTo(render_bitmap_dc,i,yy);
     }
     if (pos>=PLAYER_BUFFER_NUM_SAMPLES){
       pos=0;
     }
   }
+  render_bitmap_dc->line_cached_draw();
   //  DeleteObject(penwaveform);
 }
 
