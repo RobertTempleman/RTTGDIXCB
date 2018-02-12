@@ -43,10 +43,12 @@ rtt_pane::rtt_pane(rtt_window&_parent_window,
                      mouse_was_clicked_inside_pane(false),
                      do_a_refresh(false),
                      pane_special_functionality(PANE_SPECIAL_FUNCTION_NOTHING),
-                     knob_frame_number(0),
+                     displayed_frame(0),
                      knob_degrees_start(0),
                      knob_degrees_end(0),
-                     knob_start_frame(0){
+                     knob_start_frame(0),
+                     i_am_a_knob_with_a_momentary_switch_too(false),
+                     momentary_switch_pressed(false){
   paint();
 }
 
@@ -60,22 +62,25 @@ rtt_font& rtt_pane::get_font(){
 
 
 void rtt_pane::paint(){
-  printf("  pane repainted, name=%s\n",name.data());
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  pane repainted, name=%s\n",name.data());
+  }
   switch(pane_special_functionality){
     case PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_SWITCH:
       if (extra_bitmap){
         RTTXCB &knob=*extra_bitmap;
         s32 knob_h=knob.h/SWITCH_KNOB_BITMAP_NUM_FRAMES;
-        blit_bitmap_to_self(knob,0,0,knob.w,knob_h, 0, knob_h*knob_frame_number,false);
+        blit_bitmap_to_self(knob,0,0,knob.w,knob_h, 0, knob_h*displayed_frame,false);
       }
       break;
     case PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_DIAL:
       if (extra_bitmap){
         RTTXCB &knob=*extra_bitmap;
-        blit_bitmap_to_self(knob,0,0,knob.w,knob.w, 0, knob.w*knob_frame_number,false);
+        blit_bitmap_to_self(knob,0,0,knob.w,knob.w, 0, knob.w*displayed_frame,false);
       }
       break;
     case PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_CALL:
+    case PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_ANIMATE:
       generic_paint_func();
       break;
   }
@@ -102,10 +107,21 @@ bool rtt_pane::handle_knob_mouse_wheel(s32 increment){
   RTTXCB &knob=*extra_bitmap;
   s32 num_frames=knob.h/knob.w;
   //  s32 knob_frame_number_test=(s32)((float)(num_frames-1)*mouse_knob_ang_offset/ang_range+0.5f);
-  s32 knob_frame_number_test=knob_frame_number+increment;
-  if (knob_frame_number_test>=0 && knob_frame_number_test<num_frames){
-    knob_frame_number=knob_frame_number_test;
+  s32 knob_frame_number_test=displayed_frame+increment;
+  if (frames_cycle){
+    if (knob_frame_number_test<0){
+      displayed_frame=num_frames-1;
+    }else if (knob_frame_number_test>=num_frames){
+      displayed_frame=0;
+    }else{
+      displayed_frame=knob_frame_number_test;
+    }
     return true;
+  }else{ 
+    if (knob_frame_number_test>=0 && knob_frame_number_test<num_frames){
+      displayed_frame=knob_frame_number_test;
+      return true;
+    }
   }
   return false;
 }
@@ -123,11 +139,11 @@ bool rtt_pane::handle_knob_dial_display_frame_from_mouse_pos(s32 pane_mouse_x,s3
   float ang_range=knob_degrees_end-knob_degrees_start;
   float mouse_knob_ang_offset=mouse_ang*RTT_RADS_TO_DEGREES-knob_degrees_start;
   RTTXCB &knob=*extra_bitmap;
-  s32 num_frames=knob.h/knob.w;
-  s32 knob_frame_number_test=(s32)((float)(num_frames-1)*mouse_knob_ang_offset/ang_range+0.5f);
-  if (knob_frame_number_test>=0 && knob_frame_number_test<num_frames){
-    knob_frame_number=knob_frame_number_test;
-    knob_float_to_change_to_reflect_current_setting=(float)knob_frame_number_test/(float)(num_frames-1);
+  frames_in_animation=knob.h/knob.w;
+  s32 knob_frame_number_test=(s32)((float)(frames_in_animation-1)*mouse_knob_ang_offset/ang_range+0.5f);
+  if (knob_frame_number_test>=0 && knob_frame_number_test<frames_in_animation){
+    displayed_frame=knob_frame_number_test;
+    knob_float_to_change_to_reflect_current_setting=(float)knob_frame_number_test/(float)(frames_in_animation-1);
     assert(knob_float_to_change_to_reflect_current_setting>=0 && knob_float_to_change_to_reflect_current_setting<=1.0f);
     return true;
   }
@@ -172,7 +188,9 @@ s32 rtt_pane::mouse_click(s32 butt,s32 mx,s32 my){
     case MOUSE_LEFT_DOWN:
       if (my>=y && my<y+h){
         if (mx>=x && mx<x+w){
-          printf("clicked inside pane %s\n",name.data());
+          if (SEE_USER_IO_EVENTS){
+            printf("clicked inside pane %s\n",name.data());
+          }
           mouse_was_clicked_inside_pane=true;
           if (click_fn){
             click_fn(*this,butt,mx-x,my-y);
@@ -189,14 +207,15 @@ s32 rtt_pane::mouse_click(s32 butt,s32 mx,s32 my){
               break;
             case PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_SWITCH:
               if (is_momentary){
-                knob_frame_number=1;
+                displayed_frame=1;
                 knob_float_to_change_to_reflect_current_setting=1.0f;
               }else{
-                knob_frame_number^=1;
+                displayed_frame^=1;
               }
               do_a_refresh=true;
               break;
             case PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_CALL:
+            case PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_ANIMATE:
               do_a_refresh=true;
               break;
           }
@@ -207,11 +226,39 @@ s32 rtt_pane::mouse_click(s32 butt,s32 mx,s32 my){
     case MOUSE_LEFT_UP:
       if (mouse_was_clicked_inside_pane){
         mouse_was_clicked_inside_pane=false;
-        printf("mouse click originating inside pane %s was released\n",name.data());
+        if (SEE_USER_IO_EVENTS){
+          printf("mouse click originating inside pane %s was released\n",name.data());
+        }
         if (click_fn){
           click_fn(*this,butt,mx-x,my-y);
         }
         return RTT_BUTTON_MOUSE_UNCLICKED_BUTTON;
+      }
+      break;
+    case MOUSE_RIGHT_DOWN:
+      if (i_am_a_knob_with_a_momentary_switch_too){
+        if (my>=y && my<y+h){
+          if (mx>=x && mx<x+w){
+            momentary_switch_pressed=true;
+          }
+        }
+      }else{
+        //        if (*the_float_to_change_to_reflect_current_setting==0){
+        //          set_normalized_float_value_from_frame_delta_and_redraw(hw,1);
+        //        }else{
+        //          set_normalized_float_value_from_frame_delta_and_redraw(hw,-1);
+        //        }
+      }
+      break;
+    case MOUSE_RIGHT_UP:
+      if (i_am_a_knob_with_a_momentary_switch_too){
+        momentary_switch_pressed=false;
+      }else{
+        //        if (*the_float_to_change_to_reflect_current_setting==0){
+        //          set_normalized_float_value_from_frame_delta_and_redraw(hw,1);
+        //        }else{
+        //          set_normalized_float_value_from_frame_delta_and_redraw(hw,-1);
+        //        }
       }
       break;
     case MOUSE_WHEEL_DOWN:
@@ -273,11 +320,26 @@ void rtt_pane::add_switch(unique_ptr<RTTXCB> &knob_bitmap,
                           bool _is_momentary,
                           bool _is_flashing,
                           bool _dont_reload_me){
-  knob_frame_number=0;
+  displayed_frame=0;
   is_momentary=_is_momentary;
   is_flashing=_is_flashing;
   dont_reload_me=_dont_reload_me;
   pane_special_functionality=PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_SWITCH;
   extra_bitmap=move(knob_bitmap);
   paint();
+}
+
+
+int rtt_pane::get_modulo_frame_delta(int last_frame){
+  RTTXCB &knob=*extra_bitmap;
+  frames_in_animation=knob.h/knob.w;
+  int delta=displayed_frame-last_frame;
+  int f2=frames_in_animation>>1;
+  if(delta>f2){
+    delta-=frames_in_animation;
+  }
+  if(delta<-f2){
+    delta+=frames_in_animation;
+  }
+  return delta;
 }

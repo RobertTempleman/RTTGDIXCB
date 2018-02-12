@@ -1,6 +1,7 @@
 #ifndef INCLUDED_OS_interface_header
 #define INCLUDED_OS_interface_header
 
+#include "RTT_config.h"
 #include "RTTGDIXCB.h"
 #include "RTT_vector.h"
 #include <vector>
@@ -305,6 +306,7 @@ public:
   static void task_bar_paint(rtt_window &w);
   void make_combos_topmost();
   void determine_region_to_redraw_after_window_motion(u32 moved_window_index,s32 old_x,s32 old_y,s32 old_w,s32 old_h);
+  void set_animation_update_function(std::function<void()> func);
 };
 
 void setup_key_translate();

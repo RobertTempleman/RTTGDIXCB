@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <vector>
+#include <string>
+#include <queue>
+#include <list>
+#include <memory>
 #include <csignal>
 #include <iostream>
 #include <inttypes.h>
@@ -11,6 +16,9 @@
 #include <xcb/xcb_util.h>
 #include <xcb/xcb_image.h>
 #include "types.h"
+
+using namespace std;
+
 //#include <xcb/xcb_atom.h>
 //#include <xcb/xcb_icccm.h>
 
@@ -70,6 +78,7 @@ void draw_spinner();
 void draw_info_text();
 void check_xcb_conncetion_error();
 void handle_button_press(int button_presssed);
+void set_animation_function_on_timer(std::function<void()> func);
 
 xcb_image_t *create_true_colour_image(xcb_connection_t *c, int width, int height);
 xcb_image_t *create_empty_true_colour_image(xcb_connection_t *c, int width, int height);

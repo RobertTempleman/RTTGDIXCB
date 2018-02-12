@@ -79,7 +79,9 @@ void rtt_button::make_cached_bitmap(RTTXCB **rttxcb,u32 bitmap){
 #define RTT_BUTTON_PRESSED_FONT_DELTA_Y 1  // when pressed the font is offset by this much
 
 void rtt_button::paint(){
-  printf("button repainted, name=%s\n",name.data());
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("button repainted, name=%s\n",name.data());
+  }
   s32 font_availble_width=get_available_text_rendering_width();
   s32 font_offset_x=0;
   s32 font_offset_y=0;

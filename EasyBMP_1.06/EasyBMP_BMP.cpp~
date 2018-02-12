@@ -258,7 +258,7 @@ BMP::BMP(BMP& Input){
 
 
 BMP::~BMP(){
-  printf("destructing BMP this=%16x Width=%d Pixels=%d\n",(uint64_t)this, Width, Pixels);
+  printf("  destructing BMP this=%16x Width=%d Pixels=%d\n",(uint64_t)this, Width, Pixels);
   int i;
   for (i=0;i<Width;i++){
     delete[] Pixels[i];

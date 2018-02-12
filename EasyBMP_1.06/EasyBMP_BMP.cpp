@@ -20,6 +20,7 @@
 
 #include "EasyBMP_BMP.h"
 #include	<cassert>
+#include "../RTT_config.h"
 
  /* These functions are defined in EasyBMP.h */
 
@@ -240,8 +241,7 @@ BMP::BMP(BMP& Input){
   // set the DPI information from Input
   SetDPI(Input.get_horizontal_DPI(),Input.get_vertical_DPI());
   // if there is a color table, get all the colors
-  if (BitDepth==1||BitDepth==4||
-    BitDepth==8){
+  if (BitDepth==1||BitDepth==4||BitDepth==8){
     for (int k=0; k<TellNumberOfColors(); k++){
       SetColor(k,Input.GetColor(k));
     }
@@ -258,7 +258,9 @@ BMP::BMP(BMP& Input){
 
 
 BMP::~BMP(){
-  printf("  destructing BMP this=%16x Width=%d Pixels=%d\n",(uint64_t)this, Width, Pixels);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  destructing BMP this=%16x Width=%d Pixels=%d\n",(uint64_t)this, Width, Pixels);
+  }
   int i;
   for (i=0;i<Width;i++){
     delete[] Pixels[i];

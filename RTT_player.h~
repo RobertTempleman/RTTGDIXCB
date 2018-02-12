@@ -1,4 +1,6 @@
 #pragma once
+#include "RTT_generic_decoder.h"
+#include "RTT_wavpack_decoder.h"
 
 #define PLAYER_BUFFER_NUM_SAMPLES (512*1024) 
 
@@ -87,14 +89,15 @@ public:
 class RTTplayer{
 public:
   RTTplayer();
-  void draw(RTTXCB *dc,s32 x,s32 y);
+  void draw(RTTXCB &dc);
 
   void plot_track_decoder_buffer_status( s32 last_read_pos_track1_wad, s32 xp, s32 yp, s32 write_pos_wad );
   void draw_waveform(track *t,DWORD ti);
   void put_one_to_draw(float&l);
   void draw_waveform_from_put_buffer();
-  void MoveToEx(RTTXCB *rttxcb,s32 lx,s32 ly);
+  void MoveToEx(RTTXCB *rttxcb,s32 lx,s32 ly,s32 dummy);
   void LineTo(RTTXCB *rttxcb,s32 lx,s32 ly);
+  void SetPixelV(RTTXCB *rttxcb,s32 x,s32 y,COLORREF col);
   //  void MoveToEx(s32 lx,s32 ly);
   //  void LineTo(s32 lx,s32 ly);
   float *override_wave_buffer;
@@ -118,9 +121,16 @@ public:
   genre *minimal;
   genre *breaks;
   genre *current_genre;
+  
+  void SelectObject(RTTXCB* dc,HPEN &pen);
+  HPEN CreatePen(s32 style,s32 width,COLORREF col);
+  void SetDCPenColor2(RTTXCB* dc,COLORREF col);
+  void SetDCBrushColor2(RTTXCB* dc,COLORREF col);
+  void Rectangle(RTTXCB* dc,s32 left,s32 top,s32 right,s32 bottom);
   s32 move_to_ex_x;
   s32 move_to_ex_y;
-
+  COLORREF select_dc_col;
+  COLORREF select_dc_brush_col;
 };
 
 extern RTTplayer *player;

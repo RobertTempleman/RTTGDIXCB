@@ -17,6 +17,7 @@ class rtt_font;
 #define PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_DIAL 1
 #define PANE_SPECIAL_FUNCTION_IS_A_KNOBMAN_STYLE_SWITCH 2
 #define PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_CALL 3
+#define PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_ANIMATE 4
 
 #define DONT_RELOAD_FROM_PRESET true
 #define RELOAD_FROM_PRESET false
@@ -69,6 +70,7 @@ class rtt_pane:public RTTXCB{
   mouse_move_fn_type mouse_move_fn;
   s32 get_available_text_rendering_width();
   u32 key(u32 key_action,u32 OS_keycode,bool is_ascii,u8 ASCII);
+  int get_modulo_frame_delta(int last_frame);
   //  void line(float x,float y);
   rtt_font& get_font();
   rtt_window &parent_window;
@@ -83,11 +85,16 @@ class rtt_pane:public RTTXCB{
   unique_ptr<RTTXCB> extra_bitmap;
 
   float knob_float_to_change_to_reflect_current_setting;
-  s32 knob_frame_number;
+  s32 displayed_frame;
   s32 knob_start_frame;
   float knob_degrees_start;
   float knob_degrees_end;
+  s32 frames_in_animation;
 
+  bool frames_cycle;                             // fully rotational knob like a rotary encoder
+  bool i_am_a_knob_with_a_momentary_switch_too;  // like a rotary encoder+switch
+  bool momentary_switch_pressed;
+  
   bool is_momentary;
   bool is_flashing;
   bool dont_reload_me;

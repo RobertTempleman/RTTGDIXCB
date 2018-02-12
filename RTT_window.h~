@@ -156,37 +156,23 @@ class rtt_window:public RTTXCB{
   void add_text_edit_box(string current_text,string name, s32 x,s32 y,s32 w,s32 h,vector<string> entries_to_select,s32 current_selected_index,bool render_with_window_scroll_offset=true);
   void add_button(string current_text,string name, std::function<void(RTTXCB&)> &&click_func,s32 x,s32 y,s32 w,s32 h,bool render_with_window_scroll_offset=true);
   rtt_pane& add_pane(string name,paintfn_type &&_paint_fn,clickfn_type &&_click_fn,mouse_move_fn_type &&_mouse_move_fn, s32 x,s32 y,s32 w,s32 h,bool render_with_window_scroll_offset=true);
-  rtt_pane& add_knob(string name, 
-                     s32 x,
-                     s32 y,
-                     s32 w,
-                     s32 h,
-                     bool render_with_window_scroll_offset,
-                     s32 _start_frame,
-                     float _degrees_start,
-                     float _degrees_end,
-                     float &_the_float_to_change_to_reflect_current_setting,
-                     string _group,
-                     string _desc,
-                     bool _dont_reload_me);
-  rtt_pane& add_knob2(string name, 
-                      s32 x,
-                      s32 y,
-                      s32 _start_frame,
-                      float _degrees_start,
-                      float _degrees_end,
-                      float &_the_float_to_change_to_reflect_current_setting,
-                      string _group,
-                      string _desc,
-                      bool _dont_reload_me);
-  rtt_pane& add_switch2(string name, 
-                        s32 x,
-                        s32 y,
-                        s32 _start_frame,
-                        float &_the_float_to_change_to_reflect_current_setting,
-                        string _group,
-                        string _desc,
-                        bool _dont_reload_me);
+  u32 add_knob2(string name, 
+                s32 x,
+                s32 y,
+                s32 _start_frame,
+                float _degrees_start,
+                float _degrees_end,
+                string _group,
+                string _desc,
+                bool _dont_reload_me);
+  u32 add_switch2(string name, 
+                  s32 x,
+                  s32 y,
+                  string _group,
+                  string _desc,
+                  bool is_momentary,
+                  bool _is_flashing,
+                  bool _dont_reload_me);
   int horizontal_display_offset;
   int vertical_display_offset;
   rtt_scrollbar scrollbar_h;

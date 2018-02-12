@@ -62,7 +62,9 @@ void pane_mouse_move_function(rtt_pane &p,s32 x_move_to,s32 y_move_to){
 
 
 void pane_paint_function(rtt_pane &p){
-  printf("pane paint function called with RTTXCB id=%d name=%s\n",p.id,p.name);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("pane paint function called with RTTXCB id=%d name=%s\n",p.id,p.name);
+  }
   p.line(10,10,100,100,goldenrod_c);
   p.circle(100,100,20,darkred_c);
   for(int i=0;i<100;i+=4){
@@ -80,24 +82,26 @@ void pane_paint_function(rtt_pane &p){
 
 
 void knob_paint_function(rtt_pane &p){
-  //  printf("pane paint function called with RTTXCB id=%d name=%s\n",p.id,p.name);
-  //  if (p.extra_bitmap){
-  //    RTTXCB &knob=*p.extra_bitmap;
-  //    p.blit_bitmap_to_self(knob,0,0,knob.w,knob.w, 0, 0,false);
-  //  }
-  //  p.line(10,10,100,100,goldenrod_c);
-  //  p.circle(100,100,20,darkred_c);
 }
 
 
 #define MYBUT(button_index) [](RTTXCB &rttxcb){handle_button_press(button_index);}
 
+
 void clicked(RTTXCB &rttxcb){
-  cout<<"clicked from "<<rttxcb.name<<endl;
+  if (SEE_USER_IO_EVENTS){
+    cout<<"clicked from "<<rttxcb.name<<endl;
+  }
 }
 
 
 unique_ptr<fxprocessor> fxp;
+
+
+void animation_update(){
+  fxp->animation_update();
+}
+
     
 void RTT_init(){
   vector<string> entries,entries0,entries2;
@@ -154,7 +158,7 @@ void RTT_init(){
     win6.add_pane("pane1", pane_paint_function, pane_click_function, pane_mouse_move_function, 10 ,80, 320, 256);
 
     fxp=unique_ptr<fxprocessor>(new fxprocessor(nobwin,10,10));
-    //    fxp=unique_ptr<fxprocessor>(new fxprocessor(fxpwin,10,10));
+    wm.set_animation_update_function(&animation_update);
   }
 }
 

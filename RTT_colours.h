@@ -1177,6 +1177,11 @@ COLORREF rand_dark_col();
 #define green2_c 0xff00ee00
 #define green3_c 0xff00cd00
 #define green4_c 0xff008b00
+#define green5_c 0xff006b00
+#define green6_c 0xff004b00
+#define green7_c 0xff002b00
+#define green8_c 0xff001800
+#define green9_c 0xff000800
 #define greenyellow_c 0xffadff2f
 #define grey_c 0xffbebebe
 #define grey0_c 0xff000000

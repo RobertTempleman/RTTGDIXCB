@@ -201,7 +201,9 @@ rtt_font& rtt_text_edit_box::get_font(){
 
 
 void rtt_text_edit_box::paint(){
-  printf("text edit box repainted, name=%s\n",name.data());
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("text edit box repainted, name=%s\n",name.data());
+  }
   s32 font_availble_width=get_available_text_rendering_width();
   if (already_cached_background){
     // background bitmap was already created so just blit it

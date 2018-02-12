@@ -98,6 +98,12 @@ void clicked(RTTXCB &rttxcb){
 
 
 unique_ptr<fxprocessor> fxp;
+
+
+void animation_update(){
+  fxp->animation_update();
+}
+
     
 void RTT_init(){
   vector<string> entries,entries0,entries2;
@@ -154,7 +160,8 @@ void RTT_init(){
     win6.add_pane("pane1", pane_paint_function, pane_click_function, pane_mouse_move_function, 10 ,80, 320, 256);
 
     fxp=unique_ptr<fxprocessor>(new fxprocessor(nobwin,10,10));
-    fxp=unique_ptr<fxprocessor>(new fxprocessor(fxpwin,10,10));
+    //    fxp=unique_ptr<fxprocessor>(new fxprocessor(fxpwin,10,10));
+    wm.set_animation_update_function(std::bind(&fxprocessor::animation_update,*fxp));
   }
 }
 

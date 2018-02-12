@@ -1,4 +1,3 @@
-#include "RTT_2.h"
 #include "doit_all.h"
 #include <vector>
 #include "RTT_patest_wire.h"
@@ -13,9 +12,8 @@
 #include <assert.h>
 #include "RTT_keysyms.h"
 
-using namespace std;
-
 #include "main.h"
+#include "RTT_2.h"
 
 xcb_connection_t *connection;
 xcb_drawable_t    window;
@@ -118,10 +116,34 @@ void mouse_move_timer_handler(sigval val){
   can_send_mouse_coords=true;
 }
 
+  
+timer_t animation_timer_tid;
+
+std::function<void()> animation_func=NULL;
+
+void animation_timer_func(sigval val){
+  animation_func();
+}
+
+#define ANIMATION_HZ 10
+void set_animation_function_on_timer(std::function<void()> func){
+  sigevent sig;
+  sig.sigev_notify=SIGEV_THREAD;
+  sig.sigev_notify_function=animation_timer_func;
+  sig.sigev_notify_attributes=NULL;
+  sig.sigev_value.sival_ptr=&animation_timer_tid;
+  timer_create(CLOCK_REALTIME,&sig,&animation_timer_tid);
+
+  itimerspec t={{0,1000000000/ANIMATION_HZ},{1,0}};
+  timer_settime(animation_timer_tid,0,&t,0);
+  animation_func=func;
+}
+
 
 
 timer_t tid;
 timer_t mouse_move_tid;
+
 
 void set_timer(){
   sigevent sig;
@@ -143,6 +165,13 @@ void set_timer(){
 
   itimerspec t2={{0,1000000000/MOUSE_UPDATE_RATE},{1,0}};
   timer_settime(mouse_move_tid,0,&t2,0);
+}
+
+
+void kill_timers(){
+  timer_delete(animation_timer_tid);
+  timer_delete(tid);
+  timer_delete(mouse_move_tid);
 }
 
 
@@ -571,7 +600,9 @@ int main() {
         break;
       }
       case XCB_BUTTON_PRESS: {
-        printf("XCB_BUTTON_PRESS\n");
+        if (SEE_USER_IO_EVENTS){
+          printf("XCB_BUTTON_PRESS\n");
+        }
         //        break_now=true;
         //        break;
         xcb_button_press_event_t *ev;
@@ -685,8 +716,9 @@ int main() {
           /* ESC */
           case 9:
             free(e);
-            xcb_disconnect(connection);
+            kill_timers();
             shutdown_everything(); // audio shutdown
+            xcb_disconnect(connection);
             return 0;
         }
         break;
@@ -717,8 +749,9 @@ int main() {
           /* ESC */
           case 9:
             free(e);
-            xcb_disconnect(connection);
+            kill_timers();
             shutdown_everything(); // audio shutdown
+            xcb_disconnect(connection);
             return 0;
         }
         break;

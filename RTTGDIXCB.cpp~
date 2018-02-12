@@ -1,10 +1,10 @@
 // GDI wrapper
 //#include "stdafx.h"
-#include "RTT_2.h"
 #include "OS_interface.h"
 #include "RTT_colours.h"
 #include <cassert>
 #include <pthread.h>
+#include "RTT_2.h"
 
 #define DO_FLUSH_AND_CHECK 0
 #define DEBUG_PRINT_BLITS 0
@@ -42,12 +42,12 @@ void RTTXCB::win_set_main_window_geometry(int x,int y,int w,int h,bool hide_bord
 }
 
 
-void RTTXCB::SelectStockObject2(HDC dc,int obj){
-}
-
-
-void RTTXCB::SetDCPenColor2(HDC dc,COLORREF c){
-}
+//void RTTXCB::SelectStockObject2(HDC dc,int obj){
+//}
+//
+//
+//void RTTXCB::SetDCPenColor2(HDC dc,COLORREF c){
+//}
 
 map<COLORREF,xcb_gcontext_t> RTTXCB::cached_solid_fill_colour_graphics_contexts;  
 

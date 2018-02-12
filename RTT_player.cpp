@@ -334,8 +334,8 @@ float genre::get_play_pos_normalized(){
 
 RTTplayer::RTTplayer(){
   override_wave_buffer_sample_skip=0;
-  penwaveform_put_buffer=CreatePen(PS_SOLID,1,grey60_cr);
-  penplaypos=CreatePen(PS_SOLID,1,grey50_cr);
+  penwaveform_put_buffer=CreatePen(PS_SOLID,1,grey60_c);
+  penplaypos=CreatePen(PS_SOLID,1,grey50_c);
 //  check_buffers_and_trackchange_time=0;
   showing_playlist=0;
   techno=new genre("bungtron.m3u");
@@ -353,6 +353,8 @@ RTTplayer::RTTplayer(){
   move_to_ex_y=0;
   select_dc_col=white_c;
   select_dc_brush_col=white_c;
+  last_read_pos_track1_wad=-1;
+  last_read_pos_track2_wad=-1;
 }
 
 
@@ -515,7 +517,7 @@ void RTTplayer::draw_waveform_from_put_buffer(){
 
 
 void RTTplayer::draw_waveform(track *t,DWORD ti){
-  DWORD col=grey60_cr;
+  DWORD col=grey60_c;
   float r=(float)(col&0xff);
   float g=(float)((col>>8)&0xff);
   float b=(float)((col>>16)&0xff);
@@ -543,18 +545,20 @@ void RTTplayer::draw_waveform(track *t,DWORD ti){
 }
 
 
-void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
-  render_bitmap_dc=rttxcb;
+void RTTplayer::draw(RTTXCB &rttxcb){
+  //  static int dd=0;
+  //  printf("RTTplayer::draw %d\n",dd++);
+  render_bitmap_dc=&rttxcb;
   DWORD tc=GetTickCount();
   //  if (render_bitmap==0){
   //    render_bitmap=CreateCompatibleBitmap(dc, (int)width, (int)height);
   //    render_bitmap_dc=CreateCompatibleDC(dc);
   //    SelectObject(render_bitmap_dc,render_bitmap);
   //  }
-  //  SetBkColor(render_bitmap_dc,black_cr);
+  //  SetBkColor(render_bitmap_dc,black_c);
   //  RTTAL::SelectStockObject2(render_bitmap_dc,DC_BRUSH);
-  SetDCPenColor2(render_bitmap_dc,black_cr);
-  SetDCBrushColor2(render_bitmap_dc,black_cr);
+  SetDCPenColor2(render_bitmap_dc,black_c);
+  SetDCBrushColor2(render_bitmap_dc,black_c);
   Rectangle(render_bitmap_dc,0,0,(int)width,(int)height);
   if (showing_playlist){
     if (GetTickCount()>(DWORD)showing_playlist){
@@ -568,20 +572,21 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
       int pp=current_genre->selected_track_pos_in_playlist+i-n2;
       if (pp>=0 && pp<(int)current_genre->playlist.size()){
         if (i==n2){
-          print_colour(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey85_cr,true);
+          print_colour(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey85_c,true);
         }else if (pp==current_genre->trackpos_to_display_as_current_playing_track){
-          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),lightblue_cr,coral1_cr,green2_cr,true);
+          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),lightblue_c,coral1_c,green2_c,true);
         }else{
-          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey45_cr,coral4_cr,green5_cr,true);
+          print_pretty(render_bitmap_dc,1,yy,current_genre->track_names[pp].data(),grey45_c,coral4_c,green5_c,true);
         }
       }
       yy+=6;
     }
   }else{
-    static int last_read_pos_track1_wad=-1;
-    static int last_read_pos_track2_wad=-1;
     int read_pos_track1_wad=techno->deck1->read_pos/DECODER_DEFAULT_NUM_SAMPLES;
     int read_pos_track2_wad=techno->deck2->read_pos/DECODER_DEFAULT_NUM_SAMPLES;
+    int write_pos_track1_wad=techno->deck1->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
+    int write_pos_track2_wad=techno->deck2->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
+    printf("read poses %d %d  write %d %d\n",read_pos_track1_wad,read_pos_track2_wad,write_pos_track1_wad,write_pos_track2_wad);
     if (last_read_pos_track1_wad!=read_pos_track1_wad){
       draw_track1_wave_until=tc+DISPLAY_WAVEFORM_FOR_THIS_LONG_AFTER_IT_STOPS_PLAYING;
     }
@@ -592,11 +597,11 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
     int deck_2_last_playtime=draw_track2_wave_until-tc;
     if (deck_1_last_playtime>0 || deck_2_last_playtime>0){
       if (tc&512){
-        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod1_cr,true);
+        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod1_c,true);
       }else{
-        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod3_cr,true);
+        print_colour(render_bitmap_dc,1,1,"RTT player",goldenrod3_c,true);
       }
-      print_pretty(render_bitmap_dc,1,PLAYER_DISPLAY_HEIGHT-6,current_genre->track_names[current_genre->trackpos_to_display_as_current_playing_track].data(),grey60_cr,coral1_cr,green2_cr,true);
+      print_pretty(render_bitmap_dc,1,PLAYER_DISPLAY_HEIGHT-6,current_genre->track_names[current_genre->trackpos_to_display_as_current_playing_track].data(),grey60_c,coral1_c,green2_c,true);
       if (tc<draw_track1_wave_until){
         draw_waveform(current_genre->deck1,draw_track1_wave_until-tc);
       }
@@ -608,15 +613,15 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
       int pp=xs+(int)(current_genre->get_play_pos_normalized()*(float)(PLAYER_DISPLAY_WIDTH-xs));
       MoveToEx(render_bitmap_dc,xs,1,0);
       LineTo(render_bitmap_dc,PLAYER_DISPLAY_WIDTH-1,1);
-      rttxcb->setup_font_plotting(seagreen1_cr);
+      rttxcb.setup_font_plotting(seagreen1_c);
       for(int i=xs;i<PLAYER_DISPLAY_WIDTH-1;i++){
         if (i==pp){
-          rttxcb->add_font_pixel(i,0);
-          rttxcb->add_font_pixel(i,1);
-          rttxcb->add_font_pixel(i,2);
+          rttxcb.add_font_pixel(i,0);
+          rttxcb.add_font_pixel(i,1);
+          rttxcb.add_font_pixel(i,2);
         }
       }
-      rttxcb->render_font_pixels();
+      rttxcb.render_font_pixels();
       last_read_pos_track1_wad=read_pos_track1_wad;
       last_read_pos_track2_wad=read_pos_track2_wad;
       int write_pos_wad=current_genre->deck1->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
@@ -624,10 +629,14 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
       write_pos_wad=current_genre->deck2->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
       plot_track_decoder_buffer_status(last_read_pos_track2_wad, PLAYER_DISPLAY_WIDTH-(NUM_BUFFER_WADS<<1), 5, write_pos_wad);
     }else{
-      print_colour(render_bitmap_dc,1,1,"ASIO Input",goldenrod2_cr,true);
+      print_colour(render_bitmap_dc,1,1,"ASIO Input",goldenrod2_c,true);
       draw_waveform_from_put_buffer();
     }
   }
+  static u32 dd2=0;
+  char rtt[64];
+  sprintf(rtt,"debug %d",dd2++);
+  print_colour(render_bitmap_dc,1,8,rtt,seagreen_c,true);
   //  if (BitBlt(dc,(int)x,(int)y,(int)width, (int)height,render_bitmap_dc,0,0,SRCCOPY)==0){
   //    assert(0);
   //  }
@@ -644,11 +653,11 @@ void RTTplayer::SetPixelV(RTTXCB *rttxcb,s32 x,s32 y,COLORREF col){
 void RTTplayer::plot_track_decoder_buffer_status(int last_read_pos_track1_wad,int xp,int yp,int write_pos_wad){
   for(int i=0;i<NUM_BUFFER_WADS;i++){
     if (i==last_read_pos_track1_wad){
-      SetPixelV(render_bitmap_dc,xp,yp,white_cr);
+      SetPixelV(render_bitmap_dc,xp,yp,white_c);
     }else if(i==write_pos_wad){
-      SetPixelV(render_bitmap_dc,xp,yp,cyan_cr);
+      SetPixelV(render_bitmap_dc,xp,yp,cyan_c);
     }else{
-      SetPixelV(render_bitmap_dc,xp,yp,grey40_cr);
+      SetPixelV(render_bitmap_dc,xp,yp,grey40_c);
     }
     xp+=2;
     if (xp>width-2){

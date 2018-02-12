@@ -4,6 +4,33 @@
 #include "RTT_player.h"
 
 
+
+
+
+class RTT_player_UI{
+ public:
+  RTT_player_UI(rtt_window &_win, string desc, s32 x,s32 y);
+  void update_controls();
+  void update_animation();
+
+  rtt_window &win;
+
+  bool i_am_the_final_limiter_section;
+
+  u32 player_seek_knob;
+  u32 player_track_select_knob;
+  s32 player_graph_pane_index;
+
+  int last_player_seek_knob_displayed_frame;
+  int last_player_track_select_knob_displayed_frame;
+  
+  //  unique_ptr<rtt_pane> pane;
+  unique_ptr<RTTplayer> player;
+  std::function<void()> generic_paint_func_for_player_animation;
+};
+
+
+
 class compressor{
  public:
   compressor(rtt_window &_win, string desc, s32 xx,s32 yy);
@@ -47,8 +74,9 @@ class fxprocessor{
   void add_output_clips_at_knob(s32 xx,s32 yy);
   void add_a_compressor(s32 xx,s32 yy);
   void add_a_player(s32 xx,s32 yy);
+  void animation_update();
   vector<unique_ptr<compressor>> compressors;
-  unique_ptr<RTTplayer> player;
+  unique_ptr<RTT_player_UI> player;
   s32 player_x;
   s32 player_y;
 

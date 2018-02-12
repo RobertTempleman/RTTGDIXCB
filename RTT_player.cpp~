@@ -368,12 +368,10 @@ track::track(string &filename){
 }
 
 
-
 track::~track(){
   delete decoder;
   delete[] audio;
 }
-
 
 
 int track::how_much_in_buffer(){
@@ -383,7 +381,6 @@ int track::how_much_in_buffer(){
   }
   return num;
 }
-
 
 
 void track::post_seek_buffer_operations(){
@@ -400,7 +397,6 @@ void track::check_decoding(){
 }
 
 
-
 void track::get_one(float &l,float &r){
   l=audio[read_pos].l*WAVPACK_GAIN_INCREASE;
   r=audio[read_pos].r*WAVPACK_GAIN_INCREASE;
@@ -411,17 +407,14 @@ void track::get_one(float &l,float &r){
 }
 
 
-
 float track::get_current_playpos_track_time_time_left(){
   return decoder->get_total_ms()-audio[read_pos].t;
 }
 
 
-
 float track::get_current_playpos_ms(){
   return audio[read_pos].t;
 }
-
 
 
 #define MS_PER_SAMPLE (1.0/44.1);
@@ -439,7 +432,6 @@ void conv_wavpack_int_data_to_separate_float_channels(float replay_gain_correcti
     track_time_ms+=MS_PER_SAMPLE;
   }
 }
-
 
 
 void track::put_some_more_in_audio_buffer(){
@@ -460,10 +452,8 @@ void track::put_some_more_in_audio_buffer(){
 }
 
 
-
 #define NUM_BUFFER_WADS (PLAYER_BUFFER_NUM_SAMPLES/DECODER_DEFAULT_NUM_SAMPLES)
 int player_wave_y=23;
-
 
 
 #define OVERRIDE_WAVE_BUFFER_SAMPLE_SKIP 8
@@ -479,14 +469,12 @@ void RTTplayer::put_one_to_draw(float&l){
 }
 
 
-
 void RTTplayer::MoveToEx(RTTXCB *rttxcb,s32 lx,s32 ly,s32 dummy){
   move_to_ex_x=(s32)x+lx;
   move_to_ex_y=(s32)y-ly+(s32)height;
   //  MoveToEx(dc,(s32)x+lx,(s32)y-ly+(s32)height,0);
   //  last_GDI_like_line_operation_was_a_movetoex=true;
 }
-
 
 
 void RTTplayer::LineTo(RTTXCB *rttxcb,s32 lx,s32 ly){
@@ -497,8 +485,6 @@ void RTTplayer::LineTo(RTTXCB *rttxcb,s32 lx,s32 ly){
   move_to_ex_x=xlt;
   move_to_ex_y=ylt;
 }
-
-
 
 
 void RTTplayer::draw_waveform_from_put_buffer(){
@@ -516,7 +502,6 @@ void RTTplayer::draw_waveform_from_put_buffer(){
     }
   }
 }
-
 
 
 //void RTTplayer::SelectObject(RTTXCB* dc,HPEN &pen){
@@ -558,9 +543,8 @@ void RTTplayer::draw_waveform(track *t,DWORD ti){
 }
 
 
-
-void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
-  render_bitmap_dc=rttxcb;
+void RTTplayer::draw(RTTXCB &rttxcb){
+  render_bitmap_dc=&rttxcb;
   DWORD tc=GetTickCount();
   //  if (render_bitmap==0){
   //    render_bitmap=CreateCompatibleBitmap(dc, (int)width, (int)height);
@@ -624,15 +608,15 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
       int pp=xs+(int)(current_genre->get_play_pos_normalized()*(float)(PLAYER_DISPLAY_WIDTH-xs));
       MoveToEx(render_bitmap_dc,xs,1,0);
       LineTo(render_bitmap_dc,PLAYER_DISPLAY_WIDTH-1,1);
-      rttxcb->setup_font_plotting(seagreen1_cr);
+      rttxcb.setup_font_plotting(seagreen1_cr);
       for(int i=xs;i<PLAYER_DISPLAY_WIDTH-1;i++){
         if (i==pp){
-          rttxcb->add_font_pixel(i,0);
-          rttxcb->add_font_pixel(i,1);
-          rttxcb->add_font_pixel(i,2);
+          rttxcb.add_font_pixel(i,0);
+          rttxcb.add_font_pixel(i,1);
+          rttxcb.add_font_pixel(i,2);
         }
       }
-      rttxcb->render_font_pixels();
+      rttxcb.render_font_pixels();
       last_read_pos_track1_wad=read_pos_track1_wad;
       last_read_pos_track2_wad=read_pos_track2_wad;
       int write_pos_wad=current_genre->deck1->write_pos/DECODER_DEFAULT_NUM_SAMPLES;
@@ -644,7 +628,6 @@ void RTTplayer::draw(RTTXCB *rttxcb,int x,int y){
       draw_waveform_from_put_buffer();
     }
   }
-
   //  if (BitBlt(dc,(int)x,(int)y,(int)width, (int)height,render_bitmap_dc,0,0,SRCCOPY)==0){
   //    assert(0);
   //  }

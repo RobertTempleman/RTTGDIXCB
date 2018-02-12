@@ -21,7 +21,7 @@ s32 RTT_BUTTON_BITMAP_BUTTON_WIDTH     = 15;
 rtt_button::rtt_button(rtt_window&_parent_window,
                        string _current_text,
                        string _name,
-                       std::function<void(RTTXCB&) &&click_func,
+                       std::function<void(RTTXCB&)> &&click_func,
                        s32 _x,
                        s32 _y,
                        s32 _w,
@@ -31,7 +31,7 @@ rtt_button::rtt_button(rtt_window&_parent_window,
                          parent_window(_parent_window),
                          current_text(_current_text),
                          name(_name),
-                         click_function(click_func),
+                         click_function(std::move(click_func)),
                          x(_x),
                          y(_y),
                          render_with_window_scroll_offset(_render_with_window_scroll_offset){
@@ -109,6 +109,7 @@ s32 rtt_button::mouse_click(s32 butt,s32 mx,s32 my){
         if (mx>=x && mx<x+w){
           pressed=true;
           printf("clicked on button %s\n",name.data());
+          click_function(*this);
           return RTT_BUTTON_MOUSE_CLICKED_BUTTON;
         }
       }

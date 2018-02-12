@@ -2,12 +2,12 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Sun Feb 11 00:34:28 2018
+;; Created Sun Feb 11 20:52:06 2018
 ;; Desktop file format version 208
 ;; Emacs version 25.2.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (23167 36756 915661 400000) (desktop . "208") "Administrator@CORMORANT-XIV" nil nil ((((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (minibuffer) (frameset--id . "2C97-ED22-4B79-CE83") (frameset--mini nil . "A502-2F4C-EE7C-2D09") (modeline . t) (unsplittable . t) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 40) (left . 1924) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 52) (min-pixel-width . 60) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 48) (min-pixel-height-safe . 13) (min-pixel-width-safe . 12)) leaf (last . t) (pixel-width . 264) (pixel-height . 1056) (total-width . 44) (total-height . 81) (normal-height . 1.0) (normal-width . 1.0) (buffer " SPEEDBAR" (selected) (hscroll . 0) (fringes 0 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 926) (start . 1))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (frameset--id . "844D-C36C-33DD-C190") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 253) (left . 2290) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 10) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 52) (min-pixel-width . 60) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 60) (min-pixel-height-safe . 13) (min-pixel-width-safe . 12)) leaf (pixel-width . 1550) (pixel-height . 1043) (total-width . 258) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (buffer "*compilation*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 662) (start . 1))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (environment) (sticky) (frameset--id . "A502-2F4C-EE7C-2D09") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 80) (width . 313) (left . 4) (top . 24)) ((min-height . 4) (min-width . 23) (min-height-ignore . 4) (min-width-ignore . 23) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 52) (min-pixel-width . 138) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 138) (min-pixel-height-safe . 13) (min-pixel-width-safe . 24)) hc (pixel-width . 1910) (pixel-height . 1043) (total-width . 318) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 576) (pixel-height . 1043) (total-width . 96) (total-height . 80) (normal-height . 1.0) (normal-width . 0.3015706806282723) (buffer "OS_interface.h" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 3) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 2172) (start . 1284))) (leaf (last . t) (pixel-width . 1334) (pixel-height . 1043) (total-width . 222) (total-height . 80) (normal-height . 1.0) (normal-width . 0.6984293193717277) (buffer "RTT_player.cpp" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 3) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 11649) (start . 10296)))))])
+(setq desktop-saved-frameset [frameset 1 (23168 44278 714573 800000) (desktop . "208") "Administrator@CORMORANT-XIV" nil nil ((((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (minibuffer) (frameset--id . "2C97-ED22-4B79-CE83") (frameset--mini nil . "A502-2F4C-EE7C-2D09") (modeline . t) (unsplittable . t) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 40) (left . 1924) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 52) (min-pixel-width . 60) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 48) (min-pixel-height-safe . 13) (min-pixel-width-safe . 12)) leaf (last . t) (pixel-width . 264) (pixel-height . 1056) (total-width . 44) (total-height . 81) (normal-height . 1.0) (normal-width . 1.0) (buffer " SPEEDBAR" (selected) (hscroll . 0) (fringes 0 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 102) (start . 1))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility . t) (frameset--id . "844D-C36C-33DD-C190") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 80) (width . 253) (left . 2290) (top . 24)) ((min-height . 14) (min-width . 23) (min-height-ignore . 14) (min-width-ignore . 23) (min-height-safe . 3) (min-width-safe . 4) (min-pixel-height . 182) (min-pixel-width . 138) (min-pixel-height-ignore . 182) (min-pixel-width-ignore . 138) (min-pixel-height-safe . 39) (min-pixel-width-safe . 24)) vc (pixel-width . 1550) (pixel-height . 1043) (total-width . 258) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (hc (pixel-width . 1550) (pixel-height . 260) (total-width . 258) (total-height . 20) (normal-height . 0.24928092042186) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 776) (pixel-height . 260) (total-width . 129) (total-height . 20) (normal-height . 1.0) (normal-width . 0.5) (buffer "*gud-rttmlssa.exe*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 1484) (start . 1076))) (leaf (last . t) (pixel-width . 774) (pixel-height . 260) (total-width . 129) (total-height . 20) (normal-height . 1.0) (normal-width . 0.5) (buffer "*locals of rttmlssa.exe*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 1) (start . 1)))) (hc (pixel-width . 1550) (pixel-height . 520) (total-width . 258) (total-height . 40) (normal-height . 0.49856184084372) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 776) (pixel-height . 520) (total-width . 129) (total-height . 40) (normal-height . 1.0) (normal-width . 0.5) (buffer "*compilation*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 1284) (start . 1))) (leaf (last . t) (pixel-width . 774) (pixel-height . 520) (total-width . 129) (total-height . 40) (normal-height . 1.0) (normal-width . 0.5) (buffer "*input/output of rttmlssa.exe*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 4) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 118587) (start . 117473)))) (hc (last . t) (pixel-width . 1550) (pixel-height . 263) (total-width . 258) (total-height . 20) (normal-height . 0.2521572387344199) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 776) (pixel-height . 263) (total-width . 129) (total-height . 20) (normal-height . 1.0) (normal-width . 0.5) (buffer "*stack frames of rttmlssa.exe*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 1) (start . 1))) (leaf (last . t) (pixel-width . 774) (pixel-height . 263) (total-width . 129) (total-height . 20) (normal-height . 1.0) (normal-width . 0.5) (buffer "*breakpoints of rttmlssa.exe*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated . t) (point . 1) (start . 1))))) (((font-backend xft x) (font . "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 6) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars . t) (foreground-color . "gray80") (background-color . "black") (mouse-color . "white") (border-color . "white") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (fullscreen) (reverse . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (environment) (sticky) (frameset--id . "A502-2F4C-EE7C-2D09") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 80) (width . 313) (left . 4) (top . 24)) ((min-height . 4) (min-width . 23) (min-height-ignore . 4) (min-width-ignore . 23) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 52) (min-pixel-width . 138) (min-pixel-height-ignore . 52) (min-pixel-width-ignore . 138) (min-pixel-height-safe . 13) (min-pixel-width-safe . 24)) hc (pixel-width . 1910) (pixel-height . 1043) (total-width . 318) (total-height . 80) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 588) (pixel-height . 1043) (total-width . 98) (total-height . 80) (normal-height . 1.0) (normal-width . 0.3078534031413612) (buffer "main.h" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 186) (start . 1))) (leaf (last . t) (pixel-width . 1322) (pixel-height . 1043) (total-width . 220) (total-height . 80) (normal-height . 1.0) (normal-width . 0.6921465968586388) (buffer "OS_interface.cpp" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 4) (scroll-bars nil 3 t nil 2 t) (vscroll . 0) (dedicated) (point . 39401) (start . 38257)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
@@ -18,76 +18,160 @@
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_player.cpp"
-  "RTT_player.cpp"
+  "/cygdrive/c/RTT_MLSSA/OS_interface.cpp"
+  "OS_interface.cpp"
   'c++-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  11649
-  '(11648 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring (11843 11843 11843 11843 11628 11843 12007 11623 11622 11622 11622 11839 8990 8699 11664))))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_player.h"
-  "RTT_player.h"
-  'c-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  2373
-  '(2078 nil)
+  39401
+  '(39855 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring (2354 2347 2322 2322 2315 2876 2916 2916 2916 2876 2876 2878 2639 2629))))
+  '((mark-ring (39912 39849 31068 39926 1 39926 39931 39916 40023 39401))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/main.cpp"
+  "main.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  20
+  '(7319 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (7309 7311 7302 7319 7314))))
 
 (desktop-create-buffer 208
   "/cygdrive/c/RTT_MLSSA/OS_interface.h"
   "OS_interface.h"
   'c-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  2172
-  '(1869 nil)
+  9038
+  '(9047 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring (1868 1869 1927 1744 1744 1927))))
+  '((mark-ring (9038 2172))))
 
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/OS_interface.cpp"
-  "OS_interface.cpp"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  30179
-  '(2461 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring (2461 2461 2461 2461 2461 2461 2461 2461 30761 29959 2316 50419 2461 500 2461 2461))))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/compressher_limither.h"
-  "compressher_limither.h"
+  "/cygdrive/c/RTT_MLSSA/rtt_2.h"
+  "rtt_2.h"
   'c-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  5759
-  '(5759 nil)
+  2047
+  '(2041 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (2027 2009 1))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_2.cpp"
+  "RTT_2.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  3437
+  '(3452 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (496 1 3383 3481 3446))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_pane.h"
+  "RTT_pane.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  3193
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp"
+  "fxprocessor.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1319
+  '(1336 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring (10895 10906 10897 10708 10707 10460 10460 10459 10266 10459 10266 10266 10169 10115 10169 1319))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/main.h"
+  "main.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  186
+  '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-dos))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/compressher_limither.cpp"
-  "compressher_limither.cpp"
+  "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp"
+  "RTTGDIXCB.cpp"
   'c++-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  9867
-  '(9380 nil)
+  18173
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_player.cpp"
+  "RTT_player.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  8592
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_button.cpp"
+  "RTT_button.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1138
+  '(637 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring (1138))))
+
+(desktop-create-buffer 208
+  "/home/Administrator/.emacs.d/elpa/highlight-symbol-20160102.1209/highlight-symbol.el"
+  "highlight-symbol.el"
+  'emacs-lisp-mode
+  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
+  1388
+  '(1617 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (9190 4797 3912 1617 1385 1388))))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_player.h"
+  "RTT_player.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring (9505 191 277 191 9428 9380 9380))))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
   "/cygdrive/c/RTT_MLSSA/RTT_wavpack_decoder.h"
@@ -198,30 +282,6 @@
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/main.cpp"
-  "main.cpp"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/main.h"
-  "main.h"
-  'c-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
   "/cygdrive/c/RTT_MLSSA/types.h"
   "types.h"
   'c-mode
@@ -279,30 +339,6 @@
   nil
   nil
   '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/rtt_2.h"
-  "rtt_2.h"
-  'c-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_button.cpp"
-  "RTT_button.cpp"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
@@ -702,18 +738,6 @@
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/functional"
-  "functional"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
   "/usr/lib/clang/3.9.1/include/stddef.h"
   "stddef.h"
   'c-mode
@@ -759,54 +783,6 @@
   nil
   nil
   '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_pane.h"
-  "RTT_pane.h"
-  'c-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_pane.cpp"
-  "RTT_pane.cpp"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/fxprocessor.h"
-  "fxprocessor.h"
-  'c-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/fxprocessor.cpp"
-  "fxprocessor.cpp"
-  'c++-mode
-  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-dos))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
@@ -894,8 +870,8 @@
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTT_2.cpp"
-  "RTT_2.cpp"
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/functional"
+  "functional"
   'c++-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
   1
@@ -906,8 +882,32 @@
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/cygdrive/c/RTT_MLSSA/RTTGDIXCB.cpp"
-  "RTTGDIXCB.cpp"
+  "/cygdrive/c/RTT_MLSSA/compressher_limither.cpp"
+  "compressher_limither.cpp"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/compressher_limither.h"
+  "compressher_limither.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/RTT_pane.cpp"
+  "RTT_pane.cpp"
   'c++-mode
   '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
   1
@@ -915,6 +915,30 @@
   nil
   nil
   '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/cygdrive/c/RTT_MLSSA/fxprocessor.h"
+  "fxprocessor.h"
+  'c-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "*info*"
+  'Info-mode
+  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
+  253875
+  '(253875 nil)
+  t
+  '("/usr/share/info/elisp" "Cons Cells" nil)
+  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
@@ -1002,18 +1026,6 @@
   '((mark-ring (4709 7854 7437 7437 8299 4625 5323 9341 2504 8243 5323 5153 514 1453 4625 4271))))
 
 (desktop-create-buffer 208
-  nil
-  "*info*"
-  'Info-mode
-  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
-  252418
-  '(nil nil)
-  t
-  '("/usr/share/info/elisp" "Cons Cells" nil)
-  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
   "/cygdrive/c/bert224.ahk"
   "bert224.ahk"
   'ahk-mode
@@ -1039,18 +1051,6 @@
 
 (desktop-create-buffer 208
   nil
-  ".emacs.d"
-  'dired-mode
-  '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
-  903
-  '(903 nil)
-  t
-  '("/home/Administrator/.emacs.d/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  nil
   "extra_elisp_packages"
   'dired-mode
   '(yas-minor-mode linum-mode global-auto-revert-mode company-mode)
@@ -1060,18 +1060,6 @@
   '("/home/Administrator/.emacs.d/extra_elisp_packages/")
   nil
   '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/Administrator/.gdbinit"
-  ".gdbinit"
-  'gdb-script-mode
-  '(yas-minor-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
-  296
-  '(92 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring (120 92 120 120 120 120 120 120 120 120 120 92 296 296 296 296))))
 
 (desktop-create-buffer 208
   "/home/Administrator/.emacs.d/extra_elisp_packages/gdb-settings/gdb-settings.el"
@@ -1110,14 +1098,14 @@
   '((mark-ring (967 1991 2316 1909 1948 1228 1 1 3447 3444 3025 1228 1948 1912 1912 1005))))
 
 (desktop-create-buffer 208
-  "/home/Administrator/.emacs.d/elpa/highlight-symbol-20160102.1209/highlight-symbol.el"
-  "highlight-symbol.el"
-  'emacs-lisp-mode
-  '(yas-minor-mode auto-complete-mode linum-mode flycheck-mode global-auto-revert-mode company-mode)
-  1385
-  '(1617 nil)
+  "/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/move.h"
+  "move.h"
+  'c++-mode
+  '(abbrev-mode yas-minor-mode auto-complete-mode flycheck-mode global-auto-revert-mode company-mode irony-mode)
+  1
+  '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (9190 4797 3912 1617 1385))))
+  '((buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
 

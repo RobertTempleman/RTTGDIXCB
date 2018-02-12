@@ -226,6 +226,7 @@ class rtt_window:public RTTXCB{
   COLORREF col_combo_box_multiple_selection_font;
   COLORREF default_font_col;
   pt last_mouse_pos;
+  s32 last_pane_index;
 };
 
 

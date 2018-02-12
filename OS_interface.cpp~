@@ -12,7 +12,7 @@
 #include <algorithm>
 #include "fonts/font_tahoma_8pt.h"
 #include "RTT_keysym_values_used.h"
-
+#include <sys/time.h>
 
 window_manager wm;
 
@@ -54,9 +54,11 @@ int window_manager::window_title_bar_height;
 
 //RTTXCB *back_buffer;
 
-
 u32 GetTickCount(){
-  return ticks+=20;
+  struct timeval tv;
+  if(gettimeofday(&tv, NULL) != 0)
+    return 0;
+  return (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
 }
 
 
@@ -1042,6 +1044,12 @@ void window_manager::task_bar_paint(rtt_window &w){
     }
   }
 }
+
+
+void window_manager::set_animation_update_function(const std::function<void()> &func){
+  set_animation_function_on_timer(func);
+}
+
 
 static void a(){};
 

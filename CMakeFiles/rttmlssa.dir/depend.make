@@ -40,6 +40,7 @@ CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o: EasyBMP_1.06/EasyBMP_BMP
 CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o: EasyBMP_1.06/EasyBMP_BMP.h
 CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o: EasyBMP_1.06/EasyBMP_DataStructures.h
 CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o: EasyBMP_1.06/EasyBMP_VariousBMPutilities.h
+CMakeFiles/rttmlssa.dir/EasyBMP_1.06/EasyBMP_BMP.cpp.o: RTT_config.h
 
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: EasyBMP_1.06/EasyBMP_BMP.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: EasyBMP_1.06/EasyBMP_DataStructures.h
@@ -50,6 +51,7 @@ CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_text_edit_box.h
 CMakeFiles/rttmlssa.dir/GBAtext.cpp.o: RTT_types.h
@@ -66,6 +68,7 @@ CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_keysym_values_used.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/OS_interface.cpp.o: RTT_text_edit_box.h
@@ -85,6 +88,7 @@ CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_text_edit_box.h
 CMakeFiles/rttmlssa.dir/RTTGDIXCB.cpp.o: RTT_types.h
@@ -101,6 +105,7 @@ CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_2.cpp
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_keysyms.h
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/RTT_2.cpp.o: RTT_patest_wire.h
@@ -122,6 +127,7 @@ CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_button.cpp
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_keysymdef.h
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_keysyms.h
 CMakeFiles/rttmlssa.dir/RTT_button.cpp.o: RTT_pane.h
@@ -145,6 +151,7 @@ CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_generic_decoder.cpp
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/RTT_generic_decoder.cpp.o: RTT_pane.h
@@ -162,6 +169,7 @@ CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_keysyms.cpp
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_keysyms.h
 CMakeFiles/rttmlssa.dir/RTT_keysyms.cpp.o: RTT_pane.h
@@ -183,6 +191,7 @@ CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_keysymdef.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_keysyms.h
 CMakeFiles/rttmlssa.dir/RTT_pane.cpp.o: RTT_pane.cpp
@@ -210,6 +219,7 @@ CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/RTT_player.cpp.o: RTT_player.cpp
@@ -230,6 +240,7 @@ CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_keysymdef.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_keysyms.h
 CMakeFiles/rttmlssa.dir/RTT_text_edit_box.cpp.o: RTT_pane.h
@@ -253,6 +264,7 @@ CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/RTT_wavpack_decoder.cpp.o: RTT_text_edit_box.h
@@ -272,6 +284,7 @@ CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_text_edit_box.h
 CMakeFiles/rttmlssa.dir/RTT_window.cpp.o: RTT_types.h
@@ -291,6 +304,7 @@ CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_text_edit_box.h
 CMakeFiles/rttmlssa.dir/compressher_limither.cpp.o: RTT_types.h
@@ -308,6 +322,7 @@ CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/doit_all.cpp.o: RTT_patest_wire.h
@@ -334,6 +349,7 @@ CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/fxprocessor.cpp.o: RTT_player.h
@@ -357,6 +373,7 @@ CMakeFiles/rttmlssa.dir/main.cpp.o: RTTGDIXCB.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_2.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_button.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_colours.h
+CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_config.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_generic_decoder.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_pane.h
 CMakeFiles/rttmlssa.dir/main.cpp.o: RTT_player.h

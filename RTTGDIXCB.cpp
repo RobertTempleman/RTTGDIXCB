@@ -1,10 +1,10 @@
 // GDI wrapper
 //#include "stdafx.h"
-#include "RTT_2.h"
 #include "OS_interface.h"
 #include "RTT_colours.h"
 #include <cassert>
 #include <pthread.h>
+#include "RTT_2.h"
 
 #define DO_FLUSH_AND_CHECK 0
 #define DEBUG_PRINT_BLITS 0
@@ -34,7 +34,9 @@ void OS_console_printf(const char *txt){
 pthread_mutex_t RTTXCB::xcb_access_gating_mutex=PTHREAD_MUTEX_INITIALIZER;
 
 RTTXCB::~RTTXCB(){
-  printf("\nRTTXCB::~RTTXCB this=%10x  name=%s\n",(uint64_t)this,name.data());
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("\nRTTXCB::~RTTXCB this=%10x  name=%s\n",(uint64_t)this,name.data());
+  }
 }
 
 
@@ -116,7 +118,9 @@ RTTXCB::RTTXCB(RTT_DC &dc,int _w,int _h,COLORREF _background_col,const char* _na
   device_context=dc;
   make_bitmap();
   check_initialisation_of_debug_gfx();
-  printf("RTTXCB::RTTXCB(RTT_DC, w=%d, h=%d, col=%8x, name=\"%s\")\n",_w,_h,_background_col,_name); 
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("RTTXCB::RTTXCB(RTT_DC, w=%d, h=%d, col=%8x, name=\"%s\")\n",_w,_h,_background_col,_name);
+  }
 }
 
 
@@ -180,7 +184,9 @@ void RTTXCB::blit_bitmap_to_screen_debug_rect(int sx,int sy,int sw,int sh,int bi
 
 void RTTXCB::check_initialisation_of_debug_gfx(){
   if (!debug_stuff_initialised){
-    printf("  ID's generated RTTXCB::check_initialisation_of_debug_gfx\n");
+    if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+      printf("  ID's generated RTTXCB::check_initialisation_of_debug_gfx\n");
+    }
     debug_stuff_initialised=true;
     u32 mask=XCB_GC_FUNCTION |
       //      XCB_GC_PLANE_MASK |
@@ -566,7 +572,9 @@ RTTXCB::RTTXCB(RTT_DC &dc,const char *filename):pixels(0),
   device_context=dc;
   load_24bit_BMP(filename);
   check_initialisation_of_debug_gfx();
-  printf("RTTXCB::RTTXCB(RTT_DC, \"%s\")\n",filename); 
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("RTTXCB::RTTXCB(RTT_DC, \"%s\")\n",filename);
+  }
 }
 
 map<COLORREF,xcb_gcontext_t> RTTXCB::cached_graphics_contexts;
@@ -575,7 +583,9 @@ void RTTXCB::select_col(COLORREF col){
   if (col!=last_col||first_time){
     first_time=false;
     if (cached_graphics_contexts.find(col)==cached_graphics_contexts.end()){
-      printf("  setting up new cached colour %8x\n",col);
+      if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+        printf("  setting up new cached colour %8x\n",col);
+      }
       //  if (!font_plotting_initialised){
       uint32_t values[2];
       uint32_t mask=0;
@@ -614,7 +624,9 @@ void RTTXCB::add_font_pixel(s16 xp,s16 yp){
 
 void RTTXCB::render_font_pixels(){
   if (cur_font_point){
+    pthread_mutex_lock(&xcb_access_gating_mutex);
     xcb_poly_point(device_context.connection, XCB_COORD_MODE_ORIGIN, pixmap, foreground, cur_font_point, font_points);
+    pthread_mutex_unlock(&xcb_access_gating_mutex);
   }
   //  SetPixelV(bitmap_dc,xp,yp,col);
   cur_font_point=0;  
@@ -624,7 +636,9 @@ void RTTXCB::render_font_pixels(){
 void RTTXCB::setpixel(s16 xp,s16 yp,COLORREF col){
   select_col(col);
   xcb_point_t p={xp,yp};
+  pthread_mutex_lock(&xcb_access_gating_mutex);
   xcb_poly_point(device_context.connection, XCB_COORD_MODE_ORIGIN, pixmap, foreground, 1, &p);
+  pthread_mutex_unlock(&xcb_access_gating_mutex);
 }
 
 
@@ -638,7 +652,9 @@ BOOL RTTXCB::load_24bit_BMP(const char*filename){
   h=bmp.get_height();
   
   pixels=new u8[w*h*4];
-  printf("  loading bitmap %s\n",filename);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  loading bitmap %s\n",filename);
+  }
   // fuck
   u8* p=pixels;
   for(u32 y=0;y<h;y++){
@@ -697,7 +713,9 @@ void RTTXCB::make_bitmap(bool i_am_a_window_resizing){
     pixmap_w=w;
     pixmap_h=h;
   }
-  printf("  generating a new pixmap & image (%dx%d) for %s\n",w,h,name.size()?name.data():"*** empty string ***");
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  generating a new pixmap & image (%dx%d) for %s\n",w,h,name.size()?name.data():"*** empty string ***");
+  }
   pixels=0;
   pthread_mutex_lock(&xcb_access_gating_mutex);
   pixmap=xcb_generate_id(device_context.connection);
@@ -744,8 +762,10 @@ RTTXCB::RTTXCB(RTTXCB &rttxcb,u32 action):w(rttxcb.w),
   font_plotting_initialised=false;
   pixels=rttxcb.pixels;
   bmp=rttxcb.bmp;
-  printf("RTTXCB::RTTXCB(RTTXCB &rttxcb,u32 action):\n"); 
-  printf("  generating a new RTTXCB (%dx%d) from %s\n",w,h,name.size()?name.data():"*** empty string ***");
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("RTTXCB::RTTXCB(RTTXCB &rttxcb,u32 action):\n"); 
+    printf("  generating a new RTTXCB (%dx%d) from %s\n",w,h,name.size()?name.data():"*** empty string ***");
+  }
   //  assert(main_OS_window_dc);
   device_context=rttxcb.device_context;
   /* create backing pixmap */
@@ -798,7 +818,9 @@ void RTTXCB::rescale_bitmap(int dest_w,int dest_h,int source_x,int source_y,int 
   }
   w=dest_w;
   h=dest_h;
-  printf("  rescaling from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  rescaling from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  }
   delete pixels;
   pixels=new u8[w*h*4];
 
@@ -831,7 +853,9 @@ void RTTXCB::rescale_bitmap(int dest_w,int dest_h,int source_x,int source_y,int 
     yf+=ys;
   }
   /* create backing pixmap */
-  printf("  generating a new pixmap & image (%dx%d) for %s inside RTTXCB::rescale_bitmap\n",w,h,name.size()?name.data():"*** empty string ***");
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  generating a new pixmap & image (%dx%d) for %s inside RTTXCB::rescale_bitmap\n",w,h,name.size()?name.data():"*** empty string ***");
+  }
   pthread_mutex_lock(&xcb_access_gating_mutex);
   pixmap = xcb_generate_id(device_context.connection);
   xcb_create_pixmap(device_context.connection, 24, pixmap, device_context.window, w, h);
@@ -866,8 +890,10 @@ RTTXCB::RTTXCB(RTTXCB &source,int dest_w,int dest_h,int source_x,int source_y,in
   bmp=source.bmp;
   w=dest_w;
   h=dest_h;
-  printf("RTTXCB::RTTXCB(RTTXCB , dest_w=%d, dest_h=%d, source_x=%d, source_y=%d, source_w=%d ,source_h=%d, name=\"%s\")\n",dest_w,dest_h,source_x,source_y,source_w,source_h,_name); 
-  printf("  creating new RTTXCB rescaled from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("RTTXCB::RTTXCB(RTTXCB , dest_w=%d, dest_h=%d, source_x=%d, source_y=%d, source_w=%d ,source_h=%d, name=\"%s\")\n",dest_w,dest_h,source_x,source_y,source_w,source_h,_name); 
+    printf("  creating new RTTXCB rescaled from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  }
   if (bmp.get_width()==0||bmp.get_height()==0){
     volatile int rt=1;
   }
@@ -942,7 +968,9 @@ void RTTXCB::resample(int dest_w,int dest_h,int source_x,int source_y,int source
   int bmw=bmp.get_width();
   int bmh=bmp.get_height();
   if (dest_w>image->width || dest_h>image->height){
-    printf("  RTTXCB::resample RESAMPLING to original size, specified size was too large\n");
+    if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+      printf("  RTTXCB::resample RESAMPLING to original size, specified size was too large\n");
+    }
     w=bmw;
     h=bmh;
   }
@@ -952,7 +980,9 @@ void RTTXCB::resample(int dest_w,int dest_h,int source_x,int source_y,int source
   if (source_h==RESIZE_FROM_ORIG_BMP){
     source_h=bmh;
   }
-  printf("  rescaling RTTXCB pixmap image from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  rescaling RTTXCB pixmap image from %d,%d to %d,%d\n",bmp.get_width(),bmp.get_height(),w,h);
+  }
   if (w){
     xs=(float)source_w/(float)w;
   }else{

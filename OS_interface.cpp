@@ -55,10 +55,22 @@ int window_manager::window_title_bar_height;
 //RTTXCB *back_buffer;
 
 u32 GetTickCount(){
+  static bool once=true;
+  static u64 ini_millis;
+  if (once){
+    struct timeval initial_tv;
+    gettimeofday(&initial_tv, NULL);
+    ini_millis=initial_tv.tv_sec*1000+initial_tv.tv_usec/1000;
+    once=false;
+  }
+    
   struct timeval tv;
-  if(gettimeofday(&tv, NULL) != 0)
+  if(gettimeofday(&tv, NULL) != 0){
     return 0;
-  return (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+  }
+  
+  u64 now=tv.tv_sec*1000+tv.tv_usec/1000;
+  return (u32)(now-ini_millis);
 }
 
 
@@ -76,11 +88,15 @@ void window_manager::set_main_window_geometry(int x,int y,int w,int h,bool hide_
 }
 
 window_manager::~window_manager(){
-  printf("destructing window_manager this=%16x\n",(uint64_t)this);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("destructing window_manager this=%16x\n",(uint64_t)this);
+  }
   u32 n=(int)window_stack.size();
   for(int i=1;i<n;i++){
     rtt_window &w=*window_stack[i];
-    printf("stack %d=%16x - %16x RTTXCB=\n",i,(uint64_t)window_stack[i].get());
+    if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+      printf("stack %d=%16x - %16x RTTXCB=\n",i,(uint64_t)window_stack[i].get());
+    }
   }
 }
 
@@ -565,7 +581,9 @@ void window_manager::mouse_move(int x,int y){
     w.remember_size();
     w.paint();
     determine_region_to_redraw_after_window_motion(window_index_resize, x_resize, y_resize, w_resize, h_resize);
-    printf("resized %d %d\n",w_resize,h_resize);
+    if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+      printf("resized %d %d\n",w_resize,h_resize);
+    }
   }
   if (window_index_grabbed_horizontal_scrollbar!=-1){
     mouse_manipulating_a_window=true;
@@ -703,7 +721,9 @@ void window_manager::mouse_click(int butt,int x,int y){
         }
         // check text selection edit box dropdowns
         n=(int)window_stack.size();
-        printf("mouse click down n=%d\n",n);
+        if (SEE_USER_IO_EVENTS){
+          printf("mouse click down n=%d\n",n);
+        }
         for(int i=1;i<n;i++){
           bool handled=false;
           rtt_window &w=*window_stack[i];
@@ -731,7 +751,9 @@ void window_manager::mouse_click(int butt,int x,int y){
             case WINDOW_DISPLAY_TYPE_TEXT_SELECTION_DROPDOWN_LIST:
               if (w.check_combo_mouse_posn(x,y,MOUSE_LEFT_DOWN)){
                 rtt_text_edit_box &t=*w.text_edit_box_spawned_from;
-                printf("mouse click down n=%d %d\n",n,(int)window_stack.size());
+                if (SEE_USER_IO_EVENTS){
+                  printf("mouse click down n=%d %d\n",n,(int)window_stack.size());
+                }
                 t.current_text=w.items[w.selected_item].text;
                 s32 old_x=w.x;
                 s32 old_y=w.y;
@@ -1035,7 +1057,9 @@ void window_manager::task_bar_paint(rtt_window &w){
       int yp=y-TASK_BAR_ITEM_MIMIMIZED_INDICATOR_Y_PLOT_OFFSET;
       w.plot_raised_taskbar_item(x,y,width);
       get_font(win.is_selected).p(w,x+TASK_BAR_ITEM_TEXT_OFFSETX,width,y-TASK_BAR_ITEM_TEXT_OFFSETY,black_cr,win.title);
-      printf("FUCK %s\n",win.title.data());
+      if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+        printf("repainting taskbar %s\n",win.title.data());
+      }
       if (win.is_minimized){
         RTTXCB *b=wm.bitmaps[bitmap_task_bar_item_minimized_indicator];
         w.blit_bitmap_to_self(b,x+TASK_BAR_ITEM_MIMIMIZED_INDICATOR_X_PLOT_OFFSET,yp,b->w,b->h,0,0);
@@ -1044,6 +1068,12 @@ void window_manager::task_bar_paint(rtt_window &w){
     }
   }
 }
+
+
+void window_manager::set_animation_update_function(std::function<void()> func){
+  set_animation_function_on_timer(func);
+}
+
 
 static void a(){};
 

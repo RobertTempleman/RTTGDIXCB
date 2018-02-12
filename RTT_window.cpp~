@@ -708,56 +708,36 @@ rtt_pane& rtt_window::add_pane(string name,
 }
 
 
-rtt_pane& rtt_window::add_knob(string name, 
-                               s32 x,
-                               s32 y,
-                               s32 w,
-                               s32 h,
-                               bool render_with_window_scroll_offset,
-                               s32 _start_frame,
-                               float _degrees_start,
-                               float _degrees_end,
-                               float &_the_float_to_change_to_reflect_current_setting,
-                               string _group,
-                               string _desc,
-                               bool _dont_reload_me){
-  panes.push_back(unique_ptr<rtt_pane>(new rtt_pane(*this, name, NULL, NULL, NULL, x, y, w, h, render_with_window_scroll_offset)));
-  panes.back()->add_dial(name, 0, 0, _start_frame, _degrees_start, _degrees_end, _the_float_to_change_to_reflect_current_setting, _group, _desc, _dont_reload_me);
-  return *(panes.back());
-}
-
-
 // get dimensions from bitmap width
-rtt_pane& rtt_window::add_knob2(string name, 
+u32 rtt_window::add_knob2(string name, 
                                s32 x,
                                s32 y,
                                s32 _start_frame,
                                float _degrees_start,
                                float _degrees_end,
-                               float &_the_float_to_change_to_reflect_current_setting,
                                string _group,
                                string _desc,
                                bool _dont_reload_me){
   unique_ptr<RTTXCB> knob_bitmap(new RTTXCB(wm_member_of.device_context,name.data()));
   panes.push_back(unique_ptr<rtt_pane>(new rtt_pane(*this, name+"::pane", NULL, NULL, NULL, x, y, knob_bitmap->w, knob_bitmap->w, true)));
-  panes.back()->add_dial(knob_bitmap, 0, 0, _start_frame, _degrees_start, _degrees_end, _the_float_to_change_to_reflect_current_setting, _group, _desc, _dont_reload_me);
-  return *(panes.back());
+  panes.back()->add_dial(knob_bitmap, 0, 0, _start_frame, _degrees_start, _degrees_end, _group, _desc, _dont_reload_me);
+  return panes.size()-1;
 }
 
 
 // get dimensions from bitmap width
-rtt_pane& rtt_window::add_switch2(string name, 
+u32 rtt_window::add_switch2(string name, 
                                   s32 x,
                                   s32 y,
-                                  s32 _start_frame,
-                                  float &_the_float_to_change_to_reflect_current_setting,
                                   string _group,
                                   string _desc,
+                                  bool is_momentary,
+                                  bool _is_flashing,
                                   bool _dont_reload_me){
   unique_ptr<RTTXCB> knob_bitmap(new RTTXCB(wm_member_of.device_context,name.data()));
-  panes.push_back(unique_ptr<rtt_pane>(new rtt_pane(*this, name+"::pane", NULL, NULL, NULL, x, y, knob_bitmap->w, knob_bitmap->w, true)));
-  panes.back()->add_switch(knob_bitmap, 0, 0, _start_frame, _the_float_to_change_to_reflect_current_setting, _group, _desc, _dont_reload_me);
-  return *(panes.back());
+  panes.push_back(unique_ptr<rtt_pane>(new rtt_pane(*this, name+"::pane", NULL, NULL, NULL, x, y, knob_bitmap->w, knob_bitmap->h/SWITCH_KNOB_BITMAP_NUM_FRAMES, true)));
+  panes.back()->add_switch(knob_bitmap, 0, 0, _group, _desc, is_momentary, _is_flashing, _dont_reload_me);
+  return panes.size()-1;
 }
 
 

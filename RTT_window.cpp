@@ -20,7 +20,9 @@ int rtt_window::sort_index=0;
 #define TASK_BAR_OFFSET_FROM_TOP_OF_SCREEN_TO_START_OF_WINDOW_ITEMS 200
 
 rtt_window::~rtt_window(){
-  printf("  destructing rtt_window %s this=%16x\n",title.data(),(uint64_t)this);
+  if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+    printf("  destructing rtt_window %s this=%16x\n",title.data(),(uint64_t)this);
+  }
 }
 
 
@@ -43,7 +45,9 @@ rtt_window::rtt_window(window_manager &_wm_member_of,
                                                       window_type(_window_type),
                                                       is_selected(false),
                                                       last_is_selected(false),
-                                                      text_edit_box_spawned_from(0){
+                                                      text_edit_box_spawned_from(0),
+                                                      last_pane_index(-1){
+  
   //  default_font_col_multiple_sel
   id=_id;
   col_combo_box_single_selection_font              =darkred_c;
@@ -315,7 +319,6 @@ bool rtt_window::check_combo_mouse_posn(int xt,int yt,u32 mouse_button){
 
 
 void rtt_window::paint_as_combo_box(bool title_bar_present){
-  printf("  ox, name=%s\n",name);
   // displays a scrollable list of mouse-selectable options, optional window title bar
   int wbw=wm_member_of.window_border_width;
   int wbw2=wbw>>1;
@@ -704,6 +707,7 @@ rtt_pane& rtt_window::add_pane(string name,
                           s32 x,s32 y,s32 w,s32 h,
                           bool render_with_window_scroll_offset){
   panes.push_back(unique_ptr<rtt_pane>(new rtt_pane(*this, name, std::move(_paint_fn), std::move(_click_fn), std::move(_mouse_move_fn), x, y, w, h, render_with_window_scroll_offset)));
+  last_pane_index=panes.size()-1;
   return *(panes.back());
 }
 
@@ -1264,7 +1268,9 @@ void rtt_window::mouse_move(s32 x_mouse,s32 y_mouse){
         }
         w_msb.paint();
         draw_multiple_select_box(w_msb,true);
-        printf("scroll scroll %d %d\n",last_mouse_pos.y,y_mouse);
+        if (SEE_USER_IO_EVENTS){
+          printf("scroll scroll %d %d\n",last_mouse_pos.y,y_mouse);
+        }
       }
     }
   }
@@ -1369,10 +1375,14 @@ bool rtt_window::mouse_click_multiple_select_boxes(s32 butt, s32 x_click,s32 y_c
   for(u32 i=0;i<n;i++){
     rtt_window &w_msb=*multiple_select_boxes[i];
     transform_multiple_select_window_coordiantes(w_msb, TRANSFORM_TYPE_TRANSFORM_MULTIPLE_SELECT_BOX_FROM_NATIVE_WINDOW_TO_WINDOW_MANAGER_COORDINATES);
-    printf("shifted coords of multiple select box to %d %d\n",w_msb.x,w_msb.y);
+    if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+      printf("shifted coords of multiple select box to %d %d\n",w_msb.x,w_msb.y);
+    }
     bool res=w_msb.check_combo_mouse_posn(x_click,y_click,butt);
     if (w_msb.scrollbar_v.inside(w_msb,last_mouse_pos)){
-      printf("grabbed multiple select box scrollbar\n");
+      if (SEE_GRAPHICS_CREATION_DEBUG_LOGGING){
+        printf("grabbed multiple select box scrollbar\n");
+      }
       w_msb.grabbed_v_scrollbar=true;
       w_msb.scrollbar_v.display_offset_start=w_msb.vertical_display_offset;
     }

@@ -76,9 +76,6 @@ u32 GetTickCount();
 
 // GDI like wrapper to aid porting GDI code
 
-COLORREF select_dc_col=0;
-COLORREF select_dc_brush_col=0;
-
 #define PS_DOT 1
 #define PS_SOLID 0
 
@@ -105,34 +102,7 @@ class RECT{
   s32 bottom; 
 };
 
-
-void SelectObject(RTTXCB* dc,HPEN &pen){
-  select_dc_col=pen.col;
-}
-
-
-HPEN CreatePen(s32 style,s32 width,COLORREF col){
-  return HPEN(style,width,col);
-}
   
-
-class RTTAL{
-public:
-  static void SetDCPenColor2(RTTXCB* dc,COLORREF col){
-    select_dc_col=col;
-  }
-  static void SetDCBrushColor2(RTTXCB* dc,COLORREF col){
-    select_dc_brush_col=col;
-  }
-};
-
-
-void Rectangle(RTTXCB* dc,s32 left,s32 top,s32 right,s32 bottom){
-  dc->rectangle_fill(left, top, right-left, bottom-top, select_dc_col, select_dc_brush_col);
-}
-
-
-
 class rtt_charpixel{
 public:
   rtt_charpixel(){};
@@ -335,6 +305,7 @@ public:
   static void task_bar_paint(rtt_window &w);
   void make_combos_topmost();
   void determine_region_to_redraw_after_window_motion(u32 moved_window_index,s32 old_x,s32 old_y,s32 old_w,s32 old_h);
+  void set_animation_update_function(const std::function<void()> &func);
 };
 
 void setup_key_translate();

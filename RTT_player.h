@@ -89,7 +89,7 @@ public:
 class RTTplayer{
 public:
   RTTplayer();
-  void draw(RTTXCB *dc,s32 x,s32 y);
+  void draw(RTTXCB &dc);
 
   void plot_track_decoder_buffer_status( s32 last_read_pos_track1_wad, s32 xp, s32 yp, s32 write_pos_wad );
   void draw_waveform(track *t,DWORD ti);
@@ -121,6 +121,9 @@ public:
   genre *minimal;
   genre *breaks;
   genre *current_genre;
+
+  int last_read_pos_track1_wad;
+  int last_read_pos_track2_wad;
   
   void SelectObject(RTTXCB* dc,HPEN &pen);
   HPEN CreatePen(s32 style,s32 width,COLORREF col);

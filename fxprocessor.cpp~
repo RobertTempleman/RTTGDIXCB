@@ -10,6 +10,71 @@ float compressor_global_height=COMP_TRANSFER_FN_H+COMP_TRANSFER_FN_START_Y+COMP_
 
 
 
+RTT_player_UI::RTT_player_UI(rtt_window &_win, string desc, s32 x,s32 y):win(_win){
+  player_seek_knob         =win.add_knob2("bitmaps/knobs/player_koorb1.bmp", x+PLAYER_DISPLAY_WIDTH, y    ,0 ,1.0f ,359.0f ,"player" ,"track seek"   ,DONT_RELOAD_FROM_PRESET);win.panes[player_seek_knob        ]->frames_cycle=true;win.panes[player_seek_knob        ]->i_am_a_knob_with_a_momentary_switch_too=true;
+  player_track_select_knob =win.add_knob2("bitmaps/knobs/player_koorb2.bmp", x+PLAYER_DISPLAY_WIDTH, y+25 ,0 ,1.0f ,359.0f ,"player" ,"track select" ,DONT_RELOAD_FROM_PRESET);win.panes[player_track_select_knob]->frames_cycle=true;win.panes[player_track_select_knob]->i_am_a_knob_with_a_momentary_switch_too=true;
+
+  player=unique_ptr<RTTplayer>(new RTTplayer());
+  rtt_pane &pane=win.add_pane("RTT_player", NULL, NULL, NULL, x ,y, PLAYER_DISPLAY_WIDTH, PLAYER_DISPLAY_HEIGHT);
+  pane.pane_special_functionality=PANE_SPECIAL_FUNCTION_PAINT_FUNCTION_IS_GENERIC_STD_FUNCTION_TO_CALL;
+  pane.generic_paint_func=std::bind(&RTTplayer::draw, *player, std::ref(pane));
+  
+  last_player_seek_knob_displayed_frame        =win.panes[player_seek_knob        ]->displayed_frame;
+  last_player_track_select_knob_displayed_frame=win.panes[player_track_select_knob]->displayed_frame;
+}
+
+
+
+void RTT_player_UI::update_animation(){
+}
+
+
+
+void RTT_player_UI::update_controls(){
+  //  rtt_pane &player_seek_knob         =win.panes[player_seek_knob];
+  //  rtt_pane &player_track_select_knob =win.panes[player_seek_knob];
+  //  
+  //  last_player_track_select_knob_displayed_frame=win.panes[player_track_select_knob]->knob_frame_number;
+  //
+  //  if (player_seek_knob.momentary_switch_pressed){
+  //    player_seek_knob.momentary_switch_pressed=false;
+  //    if (player->showing_playlist){
+  //      player->showing_playlist=0;
+  //    }else{
+  //      player->current_genre->jump_to_previous_track();
+  //    }
+  //  }
+  //  if (player_track_select_knob->momentary_switch_pressed){
+  //    player_track_select_knob->momentary_switch_pressed=false;
+  //    if (player->showing_playlist){
+  //      player->current_genre->jump_to_selected_track();
+  //    }else{
+  //      player->current_genre->jump_to_next_track();
+  //    }
+  //  }
+  //
+  //  if (player_track_select_knob->displayed_frame!=last_player_track_select_knob_displayed_frame){
+  //    player->showing_playlist=PLAYER_SHOW_PLAYLIST_FOR_MILLISECONDS+GetTickCount();
+  //    int delta=get_modulo_frame_delta(player_track_select_knob,last_player_track_select_knob_displayed_frame);
+  //    player->current_genre->change_displayed_track_in_playlist(delta);
+  //  }
+  //  if (player_seek_knob.displayed_frame!=last_player_seek_knob_displayed_frame){
+  //    int delta=get_modulo_frame_delta(player_seek_knob,last_player_seek_knob_displayed_frame);
+  //    if (player->showing_playlist){
+  //      player->showing_playlist=PLAYER_SHOW_PLAYLIST_FOR_MILLISECONDS+GetTickCount();
+  //      player->current_genre->skip_a_prefix_in_playlist(delta);
+  //    }else{
+  //      player->current_genre->seek_playing_track(delta);
+  //    }
+  //  }
+
+  last_player_seek_knob_displayed_frame        =win.panes[player_seek_knob        ]->displayed_frame;
+  last_player_track_select_knob_displayed_frame=win.panes[player_track_select_knob]->displayed_frame;
+}
+
+
+
+
 compressor::compressor(rtt_window &_win, string desc, s32 xx,s32 yy):win(_win){
   s32 x=xx+128;
   s32 y=yy+20;
@@ -44,14 +109,14 @@ compressor::compressor(rtt_window &_win, string desc, s32 xx,s32 yy):win(_win){
 
 
 void compressor::set_compressor_parameters(){
-  s32 compressor_threshold_frame=win.panes[compressor_threshold_index]->knob_frame_number;
-  s32 compressor_softness_frame =win.panes[compressor_softness_index ]->knob_frame_number;
-  s32 compressor_ratio_frame    =win.panes[compressor_ratio_index    ]->knob_frame_number;
-  s32 compressor_attack_frame   =win.panes[compressor_attack_index   ]->knob_frame_number;
-  s32 compressor_release_frame  =win.panes[compressor_release_index  ]->knob_frame_number;
-  s32 limiter_threshold_frame   =win.panes[limiter_threshold_index   ]->knob_frame_number;
-  s32 limiter_softness_frame    =win.panes[limiter_softness_index    ]->knob_frame_number;
-  s32 compressor_output_frame   =win.panes[compressor_output_index   ]->knob_frame_number;
+  s32 compressor_threshold_frame=win.panes[compressor_threshold_index]->displayed_frame;
+  s32 compressor_softness_frame =win.panes[compressor_softness_index ]->displayed_frame;
+  s32 compressor_ratio_frame    =win.panes[compressor_ratio_index    ]->displayed_frame;
+  s32 compressor_attack_frame   =win.panes[compressor_attack_index   ]->displayed_frame;
+  s32 compressor_release_frame  =win.panes[compressor_release_index  ]->displayed_frame;
+  s32 limiter_threshold_frame   =win.panes[limiter_threshold_index   ]->displayed_frame;
+  s32 limiter_softness_frame    =win.panes[limiter_softness_index    ]->displayed_frame;
+  s32 compressor_output_frame   =win.panes[compressor_output_index   ]->displayed_frame;
 
   float compressor_threshold_normalized=win.panes[compressor_threshold_index]->knob_float_to_change_to_reflect_current_setting;
   float limiter_threshold_normalized   =win.panes[limiter_threshold_index]->knob_float_to_change_to_reflect_current_setting;
@@ -86,8 +151,8 @@ fxprocessor::fxprocessor(rtt_window &_win,s32 xx,s32 yy):win(_win){
 
 void fxprocessor::setup_fxprocessor(s32 xx,s32 yy){
   add_output_clips_at_knob(xx,yy);
-  add_a_compressor(xx,yy+250);
-  add_a_player(xx,yy+440);
+  add_a_compressor(xx,yy+210);
+  add_a_player(xx,yy+340);
 }
 
 
@@ -98,12 +163,17 @@ void fxprocessor::add_output_clips_at_knob(s32 xx,s32 yy){
 
 void fxprocessor::add_a_compressor(s32 xx,s32 yy){
   compressors.push_back(unique_ptr<compressor>(new compressor(win,"Out compressor",xx,yy)));
-  compressors.push_back(unique_ptr<compressor>(new compressor(win,"Out compressor",xx,yy+92)));
+  //  compressors.push_back(unique_ptr<compressor>(new compressor(win,"Out compressor",xx,yy+92)));
 }
 
 
 void fxprocessor::add_a_player(s32 xx,s32 yy){
-  player=unique_ptr<RTT_player>(new RTT_player());
+  player=unique_ptr<RTT_player_UI>(new RTT_player_UI(win,"RTT player",xx,yy));
   player_x=xx;
   player_y=yy;
+}
+
+
+void fxprocessor::animation_update(){
+  player->update_animation();
 }
